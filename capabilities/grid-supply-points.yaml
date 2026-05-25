@@ -1,0 +1,35 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Octopus Energy Public API — Grid Supply Points
+  description: 'Octopus Energy Industry Grid Supply Points. 1 operation: List Grid Supply Points by postcode.'
+  tags: [Octopus Energy, Industry, GSP, Grid Supply Point]
+  created: '2026-05-25'
+  modified: '2026-05-25'
+capability:
+  consumes:
+  - type: http
+    namespace: grid-supply-points
+    baseUri: https://api.octopus.energy/v1
+    description: UK industry grid supply point lookups.
+    resources:
+    - name: grid-supply-points
+      path: /industry/grid-supply-points/
+      operations:
+      - name: listgridsupplypoints
+        method: GET
+        description: List Grid Supply Points
+        outputRawFormat: json
+        outputParameters:
+        - {name: result, type: object, value: $.}
+  exposes:
+  - type: mcp
+    namespace: grid-supply-points-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Octopus Energy Grid Supply Points.
+    tools:
+    - name: octopus-list-grid-supply-points
+      description: List UK Grid Supply Points; resolve GSP for a postcode
+      hints: {readOnly: true, destructive: false, idempotent: true}
+      call: grid-supply-points.listgridsupplypoints
+      outputParameters: [{type: object, mapping: $.}]

@@ -1,0 +1,45 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Octopus Energy Kraken GraphQL API — Accounts
+  description: Kraken GraphQL account, ledger, and billing surface exposed at /v1/graphql/. Queries and mutations are grouped into API Collections in the developer portal.
+  tags: [Octopus Energy, Kraken, GraphQL, Accounts]
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    KRAKEN_GRAPHQL_TOKEN: KRAKEN_GRAPHQL_TOKEN
+capability:
+  consumes:
+  - type: http
+    namespace: graphql-accounts
+    baseUri: https://api.octopus.energy/v1
+    description: Kraken GraphQL endpoint used for account, ledger, and billing operations.
+    resources:
+    - name: graphql
+      path: /graphql/
+      operations:
+      - name: queryaccounts
+        method: POST
+        description: Query Kraken account, ledger, and billing data via GraphQL.
+        outputRawFormat: json
+        outputParameters:
+        - {name: result, type: object, value: $.}
+        inputParameters:
+        - {name: body, in: body, type: object, description: GraphQL request body with query and variables., required: true}
+    authentication:
+      type: bearer
+      token: '{{env.KRAKEN_GRAPHQL_TOKEN}}'
+  exposes:
+  - type: mcp
+    namespace: graphql-accounts-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Kraken GraphQL account operations.
+    tools:
+    - name: kraken-graphql-accounts
+      description: Execute a Kraken GraphQL query or mutation against the accounts/ledger/billing surface.
+      hints: {readOnly: false, destructive: false, idempotent: false}
+      call: graphql-accounts.queryaccounts
+      with: {body: tools.body}
+      outputParameters: [{type: object, mapping: $.}]

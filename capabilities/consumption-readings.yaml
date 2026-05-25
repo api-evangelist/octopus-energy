@@ -1,0 +1,57 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Octopus Energy Public API — Consumption Readings
+  description: 'Octopus Energy Half-Hourly Smart Meter Consumption. 2 operations: List Electricity Consumption, List Gas Consumption.'
+  tags: [Octopus Energy, Consumption, Smart Meter, Half Hourly]
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    OCTOPUS_API_KEY: OCTOPUS_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: consumption-readings
+    baseUri: https://api.octopus.energy/v1
+    description: Half-hourly smart-meter consumption pulls for electricity and gas.
+    resources:
+    - name: electricity-consumption
+      path: /electricity-meter-points/{mpan}/meters/{serial_number}/consumption/
+      operations:
+      - name: listelectricityconsumption
+        method: GET
+        description: List Electricity Consumption
+        outputRawFormat: json
+        outputParameters:
+        - {name: result, type: object, value: $.}
+    - name: gas-consumption
+      path: /gas-meter-points/{mprn}/meters/{serial_number}/consumption/
+      operations:
+      - name: listgasconsumption
+        method: GET
+        description: List Gas Consumption
+        outputRawFormat: json
+        outputParameters:
+        - {name: result, type: object, value: $.}
+    authentication:
+      type: basic
+      username: '{{env.OCTOPUS_API_KEY}}'
+      password: ''
+  exposes:
+  - type: mcp
+    namespace: consumption-readings-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Octopus Energy Consumption Readings.
+    tools:
+    - name: octopus-list-electricity-consumption
+      description: List half-hourly electricity smart-meter consumption
+      hints: {readOnly: true, destructive: false, idempotent: true}
+      call: consumption-readings.listelectricityconsumption
+      outputParameters: [{type: object, mapping: $.}]
+    - name: octopus-list-gas-consumption
+      description: List half-hourly gas smart-meter consumption
+      hints: {readOnly: true, destructive: false, idempotent: true}
+      call: consumption-readings.listgasconsumption
+      outputParameters: [{type: object, mapping: $.}]

@@ -1,0 +1,58 @@
+apiCommonsPlans: 0.1
+info:
+  provider: Octopus Energy
+  product: Octopus Energy Public API
+  url: https://developer.octopus.energy/docs/api/
+  description: |
+    The Octopus Energy Public API is offered free of charge to Octopus Energy
+    customers and to the general public for the products and tariffs endpoints.
+    There is no metered or paid API tier. Pricing here describes the underlying
+    retail energy commercial surface for completeness (per-kWh unit rates and
+    fixed standing charges vary by tariff, region, and meter).
+  updated: '2026-05-25'
+plans:
+- id: public-api-free
+  name: Public API (Free)
+  description: |
+    Free access to the Octopus Energy Public REST API for all customers and
+    members of the public. Products and tariff endpoints are open; meter-point
+    and consumption endpoints require an Octopus Energy customer account and
+    API key generated from the customer dashboard.
+  entries:
+  - geo: GB
+    unit: 1
+    label: Requests
+    price: 0
+    metric: request
+    timeFrame: usage
+    description: All Octopus Energy Public REST API endpoints are free of charge.
+  elements:
+  - name: Products catalog (open, unauthenticated)
+  - name: Electricity and gas tariff rates (open, unauthenticated)
+  - name: Half-hourly Agile Octopus and Tracker prices (open, unauthenticated)
+  - name: Electricity meter point lookup (customer API key required)
+  - name: Gas meter point lookup (customer API key required)
+  - name: Half-hourly smart-meter consumption (customer API key required)
+  - name: Industry grid supply points lookup (open, unauthenticated)
+- id: retail-energy-customer
+  name: Retail Energy Customer (Commercial)
+  description: |
+    The downstream commercial surface — paying the supplier for energy. Listed
+    here for FinOps completeness; not an API plan. Tariff variants include
+    Flexible Octopus, Octopus Tracker, Agile Octopus, Cosy Octopus, Octopus Go,
+    and Intelligent Octopus Go.
+  entries:
+  - geo: GB
+    unit: 1
+    label: kWh
+    metric: kWh
+    timeFrame: usage
+    description: Per-kWh unit rate; varies by tariff, region, meter, and (on
+      Agile and Tracker) by half-hour or day. Capped at any prevailing UK
+      energy price cap.
+  - geo: GB
+    unit: 1
+    label: Day
+    metric: day
+    timeFrame: day
+    description: Daily standing charge in pence per day; varies by tariff and region.

@@ -1,0 +1,37 @@
+extends: ["spectral:oas"]
+rules:
+  octopus-trailing-slash-path:
+    description: Octopus Energy Public API paths end with a trailing slash.
+    message: "Path '{{value}}' should end with a trailing slash to match Octopus Energy conventions."
+    severity: warn
+    given: "$.paths.*~"
+    then:
+      function: pattern
+      functionOptions:
+        match: "/$"
+  octopus-title-case-summaries:
+    description: Operation summaries use Title Case.
+    message: "{{property}} should be in Title Case."
+    severity: warn
+    given: "$.paths.*.*.summary"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^([A-Z][a-z0-9]*(\\s|$))+"
+  octopus-https-only-server:
+    description: Server URLs must be HTTPS.
+    message: "Server URL '{{value}}' must use https."
+    severity: error
+    given: "$.servers.*.url"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^https://"
+  octopus-basic-auth-security:
+    description: Basic auth is the documented authentication scheme.
+    severity: info
+    given: "$.components.securitySchemes.basicAuth.scheme"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^basic$"

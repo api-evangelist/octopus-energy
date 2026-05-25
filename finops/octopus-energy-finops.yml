@@ -1,0 +1,48 @@
+apiCommonsFinOps: 0.1
+info:
+  provider: Octopus Energy
+  product: Octopus Energy Public API
+  url: https://developer.octopus.energy/docs/api/
+  description: |
+    The Octopus Energy Public REST API has no metered or invoiceable usage
+    surface. The commercial surface that does flow through to FinOps reporting
+    is downstream retail energy consumption — per-kWh unit rates and daily
+    standing charges — which is exposed by the API for customer reconciliation
+    but not as an API cost.
+  updated: '2026-05-25'
+billingSurface:
+- id: api-usage
+  name: API Usage
+  focus:
+    serviceCategory: Other
+    chargeCategory: Usage
+    chargeFrequency: Other
+  description: Public REST API requests are free of charge. No FinOps billing surface.
+- id: retail-electricity
+  name: Retail Electricity Consumption
+  focus:
+    serviceCategory: Other
+    chargeCategory: Usage
+    chargeFrequency: Recurring
+    pricingUnit: kWh
+  description: Per-kWh electricity consumption recorded against MPAN + meter serial,
+    billed monthly per tariff. Exposed for reconciliation via
+    /v1/electricity-meter-points/{mpan}/meters/{serial_number}/consumption/.
+- id: retail-gas
+  name: Retail Gas Consumption
+  focus:
+    serviceCategory: Other
+    chargeCategory: Usage
+    chargeFrequency: Recurring
+    pricingUnit: kWh
+  description: Per-kWh gas consumption recorded against MPRN + meter serial,
+    billed monthly per tariff. Exposed for reconciliation via
+    /v1/gas-meter-points/{mprn}/meters/{serial_number}/consumption/.
+- id: standing-charges
+  name: Daily Standing Charges
+  focus:
+    serviceCategory: Other
+    chargeCategory: Other
+    chargeFrequency: Recurring
+    pricingUnit: day
+  description: Daily fixed standing charge per fuel + region + tariff.

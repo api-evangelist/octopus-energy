@@ -1,0 +1,66 @@
+vocabulary: 0.1
+info:
+  title: Octopus Energy Vocabulary
+  description: Operational and capability vocabulary for the Octopus Energy and Kraken APIs.
+  updated: '2026-05-25'
+concepts:
+- term: MPAN
+  definition: Meter Point Administration Number — the unique 13-digit identifier for an electricity supply point in Great Britain.
+- term: MPRN
+  definition: Meter Point Reference Number — the unique identifier for a gas supply point in Great Britain.
+- term: GSP
+  definition: Grid Supply Point — one of fourteen regional groupings (_A through _P, excluding _O and _I) used for UK electricity distribution.
+- term: Agile Octopus
+  definition: Half-hourly wholesale-linked electricity tariff; prices are published the afternoon before for the next 24-48 hours and can go negative when wholesale prices are very low.
+- term: Octopus Tracker
+  definition: Daily-changing tariff with prices tied to wholesale gas and electricity prices.
+- term: Intelligent Octopus Go
+  definition: Smart EV-charging tariff in which Kraken schedules the EV charge during the cheapest overnight slots.
+- term: Cosy Octopus
+  definition: Tariff and product line optimised for heat-pump-heated homes.
+- term: Octopus Electroverse
+  definition: Public EV-charging roaming network and app run by Octopus.
+- term: Kraken
+  definition: The customer-management and flexibility platform built by Kraken Technologies, used by Octopus Energy and licensed to other utilities.
+services:
+- name: Products Catalog
+  api: octopus-energy-public-api
+- name: Electricity Tariffs
+  api: octopus-energy-public-api
+- name: Gas Tariffs
+  api: octopus-energy-public-api
+- name: Electricity Meter Points
+  api: octopus-energy-public-api
+- name: Gas Meter Points
+  api: octopus-energy-public-api
+- name: Consumption Readings
+  api: octopus-energy-public-api
+- name: Grid Supply Points
+  api: octopus-energy-public-api
+- name: Kraken Accounts
+  api: octopus-energy-kraken-rest-api
+- name: Kraken Meter Points
+  api: octopus-energy-kraken-rest-api
+- name: GraphQL Accounts
+  api: octopus-energy-kraken-graphql-api
+- name: GraphQL Devices
+  api: octopus-energy-kraken-graphql-api
+- name: GraphQL Flexibility
+  api: octopus-energy-kraken-graphql-api
+tools:
+- name: xocto
+  url: https://github.com/octoenergy/xocto
+  type: Library
+- name: octotools
+  url: https://github.com/octoenergy/octotools
+  type: Library
+- name: public-conventions
+  url: https://github.com/octoenergy/public-conventions
+  type: StyleGuide
+standards:
+- name: GraphQL
+  url: https://graphql.org
+- name: OpenAPI
+  url: https://spec.openapis.org/oas/v3.0.3
+- name: HTTP Basic Authentication
+  url: https://datatracker.ietf.org/doc/html/rfc7617

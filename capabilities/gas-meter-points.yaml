@@ -1,0 +1,43 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Octopus Energy Public API — Gas Meter Points
+  description: 'Octopus Energy Gas Meter Points (MPRN). 1 operation: Retrieve Gas Meter Point.'
+  tags: [Octopus Energy, Gas, MPRN, Meter Point]
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    OCTOPUS_API_KEY: OCTOPUS_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: gas-meter-points
+    baseUri: https://api.octopus.energy/v1
+    description: Gas meter point lookups by MPRN.
+    resources:
+    - name: gas-meter-points-mprn
+      path: /gas-meter-points/{mprn}/
+      operations:
+      - name: getgasmeterpoint
+        method: GET
+        description: Retrieve a Gas Meter Point
+        outputRawFormat: json
+        outputParameters:
+        - {name: result, type: object, value: $.}
+    authentication:
+      type: basic
+      username: '{{env.OCTOPUS_API_KEY}}'
+      password: ''
+  exposes:
+  - type: mcp
+    namespace: gas-meter-points-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Octopus Energy Gas Meter Points.
+    tools:
+    - name: octopus-get-gas-meter-point
+      description: Retrieve a Gas Meter Point by MPRN
+      hints: {readOnly: true, destructive: false, idempotent: true}
+      call: gas-meter-points.getgasmeterpoint
+      outputParameters: [{type: object, mapping: $.}]

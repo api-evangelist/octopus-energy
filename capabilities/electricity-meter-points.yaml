@@ -1,0 +1,43 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Octopus Energy Public API — Electricity Meter Points
+  description: 'Octopus Energy Electricity Meter Points (MPAN). 1 operation: Retrieve Electricity Meter Point.'
+  tags: [Octopus Energy, Electricity, MPAN, Meter Point]
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    OCTOPUS_API_KEY: OCTOPUS_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: electricity-meter-points
+    baseUri: https://api.octopus.energy/v1
+    description: Electricity meter point lookups by MPAN.
+    resources:
+    - name: electricity-meter-points-mpan
+      path: /electricity-meter-points/{mpan}/
+      operations:
+      - name: getelectricitymeterpoint
+        method: GET
+        description: Retrieve an Electricity Meter Point
+        outputRawFormat: json
+        outputParameters:
+        - {name: result, type: object, value: $.}
+    authentication:
+      type: basic
+      username: '{{env.OCTOPUS_API_KEY}}'
+      password: ''
+  exposes:
+  - type: mcp
+    namespace: electricity-meter-points-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Octopus Energy Electricity Meter Points.
+    tools:
+    - name: octopus-get-electricity-meter-point
+      description: Retrieve an Electricity Meter Point by MPAN
+      hints: {readOnly: true, destructive: false, idempotent: true}
+      call: electricity-meter-points.getelectricitymeterpoint
+      outputParameters: [{type: object, mapping: $.}]

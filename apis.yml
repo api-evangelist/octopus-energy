@@ -1,0 +1,325 @@
+aid: octopus-energy
+url: https://raw.githubusercontent.com/api-evangelist/octopus-energy/refs/heads/main/apis.yml
+apis:
+- aid: octopus-energy:octopus-energy-public-api
+  name: Octopus Energy Public API
+  tags:
+  - Energy
+  - Electricity
+  - Gas
+  - Tariffs
+  - Meter Points
+  - Consumption
+  - Smart Meter
+  - UK
+  humanURL: https://developer.octopus.energy/docs/api/
+  baseURL: https://api.octopus.energy/v1/
+  properties:
+  - url: https://developer.octopus.energy/docs/api/
+    type: Documentation
+  - url: https://developer.octopus.energy/rest/guides/api-basics
+    type: GettingStarted
+  - url: openapi/octopus-energy-public-api-openapi.yml
+    type: OpenAPI
+  - url: json-schema/octopus-energy-product-schema.json
+    type: JSONSchema
+  - url: json-schema/octopus-energy-consumption-schema.json
+    type: JSONSchema
+  - url: json-ld/octopus-energy-context.jsonld
+    type: JSONLD
+  - type: NaftikoCapability
+    url: capabilities/products-catalog.yaml
+  - type: NaftikoCapability
+    url: capabilities/electricity-tariffs.yaml
+  - type: NaftikoCapability
+    url: capabilities/gas-tariffs.yaml
+  - type: NaftikoCapability
+    url: capabilities/electricity-meter-points.yaml
+  - type: NaftikoCapability
+    url: capabilities/gas-meter-points.yaml
+  - type: NaftikoCapability
+    url: capabilities/consumption-readings.yaml
+  - type: NaftikoCapability
+    url: capabilities/grid-supply-points.yaml
+  description: The Octopus Energy Public API is a free, JSON-over-HTTPS REST API exposing the company's
+    full UK product catalog, electricity and gas tariff pricing, electricity and gas meter-point information,
+    half-hourly smart-meter consumption data, and industry grid supply points. Customers authenticate with
+    their own API key over HTTP Basic auth to access their meters and consumption; the products and tariffs
+    surfaces are open and unauthenticated. The Agile Octopus and Octopus Tracker tariffs publish half-hourly
+    and daily wholesale-linked unit rates that downstream automations consume to schedule EV charging,
+    heat-pump heating, and battery dispatch.
+- aid: octopus-energy:octopus-energy-kraken-rest-api
+  name: Octopus Energy Kraken REST API
+  tags:
+  - Energy
+  - Kraken
+  - Accounts
+  - Meter Points
+  - Consumption
+  - Tariffs
+  - Smart Meter
+  - REST
+  humanURL: https://developer.octopus.energy/rest/
+  properties:
+  - url: https://developer.octopus.energy/rest/
+    type: Documentation
+  - url: https://developer.octopus.energy/rest/reference
+    type: Documentation
+  - url: https://developer.octopus.energy/rest/guides
+    type: GettingStarted
+  - url: https://developer.octopus.energy/rest/guides/authentication
+    type: Authentication
+  - type: NaftikoCapability
+    url: capabilities/kraken-accounts.yaml
+  - type: NaftikoCapability
+    url: capabilities/kraken-meter-points.yaml
+  description: The Octopus Energy developer portal exposes a Kraken-backed REST API alongside the public
+    GraphQL surface. The REST API is generated from an OpenAPI specification published in the developer
+    portal Reference section, with API Collections that group endpoints by feature. Partners use the REST
+    API for account onboarding, meter-point registration, consumption pulls, and tariff lookups against
+    the Kraken energy operating system.
+- aid: octopus-energy:octopus-energy-kraken-graphql-api
+  name: Octopus Energy Kraken GraphQL API
+  tags:
+  - Energy
+  - Kraken
+  - GraphQL
+  - Accounts
+  - Meter Points
+  - Smart Meter
+  - Devices
+  - Flexibility
+  humanURL: https://developer.octopus.energy/graphql/
+  baseURL: https://api.octopus.energy/v1/graphql/
+  properties:
+  - url: https://developer.octopus.energy/graphql/
+    type: Documentation
+  - url: https://developer.octopus.energy/graphql/reference
+    type: Documentation
+  - url: https://developer.octopus.energy/graphql/guides
+    type: GettingStarted
+  - url: https://developer.octopus.energy/graphql/collections/
+    type: Documentation
+  - url: https://developer.octopus.energy/graphql/guides/authentication
+    type: Authentication
+  - url: https://developer.octopus.energy/announcements/
+    type: ChangeLog
+  - type: NaftikoCapability
+    url: capabilities/graphql-accounts.yaml
+  - type: NaftikoCapability
+    url: capabilities/graphql-devices.yaml
+  - type: NaftikoCapability
+    url: capabilities/graphql-flexibility.yaml
+  description: The Octopus Energy GraphQL API is the primary Kraken interface for partner and customer-facing
+    integrations. A single /v1/graphql/ endpoint exposes queries and mutations grouped into API Collections
+    by feature — accounts, ledgers, billing, smart meters, half-hourly consumption, EV chargers, heat pumps,
+    batteries, Intelligent Octopus dispatch schedules, and Octopus Electroverse devices. Kraken's GraphQL
+    introspection plus a public changelog let third-party developers build smart-charging, demand-response,
+    and home-energy-management apps directly against Kraken-powered utilities.
+name: Octopus Energy
+tags:
+- Energy
+- Electricity
+- Gas
+- Renewable Energy
+- Smart Meter
+- Tariffs
+- Kraken
+- UK
+- DER
+- Electric Vehicles
+- Heat Pumps
+- Solar
+- Battery
+kind: contract
+image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+access: 3rd-Party
+common:
+- url: https://octopus.energy
+  type: Portal
+- url: https://developer.octopus.energy/
+  name: Octopus Energy Developer Portal
+  type: Portal
+- url: https://developer.octopus.energy/docs/api/
+  name: Octopus Energy Public API Docs
+  type: Documentation
+- url: https://developer.octopus.energy/rest/
+  name: Kraken REST API Docs
+  type: Documentation
+- url: https://developer.octopus.energy/graphql/
+  name: Kraken GraphQL API Docs
+  type: Documentation
+- url: https://developer.octopus.energy/announcements/
+  name: API Announcements
+  type: ChangeLog
+- url: https://developer.octopus.energy/auth/login/
+  name: Developer Portal Login
+  type: SignUp
+- url: https://octopus.energy/dashboard/
+  name: My Octopus Account
+  type: SignUp
+- url: https://octopus.energy/help-and-faqs/articles/api-information/
+  name: API Information FAQ
+  type: Support
+- url: https://octopus.energy/help-and-faqs/articles/security-at-octopus-energy/
+  name: Security at Octopus Energy
+  type: Security
+- url: https://octopus.energy/policies/
+  name: Policies
+  type: Documentation
+- url: https://octopus.energy/privacy/
+  name: Privacy Policy
+  type: PrivacyPolicy
+- url: https://octopus.energy/blog/
+  name: Octopus Energy Blog
+  type: Blog
+- url: https://octopus.energy/press/
+  name: Press
+  type: Press
+- url: https://octopus.energy/careers/
+  name: Careers
+  type: Careers
+- url: https://octopus.energy/about-us/
+  name: About Us
+  type: AboutUs
+- url: https://octopus.energy/contact-us/
+  name: Contact Us
+  type: ContactUs
+- url: https://kraken.tech/
+  name: Kraken Technologies
+  type: Portal
+- url: https://kraken.tech/news
+  name: Kraken News
+  type: Blog
+- url: https://kraken.tech/customer-management
+  name: Kraken Customer Management
+  type: Documentation
+- url: https://kraken.tech/residential-flexibility
+  name: Kraken Residential Flexibility
+  type: Documentation
+- url: https://kraken.tech/field-operations
+  name: Kraken Field Operations
+  type: Documentation
+- url: https://kraken.tech/infrastructure-flexibility
+  name: Kraken Infrastructure Flexibility
+  type: Documentation
+- url: https://octopus.energy/agile/
+  name: Octopus Agile
+  type: Documentation
+- url: https://octopus.energy/smart/tracker/
+  name: Octopus Tracker
+  type: Documentation
+- url: https://octopus.energy/smart/intelligent-octopus-go/
+  name: Intelligent Octopus Go
+  type: Documentation
+- url: https://octopus.energy/electric-vehicles/electroverse/
+  name: Octopus Electroverse
+  type: Documentation
+- url: https://octopus.energy/heat-pumps/
+  name: Cosy Octopus (Heat Pumps)
+  type: Documentation
+- url: https://octopusev.com/
+  name: Octopus Electric Vehicles
+  type: Documentation
+- url: https://github.com/octoenergy
+  type: GitHubOrganization
+- url: https://github.com/octoenergy/public-conventions
+  name: Octopus Energy Public Conventions
+  type: Tool
+- url: https://github.com/octoenergy/xocto
+  name: xocto - Python/Django Utilities from Kraken Technologies
+  type: SDK
+- url: https://github.com/octoenergy/oejp-api-example
+  name: Octopus Energy Japan API Example
+  type: CodeExamples
+- url: https://github.com/octoenergy/octotools
+  name: octotools - UK Energy Market Utilities
+  type: Tool
+- url: https://github.com/octoenergy/techzero-hackathon-2024
+  name: Tech Zero Hackathon 2024
+  type: CodeExamples
+- url: https://github.com/octoenergy/timeserio
+  name: timeserio - Time Series Models
+  type: Tool
+- url: https://github.com/octoenergy/terraform-provider-splitpolicies
+  name: Terraform Provider for Split Policies
+  type: Tool
+- url: https://www.linkedin.com/company/octopus-energy
+  type: LinkedIn
+- url: https://www.linkedin.com/company/krakentech
+  name: Kraken Technologies LinkedIn
+  type: LinkedIn
+- url: https://twitter.com/octopus_energy
+  type: Twitter
+- url: https://www.youtube.com/@OctopusEnergy
+  type: YouTube
+- url: plans/octopus-energy-plans-pricing.yml
+  type: Plans
+- url: rate-limits/octopus-energy-rate-limits.yml
+  type: RateLimits
+- url: finops/octopus-energy-finops.yml
+  type: FinOps
+- type: Features
+  data:
+  - Public REST API at api.octopus.energy/v1/ — open product catalog, electricity/gas tariffs, meter
+    points, half-hourly consumption, and industry grid supply points
+  - HTTP Basic authentication with a per-customer API key for account, meter-point, and consumption
+    endpoints; products and tariffs endpoints are open and unauthenticated
+  - Half-hourly Agile Octopus and 30-minute Octopus Tracker pricing endpoints for wholesale-linked smart
+    tariffs that publish 16-48 hours of forward unit rates
+  - Industry grid supply points lookup so consumers can resolve the correct distribution region from a
+    postcode
+  - JSON request/response over HTTPS with cursor-style pagination on collection endpoints
+  - Half-hourly smart-meter consumption pulls for electricity (MPAN + serial number) and gas (MPRN +
+    serial number)
+  - Kraken developer portal at developer.octopus.energy with REST API Reference generated from an
+    OpenAPI specification
+  - Kraken developer portal GraphQL API at /v1/graphql/ with introspection, API Collections, and a
+    public changelog
+  - API Collections that group GraphQL queries and mutations by feature — accounts, ledgers, billing,
+    smart meters, half-hourly consumption, EV charging, heat pumps, batteries, Octopus Electroverse
+  - Intelligent Octopus dispatch schedules exposed via GraphQL for partners to read EV-charging and
+    heat-pump optimization windows
+  - Public conventions repository documenting Octopus Energy's internal Python and Django style guide
+  - xocto open-source Python/Django utility library from Kraken Technologies — typed money, ranges,
+    settlement periods, and event sourcing primitives
+  - oejp-api-example reference application showing how to consume the Octopus Energy Japan API
+  - octotools Python utilities for the UK energy market — DNO/GSP lookups and tariff parsing helpers
+  - Kraken Technologies SaaS platform powering 90M+ customer accounts across EDF, E.ON, Origin Energy,
+    Tokyo Gas, Plentitude, Severn Trent, National Grid, and other partners in 30 countries
+  - Kraken product suites — Customer Management, Residential Flexibility, Field Operations,
+    Infrastructure Flexibility — covering retail energy, water, and telecom utilities
+  - Domain coverage for electricity and gas retail, electric vehicles via Octopus Electroverse, heat
+    pumps via Cosy Octopus, solar, batteries, and tariff-aware smart device control
+  - UK-first API surface with parallel Octopus Energy Japan, Australia, New Zealand, Germany, France,
+    Italy, Spain, and United States deployments via the same Kraken platform
+  sources:
+  - https://developer.octopus.energy/
+  - https://developer.octopus.energy/docs/api/
+  - https://developer.octopus.energy/rest/
+  - https://developer.octopus.energy/graphql/
+  - https://octopus.energy/help-and-faqs/articles/api-information/
+  - https://kraken.tech/
+  - https://github.com/octoenergy
+  updated: '2026-05-25'
+created: '2026-05-25T00:00:00.000Z'
+modified: '2026-05-25'
+position: Consuming
+description: Octopus Energy is a UK-founded retail energy supplier and the parent of Kraken Technologies,
+  the AI-powered energy operating system that runs both Octopus and many of the world's largest utilities.
+  Octopus operates a free, open REST API at api.octopus.energy/v1/ that exposes the full UK product
+  catalog, electricity and gas tariff pricing (including the half-hourly wholesale-linked Agile Octopus
+  and Tracker tariffs), meter-point details, half-hourly smart-meter consumption, and industry grid
+  supply points. The Kraken developer portal at developer.octopus.energy adds a second REST surface
+  generated from an OpenAPI spec plus a GraphQL API at /v1/graphql/ with API Collections grouping
+  partner-facing queries and mutations for accounts, ledgers, billing, smart meters, EV charging, heat
+  pumps, batteries, and Intelligent Octopus dispatch. Through Kraken Technologies the same platform
+  powers 90M+ customer accounts at EDF, E.ON, Origin Energy, Tokyo Gas, Plentitude, National Grid,
+  Severn Trent, and other utilities in 30 countries — making Octopus one of the most consequential
+  open and programmable surfaces in retail energy.
+maintainers:
+- FN: Kin Lane
+  email: info@apievangelist.com
+  X: apievangelist
+  url: https://apievangelist.com
+specificationVersion: '0.16'

@@ -1,0 +1,42 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Octopus Energy Kraken REST API — Meter Points
+  description: Kraken REST API meter-point management surface exposed via the developer.octopus.energy portal Reference section.
+  tags: [Octopus Energy, Kraken, REST, Meter Points]
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    KRAKEN_API_KEY: KRAKEN_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: kraken-meter-points
+    baseUri: https://developer.octopus.energy/rest
+    description: Kraken REST API meter-point endpoints.
+    resources:
+    - name: meter-points
+      path: /meter-points/
+      operations:
+      - name: listmeterpoints
+        method: GET
+        description: List Kraken Meter Points
+        outputRawFormat: json
+        outputParameters:
+        - {name: result, type: object, value: $.}
+    authentication:
+      type: bearer
+      token: '{{env.KRAKEN_API_KEY}}'
+  exposes:
+  - type: mcp
+    namespace: kraken-meter-points-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Kraken REST Meter Points.
+    tools:
+    - name: kraken-list-meter-points
+      description: List Kraken meter points via the REST API.
+      hints: {readOnly: true, destructive: false, idempotent: true}
+      call: kraken-meter-points.listmeterpoints
+      outputParameters: [{type: object, mapping: $.}]

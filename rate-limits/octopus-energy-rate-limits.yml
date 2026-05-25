@@ -1,0 +1,41 @@
+apiCommonsRateLimits: 0.1
+info:
+  provider: Octopus Energy
+  product: Octopus Energy Public API
+  url: https://developer.octopus.energy/docs/api/
+  description: |
+    The Octopus Energy Public REST API does not publish a per-customer hard
+    rate limit. Fair-use throttling is applied to abusive traffic. The
+    consumption endpoints have practical page-size and time-range limits;
+    documented behaviour is captured below.
+  updated: '2026-05-25'
+limits:
+- id: fair-use
+  name: Fair Use
+  scope: api-key
+  description: |
+    Octopus Energy throttles abusive traffic but does not publish a fixed
+    requests-per-minute ceiling on the public REST API. Clients should
+    backoff on HTTP 429 and 503 responses.
+  policy:
+    behaviour: throttle-on-abuse
+    backoff: exponential
+- id: consumption-pagination
+  name: Consumption Endpoint Pagination
+  scope: endpoint
+  description: |
+    The half-hourly consumption endpoints accept a page_size up to 1500 readings
+    per page and use cursor-style next/previous pagination. Use the period_from
+    and period_to query parameters to bound the time range.
+  policy:
+    maxPageSize: 1500
+    pagination: cursor
+- id: rate-limits-kraken-graphql
+  name: Kraken GraphQL Rate Limits
+  scope: token
+  description: |
+    The Kraken developer portal GraphQL endpoint at /v1/graphql/ enforces
+    partner-tier rate limits; specifics are documented in the developer portal
+    Reference section and announced in the Changelog.
+  policy:
+    source: https://developer.octopus.energy/announcements/

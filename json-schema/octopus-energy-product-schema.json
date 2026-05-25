@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/octopus-energy/main/json-schema/octopus-energy-product-schema.json",
+  "title": "OctopusEnergyProduct",
+  "description": "An Octopus Energy retail product as returned by GET /v1/products/{code}/.",
+  "type": "object",
+  "required": ["code", "full_name", "display_name", "direction"],
+  "properties": {
+    "code": {"type": "string", "description": "Product code, for example AGILE-24-10-01."},
+    "direction": {"type": "string", "enum": ["IMPORT", "EXPORT"]},
+    "full_name": {"type": "string"},
+    "display_name": {"type": "string"},
+    "description": {"type": "string"},
+    "is_variable": {"type": "boolean"},
+    "is_green": {"type": "boolean"},
+    "is_tracker": {"type": "boolean"},
+    "is_prepay": {"type": "boolean"},
+    "is_business": {"type": "boolean"},
+    "is_restricted": {"type": "boolean"},
+    "term": {"type": ["integer", "null"], "description": "Contract length in months."},
+    "available_from": {"type": "string", "format": "date-time"},
+    "available_to": {"type": ["string", "null"], "format": "date-time"},
+    "brand": {"type": "string"}
+  }
+}

@@ -1,0 +1,42 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Octopus Energy Kraken REST API — Accounts
+  description: 'Kraken REST API account-management surface exposed via the developer.octopus.energy portal. The OpenAPI spec is published in the Reference section of the developer portal; this capability binds against the Kraken REST base URL as documented there.'
+  tags: [Octopus Energy, Kraken, REST, Accounts]
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    KRAKEN_API_KEY: KRAKEN_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: kraken-accounts
+    baseUri: https://developer.octopus.energy/rest
+    description: Kraken REST API account-management endpoints. Endpoint paths are sourced from the developer portal Reference section.
+    resources:
+    - name: accounts
+      path: /accounts/
+      operations:
+      - name: listaccounts
+        method: GET
+        description: List Kraken Accounts
+        outputRawFormat: json
+        outputParameters:
+        - {name: result, type: object, value: $.}
+    authentication:
+      type: bearer
+      token: '{{env.KRAKEN_API_KEY}}'
+  exposes:
+  - type: mcp
+    namespace: kraken-accounts-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Kraken REST Accounts.
+    tools:
+    - name: kraken-list-accounts
+      description: List Kraken accounts via the REST API.
+      hints: {readOnly: true, destructive: false, idempotent: true}
+      call: kraken-accounts.listaccounts
+      outputParameters: [{type: object, mapping: $.}]

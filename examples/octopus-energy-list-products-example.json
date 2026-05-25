@@ -1,0 +1,27 @@
+{
+  "count": 35,
+  "next": "https://api.octopus.energy/v1/products/?page=2",
+  "previous": null,
+  "results": [
+    {
+      "code": "AGILE-24-10-01",
+      "direction": "IMPORT",
+      "full_name": "Agile Octopus October 2024 v1",
+      "display_name": "Agile Octopus",
+      "description": "With Agile Octopus, you get access to half-hourly energy prices, tied to wholesale prices and updated daily. The unit rate varies throughout the day, but you'll see prices the day before so you can plan your energy usage to save money and carbon.",
+      "is_variable": true,
+      "is_green": true,
+      "is_tracker": false,
+      "is_prepay": false,
+      "is_business": false,
+      "is_restricted": false,
+      "term": null,
+      "available_from": "2024-10-01T00:00:00Z",
+      "available_to": null,
+      "brand": "OCTOPUS_ENERGY",
+      "links": [
+        {"href": "https://api.octopus.energy/v1/products/AGILE-24-10-01/", "method": "GET", "rel": "self"}
+      ]
+    }
+  ]
+}

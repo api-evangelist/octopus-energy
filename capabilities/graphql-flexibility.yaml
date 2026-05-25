@@ -1,0 +1,45 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Octopus Energy Kraken GraphQL API — Flexibility and Dispatch
+  description: Kraken GraphQL surface for Intelligent Octopus dispatch schedules, demand-response, and residential flexibility — exposed at /v1/graphql/.
+  tags: [Octopus Energy, Kraken, GraphQL, Flexibility, Intelligent Octopus, DER]
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    KRAKEN_GRAPHQL_TOKEN: KRAKEN_GRAPHQL_TOKEN
+capability:
+  consumes:
+  - type: http
+    namespace: graphql-flexibility
+    baseUri: https://api.octopus.energy/v1
+    description: Kraken GraphQL endpoint for flexibility and dispatch queries.
+    resources:
+    - name: graphql
+      path: /graphql/
+      operations:
+      - name: queryflexibility
+        method: POST
+        description: Query Kraken flexibility and Intelligent Octopus dispatch via GraphQL.
+        outputRawFormat: json
+        outputParameters:
+        - {name: result, type: object, value: $.}
+        inputParameters:
+        - {name: body, in: body, type: object, description: GraphQL request body with query and variables., required: true}
+    authentication:
+      type: bearer
+      token: '{{env.KRAKEN_GRAPHQL_TOKEN}}'
+  exposes:
+  - type: mcp
+    namespace: graphql-flexibility-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Kraken GraphQL flexibility operations.
+    tools:
+    - name: kraken-graphql-flexibility
+      description: Execute a Kraken GraphQL query or mutation against the flexibility/dispatch surface.
+      hints: {readOnly: false, destructive: false, idempotent: false}
+      call: graphql-flexibility.queryflexibility
+      with: {body: tools.body}
+      outputParameters: [{type: object, mapping: $.}]

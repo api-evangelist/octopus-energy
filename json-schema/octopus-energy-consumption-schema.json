@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/octopus-energy/main/json-schema/octopus-energy-consumption-schema.json",
+  "title": "OctopusEnergyConsumptionReading",
+  "description": "A half-hourly smart-meter consumption reading from the Octopus Energy Public API.",
+  "type": "object",
+  "required": ["consumption", "interval_start", "interval_end"],
+  "properties": {
+    "consumption": {"type": "number", "description": "kWh (electricity) or m3-converted-to-kWh (gas) consumed during the interval."},
+    "interval_start": {"type": "string", "format": "date-time"},
+    "interval_end": {"type": "string", "format": "date-time"}
+  }
+}
