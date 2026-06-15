@@ -1,0 +1,581 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Octopus Energy Public API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Products",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Products",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.octopus.energy/v1/products/",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "is_variable",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "is_green",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "is_tracker",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "is_prepay",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "is_business",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "available_at",
+                "value": "",
+                "type": "query",
+                "description": "ISO 8601 timestamp filtering products available at that moment."
+              },
+              {
+                "name": "brand",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List Octopus Energy products. Filter by availability, business type, variant, and brand."
+        },
+        {
+          "info": {
+            "name": "Retrieve a Product",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.octopus.energy/v1/products/:product_code/",
+            "params": [
+              {
+                "name": "product_code",
+                "value": "",
+                "type": "path",
+                "description": "Product code, for example AGILE-24-10-01 or VAR-22-11-01."
+              },
+              {
+                "name": "tariffs_active_at",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve a single product including its electricity and gas tariffs by region."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "ElectricityTariffs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Electricity Standard Unit Rates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.octopus.energy/v1/products/:product_code/electricity-tariffs/:tariff_code/standard-unit-rates/",
+            "params": [
+              {
+                "name": "product_code",
+                "value": "",
+                "type": "path",
+                "description": "Product code, for example AGILE-24-10-01 or VAR-22-11-01."
+              },
+              {
+                "name": "tariff_code",
+                "value": "",
+                "type": "path",
+                "description": "Tariff code, for example E-1R-AGILE-24-10-01-A."
+              },
+              {
+                "name": "period_from",
+                "value": "",
+                "type": "query",
+                "description": "ISO 8601 inclusive start of the period."
+              },
+              {
+                "name": "period_to",
+                "value": "",
+                "type": "query",
+                "description": "ISO 8601 exclusive end of the period."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Half-hourly or daily standard unit rates for an electricity tariff such as Agile Octopus or Octopus Tracker."
+        },
+        {
+          "info": {
+            "name": "List Electricity Standing Charges",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.octopus.energy/v1/products/:product_code/electricity-tariffs/:tariff_code/standing-charges/",
+            "params": [
+              {
+                "name": "product_code",
+                "value": "",
+                "type": "path",
+                "description": "Product code, for example AGILE-24-10-01 or VAR-22-11-01."
+              },
+              {
+                "name": "tariff_code",
+                "value": "",
+                "type": "path",
+                "description": "Tariff code, for example E-1R-AGILE-24-10-01-A."
+              },
+              {
+                "name": "period_from",
+                "value": "",
+                "type": "query",
+                "description": "ISO 8601 inclusive start of the period."
+              },
+              {
+                "name": "period_to",
+                "value": "",
+                "type": "query",
+                "description": "ISO 8601 exclusive end of the period."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List Electricity Standing Charges"
+        },
+        {
+          "info": {
+            "name": "List Electricity Day Unit Rates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.octopus.energy/v1/products/:product_code/electricity-tariffs/:tariff_code/day-unit-rates/",
+            "params": [
+              {
+                "name": "product_code",
+                "value": "",
+                "type": "path",
+                "description": "Product code, for example AGILE-24-10-01 or VAR-22-11-01."
+              },
+              {
+                "name": "tariff_code",
+                "value": "",
+                "type": "path",
+                "description": "Tariff code, for example E-1R-AGILE-24-10-01-A."
+              },
+              {
+                "name": "period_from",
+                "value": "",
+                "type": "query",
+                "description": "ISO 8601 inclusive start of the period."
+              },
+              {
+                "name": "period_to",
+                "value": "",
+                "type": "query",
+                "description": "ISO 8601 exclusive end of the period."
+              }
+            ]
+          },
+          "docs": "List Electricity Day Unit Rates"
+        },
+        {
+          "info": {
+            "name": "List Electricity Night Unit Rates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.octopus.energy/v1/products/:product_code/electricity-tariffs/:tariff_code/night-unit-rates/",
+            "params": [
+              {
+                "name": "product_code",
+                "value": "",
+                "type": "path",
+                "description": "Product code, for example AGILE-24-10-01 or VAR-22-11-01."
+              },
+              {
+                "name": "tariff_code",
+                "value": "",
+                "type": "path",
+                "description": "Tariff code, for example E-1R-AGILE-24-10-01-A."
+              },
+              {
+                "name": "period_from",
+                "value": "",
+                "type": "query",
+                "description": "ISO 8601 inclusive start of the period."
+              },
+              {
+                "name": "period_to",
+                "value": "",
+                "type": "query",
+                "description": "ISO 8601 exclusive end of the period."
+              }
+            ]
+          },
+          "docs": "List Electricity Night Unit Rates"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "GasTariffs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Gas Standard Unit Rates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.octopus.energy/v1/products/:product_code/gas-tariffs/:tariff_code/standard-unit-rates/",
+            "params": [
+              {
+                "name": "product_code",
+                "value": "",
+                "type": "path",
+                "description": "Product code, for example AGILE-24-10-01 or VAR-22-11-01."
+              },
+              {
+                "name": "tariff_code",
+                "value": "",
+                "type": "path",
+                "description": "Tariff code, for example E-1R-AGILE-24-10-01-A."
+              },
+              {
+                "name": "period_from",
+                "value": "",
+                "type": "query",
+                "description": "ISO 8601 inclusive start of the period."
+              },
+              {
+                "name": "period_to",
+                "value": "",
+                "type": "query",
+                "description": "ISO 8601 exclusive end of the period."
+              }
+            ]
+          },
+          "docs": "List Gas Standard Unit Rates"
+        },
+        {
+          "info": {
+            "name": "List Gas Standing Charges",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.octopus.energy/v1/products/:product_code/gas-tariffs/:tariff_code/standing-charges/",
+            "params": [
+              {
+                "name": "product_code",
+                "value": "",
+                "type": "path",
+                "description": "Product code, for example AGILE-24-10-01 or VAR-22-11-01."
+              },
+              {
+                "name": "tariff_code",
+                "value": "",
+                "type": "path",
+                "description": "Tariff code, for example E-1R-AGILE-24-10-01-A."
+              },
+              {
+                "name": "period_from",
+                "value": "",
+                "type": "query",
+                "description": "ISO 8601 inclusive start of the period."
+              },
+              {
+                "name": "period_to",
+                "value": "",
+                "type": "query",
+                "description": "ISO 8601 exclusive end of the period."
+              }
+            ]
+          },
+          "docs": "List Gas Standing Charges"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "ElectricityMeterPoints",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve an Electricity Meter Point",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.octopus.energy/v1/electricity-meter-points/:mpan/",
+            "params": [
+              {
+                "name": "mpan",
+                "value": "",
+                "type": "path",
+                "description": "Meter Point Administration Number for electricity (13 digits)."
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Retrieve information about an electricity meter point including the GSP region and registered meters."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Consumption",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Electricity Consumption",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.octopus.energy/v1/electricity-meter-points/:mpan/meters/:serial_number/consumption/",
+            "params": [
+              {
+                "name": "mpan",
+                "value": "",
+                "type": "path",
+                "description": "Meter Point Administration Number for electricity (13 digits)."
+              },
+              {
+                "name": "serial_number",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "period_from",
+                "value": "",
+                "type": "query",
+                "description": "ISO 8601 inclusive start of the period."
+              },
+              {
+                "name": "period_to",
+                "value": "",
+                "type": "query",
+                "description": "ISO 8601 exclusive end of the period."
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "group_by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "List half-hourly smart-meter electricity consumption readings for the given meter."
+        },
+        {
+          "info": {
+            "name": "List Gas Consumption",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.octopus.energy/v1/gas-meter-points/:mprn/meters/:serial_number/consumption/",
+            "params": [
+              {
+                "name": "mprn",
+                "value": "",
+                "type": "path",
+                "description": "Meter Point Reference Number for gas."
+              },
+              {
+                "name": "serial_number",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "period_from",
+                "value": "",
+                "type": "query",
+                "description": "ISO 8601 inclusive start of the period."
+              },
+              {
+                "name": "period_to",
+                "value": "",
+                "type": "query",
+                "description": "ISO 8601 exclusive end of the period."
+              },
+              {
+                "name": "group_by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "List Gas Consumption"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "GasMeterPoints",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve a Gas Meter Point",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.octopus.energy/v1/gas-meter-points/:mprn/",
+            "params": [
+              {
+                "name": "mprn",
+                "value": "",
+                "type": "path",
+                "description": "Meter Point Reference Number for gas."
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Retrieve a Gas Meter Point"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Industry",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Grid Supply Points",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.octopus.energy/v1/industry/grid-supply-points/",
+            "params": [
+              {
+                "name": "postcode",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List UK grid supply points and resolve the GSP for a postcode."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

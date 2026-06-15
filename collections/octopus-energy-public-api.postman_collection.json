@@ -1,0 +1,1919 @@
+{
+  "item": [
+    {
+      "id": "ee0a251c-44b0-4d0c-ac9f-10d07369a0fe",
+      "name": "Products",
+      "description": {
+        "content": "Octopus Energy product catalog and tariff lookups.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "990654f7-761d-4770-a236-b1251c095a66",
+          "name": "List Products",
+          "request": {
+            "name": "List Products",
+            "description": {
+              "content": "List Octopus Energy products. Filter by availability, business type, variant, and brand.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "products",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "is_variable",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "is_green",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "is_tracker",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "is_prepay",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "is_business",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "available_at",
+                  "value": "<dateTime>",
+                  "description": "ISO 8601 timestamp filtering products available at that moment."
+                },
+                {
+                  "disabled": false,
+                  "key": "brand",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1268ecf4-81a9-4212-a3e6-9c8a18d035c1",
+              "name": "A paginated list of products.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "is_variable",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "is_green",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "is_tracker",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "is_prepay",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "is_business",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "available_at",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "brand",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 7392,\n  \"next\": \"string\",\n  \"previous\": \"string\",\n  \"results\": [\n    {\n      \"code\": \"string\",\n      \"direction\": \"IMPORT\",\n      \"full_name\": \"string\",\n      \"display_name\": \"string\",\n      \"description\": \"string\",\n      \"is_variable\": false,\n      \"is_green\": true,\n      \"is_tracker\": true,\n      \"is_prepay\": false,\n      \"is_business\": false,\n      \"is_restricted\": true,\n      \"term\": 4100,\n      \"available_from\": \"1973-09-21T22:57:39.635Z\",\n      \"available_to\": \"2007-05-25T18:17:26.668Z\",\n      \"brand\": \"string\",\n      \"links\": [\n        {\n          \"href\": \"string\",\n          \"method\": \"string\",\n          \"rel\": \"string\"\n        },\n        {\n          \"href\": \"string\",\n          \"method\": \"string\",\n          \"rel\": \"string\"\n        }\n      ]\n    },\n    {\n      \"code\": \"string\",\n      \"direction\": \"EXPORT\",\n      \"full_name\": \"string\",\n      \"display_name\": \"string\",\n      \"description\": \"string\",\n      \"is_variable\": false,\n      \"is_green\": false,\n      \"is_tracker\": true,\n      \"is_prepay\": false,\n      \"is_business\": false,\n      \"is_restricted\": true,\n      \"term\": 3957,\n      \"available_from\": \"1984-03-17T22:40:07.200Z\",\n      \"available_to\": \"1965-12-03T11:00:15.937Z\",\n      \"brand\": \"string\",\n      \"links\": [\n        {\n          \"href\": \"string\",\n          \"method\": \"string\",\n          \"rel\": \"string\"\n        },\n        {\n          \"href\": \"string\",\n          \"method\": \"string\",\n          \"rel\": \"string\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6c99b306-191c-4d76-a24d-bc27d0efafb2",
+          "name": "Retrieve a Product",
+          "request": {
+            "name": "Retrieve a Product",
+            "description": {
+              "content": "Retrieve a single product including its electricity and gas tariffs by region.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "products",
+                ":product_code",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "tariffs_active_at",
+                  "value": "<dateTime>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "product_code",
+                  "description": "(Required) Product code, for example AGILE-24-10-01 or VAR-22-11-01."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "01798240-7018-4a0a-87c8-44eff12dec1c",
+              "name": "The requested product.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    ":product_code",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "tariffs_active_at",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "product_code",
+                      "description": "(Required) Product code, for example AGILE-24-10-01 or VAR-22-11-01."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"direction\": \"EXPORT\",\n  \"full_name\": \"string\",\n  \"display_name\": \"string\",\n  \"description\": \"string\",\n  \"is_variable\": false,\n  \"is_green\": false,\n  \"is_tracker\": false,\n  \"is_prepay\": true,\n  \"is_business\": false,\n  \"is_restricted\": false,\n  \"term\": 2286,\n  \"available_from\": \"2022-05-12T20:32:01.607Z\",\n  \"available_to\": \"1963-05-24T14:31:48.698Z\",\n  \"brand\": \"string\",\n  \"links\": [\n    {\n      \"href\": \"string\",\n      \"method\": \"string\",\n      \"rel\": \"string\"\n    },\n    {\n      \"href\": \"string\",\n      \"method\": \"string\",\n      \"rel\": \"string\"\n    }\n  ],\n  \"tariffs_active_at\": \"1970-07-13T08:40:54.793Z\",\n  \"single_register_electricity_tariffs\": {\n    \"key_0\": {\n      \"key_0\": {\n        \"code\": \"string\",\n        \"standing_charge_exc_vat\": 7022.612613476482,\n        \"standing_charge_inc_vat\": 3648.1495941120024,\n        \"online_discount_exc_vat\": 3692.6995838799357,\n        \"online_discount_inc_vat\": 632.5669959075219,\n        \"dual_fuel_discount_exc_vat\": 597.1728242103914,\n        \"dual_fuel_discount_inc_vat\": 6272.814775011769,\n        \"exit_fees_exc_vat\": 7650.962948300601,\n        \"exit_fees_inc_vat\": 1442.169107485115,\n        \"standard_unit_rate_exc_vat\": 1826.49323469373,\n        \"standard_unit_rate_inc_vat\": 1351.4582785804473,\n        \"day_unit_rate_exc_vat\": 2611.051359631432,\n        \"day_unit_rate_inc_vat\": 6325.155589697623,\n        \"night_unit_rate_exc_vat\": 3854.8891565169943,\n        \"night_unit_rate_inc_vat\": 1653.1231880006426,\n        \"links\": [\n          {\n            \"href\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"method\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rel\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"href\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"method\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rel\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      },\n      \"key_1\": {\n        \"code\": \"string\",\n        \"standing_charge_exc_vat\": 8464.905230430897,\n        \"standing_charge_inc_vat\": 874.2868685182914,\n        \"online_discount_exc_vat\": 508.1330488998204,\n        \"online_discount_inc_vat\": 7191.664188335326,\n        \"dual_fuel_discount_exc_vat\": 6107.824880556516,\n        \"dual_fuel_discount_inc_vat\": 2949.74900258427,\n        \"exit_fees_exc_vat\": 4836.308801908867,\n        \"exit_fees_inc_vat\": 5384.255521757516,\n        \"standard_unit_rate_exc_vat\": 1218.271159264358,\n        \"standard_unit_rate_inc_vat\": 9177.95875735764,\n        \"day_unit_rate_exc_vat\": 3198.13446885138,\n        \"day_unit_rate_inc_vat\": 5579.028043760968,\n        \"night_unit_rate_exc_vat\": 5151.814037330052,\n        \"night_unit_rate_inc_vat\": 3348.6416434259627,\n        \"links\": [\n          {\n            \"href\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"method\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rel\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"href\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"method\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rel\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      },\n      \"key_2\": {\n        \"code\": \"string\",\n        \"standing_charge_exc_vat\": 9770.459337177395,\n        \"standing_charge_inc_vat\": 1526.9265199210413,\n        \"online_discount_exc_vat\": 4058.4516666968584,\n        \"online_discount_inc_vat\": 4212.137759066056,\n        \"dual_fuel_discount_exc_vat\": 1849.5749835659847,\n        \"dual_fuel_discount_inc_vat\": 3264.9653663528343,\n        \"exit_fees_exc_vat\": 4416.795725513185,\n        \"exit_fees_inc_vat\": 6274.563578065183,\n        \"standard_unit_rate_exc_vat\": 2649.934612953374,\n        \"standard_unit_rate_inc_vat\": 5486.097579224134,\n        \"day_unit_rate_exc_vat\": 5298.463766863333,\n        \"day_unit_rate_inc_vat\": 297.77559034950275,\n        \"night_unit_rate_exc_vat\": 8149.0420819903875,\n        \"night_unit_rate_inc_vat\": 1200.3304877690568,\n        \"links\": [\n          {\n            \"href\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"method\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rel\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"href\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"method\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rel\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      }\n    },\n    \"key_1\": {\n      \"key_0\": {\n        \"code\": \"string\",\n        \"standing_charge_exc_vat\": 7342.168931839083,\n        \"standing_charge_inc_vat\": 5767.998593072087,\n        \"online_discount_exc_vat\": 9079.463766437439,\n        \"online_discount_inc_vat\": 3333.557934160997,\n        \"dual_fuel_discount_exc_vat\": 9225.551876044683,\n        \"dual_fuel_discount_inc_vat\": 4128.304251381589,\n        \"exit_fees_exc_vat\": 3972.6125177884487,\n        \"exit_fees_inc_vat\": 458.3875879043586,\n        \"standard_unit_rate_exc_vat\": 1043.6680889625916,\n        \"standard_unit_rate_inc_vat\": 7175.618788767508,\n        \"day_unit_rate_exc_vat\": 2003.657550278163,\n        \"day_unit_rate_inc_vat\": 5503.233346823555,\n        \"night_unit_rate_exc_vat\": 2241.5842681162367,\n        \"night_unit_rate_inc_vat\": 5186.112759337743,\n        \"links\": [\n          {\n            \"href\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"method\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rel\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"href\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"method\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rel\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      },\n      \"key_1\": {\n        \"code\": \"string\",\n        \"standing_charge_exc_vat\": 1833.6180328016494,\n        \"standing_charge_inc_vat\": 5893.35696484487,\n        \"online_discount_exc_vat\": 7738.750813987616,\n        \"online_discount_inc_vat\": 5140.864464676647,\n        \"dual_fuel_discount_exc_vat\": 3432.962604225268,\n        \"dual_fuel_discount_inc_vat\": 4028.0523849831275,\n        \"exit_fees_exc_vat\": 4709.9682248381005,\n        \"exit_fees_inc_vat\": 4573.334624801537,\n        \"standard_unit_rate_exc_vat\": 3039.7911057286033,\n        \"standard_unit_rate_inc_vat\": 4835.366243823558,\n        \"day_unit_rate_exc_vat\": 9975.352097033701,\n        \"day_unit_rate_inc_vat\": 4597.895939842153,\n        \"night_unit_rate_exc_vat\": 253.06115151591314,\n        \"night_unit_rate_inc_vat\": 1986.911734947441,\n        \"links\": [\n          {\n            \"href\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"method\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rel\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"href\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"method\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rel\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      }\n    }\n  },\n  \"dual_register_electricity_tariffs\": {\n    \"key_0\": {\n      \"key_0\": {\n        \"code\": \"string\",\n        \"standing_charge_exc_vat\": 7658.494721004497,\n        \"standing_charge_inc_vat\": 6036.60737422766,\n        \"online_discount_exc_vat\": 2292.484295379419,\n        \"online_discount_inc_vat\": 9515.067995612866,\n        \"dual_fuel_discount_exc_vat\": 5274.153677160588,\n        \"dual_fuel_discount_inc_vat\": 1973.5073604168874,\n        \"exit_fees_exc_vat\": 5529.676611425955,\n        \"exit_fees_inc_vat\": 474.49664589424344,\n        \"standard_unit_rate_exc_vat\": 3784.1025799158247,\n        \"standard_unit_rate_inc_vat\": 8971.897266975777,\n        \"day_unit_rate_exc_vat\": 2837.262828143825,\n        \"day_unit_rate_inc_vat\": 2178.7763222916788,\n        \"night_unit_rate_exc_vat\": 5806.787221802232,\n        \"night_unit_rate_inc_vat\": 5622.7019161435055,\n        \"links\": [\n          {\n            \"href\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"method\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rel\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"href\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"method\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rel\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      }\n    },\n    \"key_1\": {\n      \"key_0\": {\n        \"code\": \"string\",\n        \"standing_charge_exc_vat\": 5460.2422112647655,\n        \"standing_charge_inc_vat\": 1823.0666266292694,\n        \"online_discount_exc_vat\": 3426.715032800328,\n        \"online_discount_inc_vat\": 6549.665430406782,\n        \"dual_fuel_discount_exc_vat\": 5135.077247004434,\n        \"dual_fuel_discount_inc_vat\": 4684.344478145393,\n        \"exit_fees_exc_vat\": 7483.4041400648075,\n        \"exit_fees_inc_vat\": 8759.203892952602,\n        \"standard_unit_rate_exc_vat\": 4566.929255473358,\n        \"standard_unit_rate_inc_vat\": 6102.169144615807,\n        \"day_unit_rate_exc_vat\": 8477.542109452259,\n        \"day_unit_rate_inc_vat\": 4265.8645980737965,\n        \"night_unit_rate_exc_vat\": 3638.166896614664,\n        \"night_unit_rate_inc_vat\": 3149.699023831397,\n        \"links\": [\n          {\n            \"href\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"method\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rel\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"href\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"method\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rel\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      },\n      \"key_1\": {\n        \"code\": \"string\",\n        \"standing_charge_exc_vat\": 7399.524690869218,\n        \"standing_charge_inc_vat\": 3740.667195381624,\n        \"online_discount_exc_vat\": 6245.857570894144,\n        \"online_discount_inc_vat\": 7279.085480277975,\n        \"dual_fuel_discount_exc_vat\": 1741.4307031468256,\n        \"dual_fuel_discount_inc_vat\": 9461.328220202318,\n        \"exit_fees_exc_vat\": 5674.800096935435,\n        \"exit_fees_inc_vat\": 3709.735812179729,\n        \"standard_unit_rate_exc_vat\": 4000.7303891082447,\n        \"standard_unit_rate_inc_vat\": 450.272244972163,\n        \"day_unit_rate_exc_vat\": 8273.079933155674,\n        \"day_unit_rate_inc_vat\": 4336.547229685969,\n        \"night_unit_rate_exc_vat\": 3769.128828733966,\n        \"night_unit_rate_inc_vat\": 2380.94311887327,\n        \"links\": [\n          {\n            \"href\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"method\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rel\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"href\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"method\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rel\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      }\n    },\n    \"key_2\": {\n      \"key_0\": {\n        \"code\": \"string\",\n        \"standing_charge_exc_vat\": 3169.963976546124,\n        \"standing_charge_inc_vat\": 9952.735185096326,\n        \"online_discount_exc_vat\": 300.9536719299033,\n        \"online_discount_inc_vat\": 3448.8336512034525,\n        \"dual_fuel_discount_exc_vat\": 9614.350952708059,\n        \"dual_fuel_discount_inc_vat\": 5268.092890184297,\n        \"exit_fees_exc_vat\": 5089.886287448049,\n        \"exit_fees_inc_vat\": 5508.850936585845,\n        \"standard_unit_rate_exc_vat\": 4527.6453532128435,\n        \"standard_unit_rate_inc_vat\": 981.2927313806963,\n        \"day_unit_rate_exc_vat\": 9244.471854665226,\n        \"day_unit_rate_inc_vat\": 1247.2243748046951,\n        \"night_unit_rate_exc_vat\": 4336.029376467219,\n        \"night_unit_rate_inc_vat\": 7970.321031981851,\n        \"links\": [\n          {\n            \"href\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"method\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rel\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"href\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"method\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rel\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      }\n    }\n  },\n  \"single_register_gas_tariffs\": {\n    \"key_0\": {\n      \"key_0\": {\n        \"code\": \"string\",\n        \"standing_charge_exc_vat\": 9671.57778116624,\n        \"standing_charge_inc_vat\": 106.61609809104688,\n        \"online_discount_exc_vat\": 2708.8723805544378,\n        \"online_discount_inc_vat\": 7048.916532452172,\n        \"dual_fuel_discount_exc_vat\": 7495.783710157882,\n        \"dual_fuel_discount_inc_vat\": 5399.685724647857,\n        \"exit_fees_exc_vat\": 5038.604104139998,\n        \"exit_fees_inc_vat\": 9922.57281269104,\n        \"standard_unit_rate_exc_vat\": 478.00380246937226,\n        \"standard_unit_rate_inc_vat\": 7511.864378529624,\n        \"day_unit_rate_exc_vat\": 7971.89462478554,\n        \"day_unit_rate_inc_vat\": 3115.77643706173,\n        \"night_unit_rate_exc_vat\": 8107.232433130591,\n        \"night_unit_rate_inc_vat\": 7760.299562814011,\n        \"links\": [\n          {\n            \"href\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"method\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rel\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"href\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"method\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rel\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      }\n    }\n  },\n  \"sample_quotes\": {},\n  \"sample_consumption\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "c19161d2-1b54-42a6-b7e1-49d0786ce6dc",
+      "name": "ElectricityTariffs",
+      "description": {
+        "content": "Electricity tariff unit rates and standing charges.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "cd5648f5-ee2a-44c3-ae89-3eab14966b73",
+          "name": "List Electricity Standard Unit Rates",
+          "request": {
+            "name": "List Electricity Standard Unit Rates",
+            "description": {
+              "content": "Half-hourly or daily standard unit rates for an electricity tariff such as Agile Octopus or Octopus Tracker.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "products",
+                ":product_code",
+                "electricity-tariffs",
+                ":tariff_code",
+                "standard-unit-rates",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "period_from",
+                  "value": "<dateTime>",
+                  "description": "ISO 8601 inclusive start of the period."
+                },
+                {
+                  "disabled": false,
+                  "key": "period_to",
+                  "value": "<dateTime>",
+                  "description": "ISO 8601 exclusive end of the period."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "product_code",
+                  "description": "(Required) Product code, for example AGILE-24-10-01 or VAR-22-11-01."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tariff_code",
+                  "description": "(Required) Tariff code, for example E-1R-AGILE-24-10-01-A."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d8b00412-2cee-478c-80da-ae26feda5c7e",
+              "name": "A paginated list of standard unit rates.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    ":product_code",
+                    "electricity-tariffs",
+                    ":tariff_code",
+                    "standard-unit-rates",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "period_from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "period_to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "product_code",
+                      "description": "(Required) Product code, for example AGILE-24-10-01 or VAR-22-11-01."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tariff_code",
+                      "description": "(Required) Tariff code, for example E-1R-AGILE-24-10-01-A."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 4687,\n  \"next\": \"string\",\n  \"previous\": \"string\",\n  \"results\": [\n    {\n      \"value_exc_vat\": 2963.5331004704426,\n      \"value_inc_vat\": 2734.288692168927,\n      \"valid_from\": \"2011-04-30T20:24:46.445Z\",\n      \"valid_to\": \"2013-01-03T10:55:13.810Z\",\n      \"payment_method\": \"string\"\n    },\n    {\n      \"value_exc_vat\": 6312.332796928557,\n      \"value_inc_vat\": 9910.997353047453,\n      \"valid_from\": \"2015-03-16T06:43:36.248Z\",\n      \"valid_to\": \"1976-04-05T22:19:13.564Z\",\n      \"payment_method\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dc450088-5961-475c-bf59-2052761b5fae",
+          "name": "List Electricity Standing Charges",
+          "request": {
+            "name": "List Electricity Standing Charges",
+            "description": {},
+            "url": {
+              "path": [
+                "products",
+                ":product_code",
+                "electricity-tariffs",
+                ":tariff_code",
+                "standing-charges",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "period_from",
+                  "value": "<dateTime>",
+                  "description": "ISO 8601 inclusive start of the period."
+                },
+                {
+                  "disabled": false,
+                  "key": "period_to",
+                  "value": "<dateTime>",
+                  "description": "ISO 8601 exclusive end of the period."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "product_code",
+                  "description": "(Required) Product code, for example AGILE-24-10-01 or VAR-22-11-01."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tariff_code",
+                  "description": "(Required) Tariff code, for example E-1R-AGILE-24-10-01-A."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e596be6d-bbc0-4215-a112-c0b765edf2fc",
+              "name": "A paginated list of standing charges.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    ":product_code",
+                    "electricity-tariffs",
+                    ":tariff_code",
+                    "standing-charges",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "period_from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "period_to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "product_code",
+                      "description": "(Required) Product code, for example AGILE-24-10-01 or VAR-22-11-01."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tariff_code",
+                      "description": "(Required) Tariff code, for example E-1R-AGILE-24-10-01-A."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 4687,\n  \"next\": \"string\",\n  \"previous\": \"string\",\n  \"results\": [\n    {\n      \"value_exc_vat\": 2963.5331004704426,\n      \"value_inc_vat\": 2734.288692168927,\n      \"valid_from\": \"2011-04-30T20:24:46.445Z\",\n      \"valid_to\": \"2013-01-03T10:55:13.810Z\",\n      \"payment_method\": \"string\"\n    },\n    {\n      \"value_exc_vat\": 6312.332796928557,\n      \"value_inc_vat\": 9910.997353047453,\n      \"valid_from\": \"2015-03-16T06:43:36.248Z\",\n      \"valid_to\": \"1976-04-05T22:19:13.564Z\",\n      \"payment_method\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "df62ff8e-34c6-4a4d-a2fa-5612b5da2122",
+          "name": "List Electricity Day Unit Rates",
+          "request": {
+            "name": "List Electricity Day Unit Rates",
+            "description": {},
+            "url": {
+              "path": [
+                "products",
+                ":product_code",
+                "electricity-tariffs",
+                ":tariff_code",
+                "day-unit-rates",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "period_from",
+                  "value": "<dateTime>",
+                  "description": "ISO 8601 inclusive start of the period."
+                },
+                {
+                  "disabled": false,
+                  "key": "period_to",
+                  "value": "<dateTime>",
+                  "description": "ISO 8601 exclusive end of the period."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "product_code",
+                  "description": "(Required) Product code, for example AGILE-24-10-01 or VAR-22-11-01."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tariff_code",
+                  "description": "(Required) Tariff code, for example E-1R-AGILE-24-10-01-A."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "dd40f680-94f1-4446-a351-819363a896c9",
+              "name": "A paginated list of day unit rates.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    ":product_code",
+                    "electricity-tariffs",
+                    ":tariff_code",
+                    "day-unit-rates",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "period_from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "period_to",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "product_code",
+                      "description": "(Required) Product code, for example AGILE-24-10-01 or VAR-22-11-01."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tariff_code",
+                      "description": "(Required) Tariff code, for example E-1R-AGILE-24-10-01-A."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 4687,\n  \"next\": \"string\",\n  \"previous\": \"string\",\n  \"results\": [\n    {\n      \"value_exc_vat\": 2963.5331004704426,\n      \"value_inc_vat\": 2734.288692168927,\n      \"valid_from\": \"2011-04-30T20:24:46.445Z\",\n      \"valid_to\": \"2013-01-03T10:55:13.810Z\",\n      \"payment_method\": \"string\"\n    },\n    {\n      \"value_exc_vat\": 6312.332796928557,\n      \"value_inc_vat\": 9910.997353047453,\n      \"valid_from\": \"2015-03-16T06:43:36.248Z\",\n      \"valid_to\": \"1976-04-05T22:19:13.564Z\",\n      \"payment_method\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ffaae840-2a37-420a-b315-589a9bddfc42",
+          "name": "List Electricity Night Unit Rates",
+          "request": {
+            "name": "List Electricity Night Unit Rates",
+            "description": {},
+            "url": {
+              "path": [
+                "products",
+                ":product_code",
+                "electricity-tariffs",
+                ":tariff_code",
+                "night-unit-rates",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "period_from",
+                  "value": "<dateTime>",
+                  "description": "ISO 8601 inclusive start of the period."
+                },
+                {
+                  "disabled": false,
+                  "key": "period_to",
+                  "value": "<dateTime>",
+                  "description": "ISO 8601 exclusive end of the period."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "product_code",
+                  "description": "(Required) Product code, for example AGILE-24-10-01 or VAR-22-11-01."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tariff_code",
+                  "description": "(Required) Tariff code, for example E-1R-AGILE-24-10-01-A."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "84897ff7-dec3-43ce-8f2a-6a27ddd6bd21",
+              "name": "A paginated list of night unit rates.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    ":product_code",
+                    "electricity-tariffs",
+                    ":tariff_code",
+                    "night-unit-rates",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "period_from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "period_to",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "product_code",
+                      "description": "(Required) Product code, for example AGILE-24-10-01 or VAR-22-11-01."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tariff_code",
+                      "description": "(Required) Tariff code, for example E-1R-AGILE-24-10-01-A."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 4687,\n  \"next\": \"string\",\n  \"previous\": \"string\",\n  \"results\": [\n    {\n      \"value_exc_vat\": 2963.5331004704426,\n      \"value_inc_vat\": 2734.288692168927,\n      \"valid_from\": \"2011-04-30T20:24:46.445Z\",\n      \"valid_to\": \"2013-01-03T10:55:13.810Z\",\n      \"payment_method\": \"string\"\n    },\n    {\n      \"value_exc_vat\": 6312.332796928557,\n      \"value_inc_vat\": 9910.997353047453,\n      \"valid_from\": \"2015-03-16T06:43:36.248Z\",\n      \"valid_to\": \"1976-04-05T22:19:13.564Z\",\n      \"payment_method\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "13f23e01-4d70-4389-a874-eac276beb5e9",
+      "name": "GasTariffs",
+      "description": {
+        "content": "Gas tariff unit rates and standing charges.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4416a7f7-aec5-495b-a351-f0d2b2b0ff23",
+          "name": "List Gas Standard Unit Rates",
+          "request": {
+            "name": "List Gas Standard Unit Rates",
+            "description": {},
+            "url": {
+              "path": [
+                "products",
+                ":product_code",
+                "gas-tariffs",
+                ":tariff_code",
+                "standard-unit-rates",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "period_from",
+                  "value": "<dateTime>",
+                  "description": "ISO 8601 inclusive start of the period."
+                },
+                {
+                  "disabled": false,
+                  "key": "period_to",
+                  "value": "<dateTime>",
+                  "description": "ISO 8601 exclusive end of the period."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "product_code",
+                  "description": "(Required) Product code, for example AGILE-24-10-01 or VAR-22-11-01."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tariff_code",
+                  "description": "(Required) Tariff code, for example E-1R-AGILE-24-10-01-A."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0e5eb4b5-276d-4ca3-855c-e26ccd7bd5e8",
+              "name": "A paginated list of gas standard unit rates.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    ":product_code",
+                    "gas-tariffs",
+                    ":tariff_code",
+                    "standard-unit-rates",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "period_from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "period_to",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "product_code",
+                      "description": "(Required) Product code, for example AGILE-24-10-01 or VAR-22-11-01."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tariff_code",
+                      "description": "(Required) Tariff code, for example E-1R-AGILE-24-10-01-A."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 9976,\n  \"next\": \"string\",\n  \"previous\": \"string\",\n  \"results\": [\n    {\n      \"value_exc_vat\": 1427.4692339688345,\n      \"value_inc_vat\": 8156.696978046591,\n      \"valid_from\": \"1952-05-19T07:58:13.948Z\",\n      \"valid_to\": \"2016-03-28T10:53:43.641Z\",\n      \"payment_method\": \"string\"\n    },\n    {\n      \"value_exc_vat\": 7526.642855436217,\n      \"value_inc_vat\": 4430.941982607136,\n      \"valid_from\": \"2020-12-29T05:37:24.185Z\",\n      \"valid_to\": \"2021-07-02T09:15:03.946Z\",\n      \"payment_method\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "eaa50086-c0c3-4d06-ac24-4fa2213a9100",
+          "name": "List Gas Standing Charges",
+          "request": {
+            "name": "List Gas Standing Charges",
+            "description": {},
+            "url": {
+              "path": [
+                "products",
+                ":product_code",
+                "gas-tariffs",
+                ":tariff_code",
+                "standing-charges",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "period_from",
+                  "value": "<dateTime>",
+                  "description": "ISO 8601 inclusive start of the period."
+                },
+                {
+                  "disabled": false,
+                  "key": "period_to",
+                  "value": "<dateTime>",
+                  "description": "ISO 8601 exclusive end of the period."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "product_code",
+                  "description": "(Required) Product code, for example AGILE-24-10-01 or VAR-22-11-01."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tariff_code",
+                  "description": "(Required) Tariff code, for example E-1R-AGILE-24-10-01-A."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a1647620-6cbd-472c-82e2-a5cf009d36c2",
+              "name": "A paginated list of gas standing charges.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    ":product_code",
+                    "gas-tariffs",
+                    ":tariff_code",
+                    "standing-charges",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "period_from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "period_to",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "product_code",
+                      "description": "(Required) Product code, for example AGILE-24-10-01 or VAR-22-11-01."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tariff_code",
+                      "description": "(Required) Tariff code, for example E-1R-AGILE-24-10-01-A."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 9976,\n  \"next\": \"string\",\n  \"previous\": \"string\",\n  \"results\": [\n    {\n      \"value_exc_vat\": 1427.4692339688345,\n      \"value_inc_vat\": 8156.696978046591,\n      \"valid_from\": \"1952-05-19T07:58:13.948Z\",\n      \"valid_to\": \"2016-03-28T10:53:43.641Z\",\n      \"payment_method\": \"string\"\n    },\n    {\n      \"value_exc_vat\": 7526.642855436217,\n      \"value_inc_vat\": 4430.941982607136,\n      \"valid_from\": \"2020-12-29T05:37:24.185Z\",\n      \"valid_to\": \"2021-07-02T09:15:03.946Z\",\n      \"payment_method\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "8aaf89cd-52a8-448f-b6d3-d04afde35365",
+      "name": "ElectricityMeterPoints",
+      "description": {
+        "content": "Electricity meter points (MPAN) and registered meters.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4dbbc0c2-8f9d-4d50-9b59-1b0e4d75d3a2",
+          "name": "Retrieve an Electricity Meter Point",
+          "request": {
+            "name": "Retrieve an Electricity Meter Point",
+            "description": {
+              "content": "Retrieve information about an electricity meter point including the GSP region and registered meters.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "electricity-meter-points",
+                ":mpan",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mpan",
+                  "description": "(Required) Meter Point Administration Number for electricity (13 digits)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "7bf07703-b719-4c61-bc74-049a93b6b4b1",
+              "name": "An electricity meter point.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "electricity-meter-points",
+                    ":mpan",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mpan",
+                      "description": "(Required) Meter Point Administration Number for electricity (13 digits)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"gsp\": \"string\",\n  \"mpan\": \"string\",\n  \"profile_class\": 2992,\n  \"meters\": [\n    {\n      \"serial_number\": \"string\",\n      \"registers\": [\n        {\n          \"identifier\": \"string\",\n          \"rate\": \"string\",\n          \"is_settlement_register\": true\n        },\n        {\n          \"identifier\": \"string\",\n          \"rate\": \"string\",\n          \"is_settlement_register\": false\n        }\n      ]\n    },\n    {\n      \"serial_number\": \"string\",\n      \"registers\": [\n        {\n          \"identifier\": \"string\",\n          \"rate\": \"string\",\n          \"is_settlement_register\": true\n        },\n        {\n          \"identifier\": \"string\",\n          \"rate\": \"string\",\n          \"is_settlement_register\": true\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "2a95e167-ea6a-4421-85c9-7408be186fa7",
+      "name": "GasMeterPoints",
+      "description": {
+        "content": "Gas meter points (MPRN) and registered meters.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2f45ad93-9967-4aeb-b9a1-c8f5e9b03335",
+          "name": "Retrieve a Gas Meter Point",
+          "request": {
+            "name": "Retrieve a Gas Meter Point",
+            "description": {},
+            "url": {
+              "path": [
+                "gas-meter-points",
+                ":mprn",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mprn",
+                  "description": "(Required) Meter Point Reference Number for gas."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d934e43f-67c8-4ec8-b2f3-efd4ec9a2b33",
+              "name": "A gas meter point.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gas-meter-points",
+                    ":mprn",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mprn",
+                      "description": "(Required) Meter Point Reference Number for gas."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"mprn\": \"string\",\n  \"consumption_standard\": 7175.594922085047,\n  \"meters\": [\n    {\n      \"serial_number\": \"string\",\n      \"registers\": [\n        {\n          \"identifier\": \"string\",\n          \"rate\": \"string\",\n          \"is_settlement_register\": false\n        },\n        {\n          \"identifier\": \"string\",\n          \"rate\": \"string\",\n          \"is_settlement_register\": true\n        }\n      ]\n    },\n    {\n      \"serial_number\": \"string\",\n      \"registers\": [\n        {\n          \"identifier\": \"string\",\n          \"rate\": \"string\",\n          \"is_settlement_register\": false\n        },\n        {\n          \"identifier\": \"string\",\n          \"rate\": \"string\",\n          \"is_settlement_register\": true\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "d765527a-2c1e-4a96-a24b-d58cebec980e",
+      "name": "Consumption",
+      "description": {
+        "content": "Half-hourly smart-meter consumption readings.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "47aa8829-1a3e-4ce0-91c8-2dd29e7eab39",
+          "name": "List Electricity Consumption",
+          "request": {
+            "name": "List Electricity Consumption",
+            "description": {
+              "content": "List half-hourly smart-meter electricity consumption readings for the given meter.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "electricity-meter-points",
+                ":mpan",
+                "meters",
+                ":serial_number",
+                "consumption",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "period_from",
+                  "value": "<dateTime>",
+                  "description": "ISO 8601 inclusive start of the period."
+                },
+                {
+                  "disabled": false,
+                  "key": "period_to",
+                  "value": "<dateTime>",
+                  "description": "ISO 8601 exclusive end of the period."
+                },
+                {
+                  "disabled": false,
+                  "key": "order_by",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "group_by",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mpan",
+                  "description": "(Required) Meter Point Administration Number for electricity (13 digits)."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "serial_number",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "c9cee350-a0a5-4b58-9ecc-9f3fb9b91196",
+              "name": "A paginated list of consumption readings.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "electricity-meter-points",
+                    ":mpan",
+                    "meters",
+                    ":serial_number",
+                    "consumption",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "period_from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "period_to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "group_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mpan",
+                      "description": "(Required) Meter Point Administration Number for electricity (13 digits)."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "serial_number",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 4628,\n  \"next\": \"string\",\n  \"previous\": \"string\",\n  \"results\": [\n    {\n      \"consumption\": 4852.017288813836,\n      \"interval_start\": \"1947-11-26T07:47:31.759Z\",\n      \"interval_end\": \"1950-04-26T10:57:02.279Z\"\n    },\n    {\n      \"consumption\": 1107.349519349461,\n      \"interval_start\": \"1998-10-31T14:51:25.916Z\",\n      \"interval_end\": \"2025-08-03T00:41:04.635Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d0b8f163-5281-44e0-9983-5002af535bd5",
+          "name": "List Gas Consumption",
+          "request": {
+            "name": "List Gas Consumption",
+            "description": {},
+            "url": {
+              "path": [
+                "gas-meter-points",
+                ":mprn",
+                "meters",
+                ":serial_number",
+                "consumption",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "period_from",
+                  "value": "<dateTime>",
+                  "description": "ISO 8601 inclusive start of the period."
+                },
+                {
+                  "disabled": false,
+                  "key": "period_to",
+                  "value": "<dateTime>",
+                  "description": "ISO 8601 exclusive end of the period."
+                },
+                {
+                  "disabled": false,
+                  "key": "group_by",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mprn",
+                  "description": "(Required) Meter Point Reference Number for gas."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "serial_number",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "b1b81961-36a8-402c-98ff-265e38c32bc5",
+              "name": "A paginated list of gas consumption readings.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gas-meter-points",
+                    ":mprn",
+                    "meters",
+                    ":serial_number",
+                    "consumption",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "period_from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "period_to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "group_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mprn",
+                      "description": "(Required) Meter Point Reference Number for gas."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "serial_number",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 443,\n  \"next\": \"string\",\n  \"previous\": \"string\",\n  \"results\": [\n    {\n      \"consumption\": 515.6998137773006,\n      \"interval_start\": \"2022-11-25T22:53:52.902Z\",\n      \"interval_end\": \"1997-06-11T04:50:51.443Z\"\n    },\n    {\n      \"consumption\": 439.1678262376575,\n      \"interval_start\": \"1991-04-18T15:51:01.321Z\",\n      \"interval_end\": \"2008-10-26T16:25:08.034Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "d9589e76-7c3a-49a6-8405-694bd6a13f0c",
+      "name": "Industry",
+      "description": {
+        "content": "UK industry references such as grid supply points.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7e04653c-98c9-41c2-b794-26eff27d0206",
+          "name": "List Grid Supply Points",
+          "request": {
+            "name": "List Grid Supply Points",
+            "description": {
+              "content": "List UK grid supply points and resolve the GSP for a postcode.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "industry",
+                "grid-supply-points",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "postcode",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ae07efcc-1465-46e5-a7ea-7c1dbed90492",
+              "name": "A list of grid supply points.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "industry",
+                    "grid-supply-points",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "postcode",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 4881,\n  \"next\": \"string\",\n  \"previous\": \"string\",\n  \"results\": [\n    {\n      \"group_id\": \"string\"\n    },\n    {\n      \"group_id\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.octopus.energy/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "129cd4af-ebdd-401c-8fe2-79c57adf0f11",
+    "name": "Octopus Energy Public API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Octopus Energy Public API is a free JSON-over-HTTPS REST API exposing the\nUK product catalog, electricity and gas tariffs, electricity and gas meter\npoints, half-hourly smart-meter consumption, and industry grid supply points.\n\nAuthentication uses HTTP Basic auth with a per-customer API key as the\nusername and an empty password. Products and tariffs endpoints are open and\ndo not require authentication; meter-point and consumption endpoints require\na key for the account that owns the meter.\n\n\nContact Support:\n Name: Octopus Energy Developer Support",
+      "type": "text/plain"
+    }
+  }
+}
