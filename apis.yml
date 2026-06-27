@@ -133,10 +133,10 @@ common:
   type: ChangeLog
 - url: https://developer.octopus.energy/auth/login/
   name: Developer Portal Login
-  type: SignUp
+  type: Signup
 - url: https://octopus.energy/dashboard/
   name: My Octopus Account
-  type: SignUp
+  type: Signup
 - url: https://octopus.energy/help-and-faqs/articles/api-information/
   name: API Information FAQ
   type: Support
@@ -204,25 +204,25 @@ common:
   type: GitHubOrganization
 - url: https://github.com/octoenergy/public-conventions
   name: Octopus Energy Public Conventions
-  type: Tool
+  type: Tools
 - url: https://github.com/octoenergy/xocto
   name: xocto - Python/Django Utilities from Kraken Technologies
-  type: SDK
+  type: SDKs
 - url: https://github.com/octoenergy/oejp-api-example
   name: Octopus Energy Japan API Example
   type: CodeExamples
 - url: https://github.com/octoenergy/octotools
   name: octotools - UK Energy Market Utilities
-  type: Tool
+  type: Tools
 - url: https://github.com/octoenergy/techzero-hackathon-2024
   name: Tech Zero Hackathon 2024
   type: CodeExamples
 - url: https://github.com/octoenergy/timeserio
   name: timeserio - Time Series Models
-  type: Tool
+  type: Tools
 - url: https://github.com/octoenergy/terraform-provider-splitpolicies
   name: Terraform Provider for Split Policies
-  type: Tool
+  type: Tools
 - url: https://www.linkedin.com/company/octopus-energy
   type: LinkedIn
 - url: https://www.linkedin.com/company/krakentech
