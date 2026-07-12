@@ -1,0 +1,14 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/octopus-energy-public-api-openapi.yml
+summary:
+  types:
+  - http
+schemes:
+- name: basicAuth
+  type: http
+  scheme: basic
+  description: HTTP Basic authentication with the customer API key as the username and an empty
+    password.
+  sources:
+  - openapi/octopus-energy-public-api-openapi.yml

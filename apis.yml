@@ -114,6 +114,12 @@ kind: contract
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 access: 3rd-Party
 common:
+- type: VulnerabilityDisclosure
+  url: security/octopus-energy-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/octopus-energy-domain-security.yml
+- type: Authentication
+  url: authentication/octopus-energy-authentication.yml
 - url: https://octopus.energy
   type: Portal
 - url: https://developer.octopus.energy/
