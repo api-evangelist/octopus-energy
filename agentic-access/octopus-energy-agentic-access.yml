@@ -1,0 +1,144 @@
+generated: '2026-07-15'
+method: generated
+source: openapi/octopus-energy-public-api-openapi.yml
+description: Recommended x-agentic-access execution contracts, classified heuristically from
+  the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
+  audience per deployment. See research/curity/agentic-governance/.
+summary:
+  operations: 13
+  by_action_class:
+    connected: 13
+  by_consequence:
+    read: 13
+  human_in_the_loop_required: 0
+operations:
+- path: /products/
+  method: get
+  operationId: listProducts
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /products/{product_code}/
+  method: get
+  operationId: getProduct
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /products/{product_code}/electricity-tariffs/{tariff_code}/standard-unit-rates/
+  method: get
+  operationId: listElectricityStandardUnitRates
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /products/{product_code}/electricity-tariffs/{tariff_code}/standing-charges/
+  method: get
+  operationId: listElectricityStandingCharges
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /products/{product_code}/electricity-tariffs/{tariff_code}/day-unit-rates/
+  method: get
+  operationId: listElectricityDayUnitRates
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /products/{product_code}/electricity-tariffs/{tariff_code}/night-unit-rates/
+  method: get
+  operationId: listElectricityNightUnitRates
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /products/{product_code}/gas-tariffs/{tariff_code}/standard-unit-rates/
+  method: get
+  operationId: listGasStandardUnitRates
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /products/{product_code}/gas-tariffs/{tariff_code}/standing-charges/
+  method: get
+  operationId: listGasStandingCharges
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /electricity-meter-points/{mpan}/
+  method: get
+  operationId: getElectricityMeterPoint
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /electricity-meter-points/{mpan}/meters/{serial_number}/consumption/
+  method: get
+  operationId: listElectricityConsumption
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /gas-meter-points/{mprn}/
+  method: get
+  operationId: getGasMeterPoint
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /gas-meter-points/{mprn}/meters/{serial_number}/consumption/
+  method: get
+  operationId: listGasConsumption
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /industry/grid-supply-points/
+  method: get
+  operationId: listGridSupplyPoints
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
