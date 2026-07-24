@@ -1,0 +1,270 @@
+openapi: 3.0.3
+info:
+  title: Octopus Energy Public Consumption Products API
+  version: '1.0'
+  description: 'The Octopus Energy Public API is a free JSON-over-HTTPS REST API exposing the
+
+    UK product catalog, electricity and gas tariffs, electricity and gas meter
+
+    points, half-hourly smart-meter consumption, and industry grid supply points.
+
+
+    Authentication uses HTTP Basic auth with a per-customer API key as the
+
+    username and an empty password. Products and tariffs endpoints are open and
+
+    do not require authentication; meter-point and consumption endpoints require
+
+    a key for the account that owns the meter.
+
+    '
+  contact:
+    name: Octopus Energy Developer Support
+    url: https://developer.octopus.energy/docs/api/
+  license:
+    name: Octopus Energy API Terms
+    url: https://octopus.energy/policies/
+servers:
+- url: https://api.octopus.energy/v1
+  description: Public production API
+security:
+- basicAuth: []
+- {}
+tags:
+- name: Products
+  description: Octopus Energy product catalog and tariff lookups.
+paths:
+  /products/:
+    get:
+      tags:
+      - Products
+      summary: List Products
+      description: List Octopus Energy products. Filter by availability, business type, variant, and brand.
+      operationId: listProducts
+      parameters:
+      - $ref: '#/components/parameters/Page'
+      - $ref: '#/components/parameters/PageSize'
+      - name: is_variable
+        in: query
+        schema:
+          type: boolean
+      - name: is_green
+        in: query
+        schema:
+          type: boolean
+      - name: is_tracker
+        in: query
+        schema:
+          type: boolean
+      - name: is_prepay
+        in: query
+        schema:
+          type: boolean
+      - name: is_business
+        in: query
+        schema:
+          type: boolean
+      - name: available_at
+        in: query
+        description: ISO 8601 timestamp filtering products available at that moment.
+        schema:
+          type: string
+          format: date-time
+      - name: brand
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: A paginated list of products.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedProductList'
+  /products/{product_code}/:
+    get:
+      tags:
+      - Products
+      summary: Retrieve a Product
+      description: Retrieve a single product including its electricity and gas tariffs by region.
+      operationId: getProduct
+      parameters:
+      - $ref: '#/components/parameters/ProductCode'
+      - name: tariffs_active_at
+        in: query
+        schema:
+          type: string
+          format: date-time
+      responses:
+        '200':
+          description: The requested product.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductDetail'
+components:
+  parameters:
+    ProductCode:
+      name: product_code
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Product code, for example AGILE-24-10-01 or VAR-22-11-01.
+    Page:
+      name: page
+      in: query
+      schema:
+        type: integer
+        minimum: 1
+    PageSize:
+      name: page_size
+      in: query
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 1500
+  schemas:
+    TariffByPayment:
+      type: object
+      additionalProperties:
+        $ref: '#/components/schemas/Tariff'
+    Link:
+      type: object
+      properties:
+        href:
+          type: string
+        method:
+          type: string
+        rel:
+          type: string
+    Paginated:
+      type: object
+      properties:
+        count:
+          type: integer
+        next:
+          type: string
+          nullable: true
+        previous:
+          type: string
+          nullable: true
+    PaginatedProductList:
+      allOf:
+      - $ref: '#/components/schemas/Paginated'
+      - type: object
+        properties:
+          results:
+            type: array
+            items:
+              $ref: '#/components/schemas/Product'
+    Tariff:
+      type: object
+      properties:
+        code:
+          type: string
+        standing_charge_exc_vat:
+          type: number
+        standing_charge_inc_vat:
+          type: number
+        online_discount_exc_vat:
+          type: number
+        online_discount_inc_vat:
+          type: number
+        dual_fuel_discount_exc_vat:
+          type: number
+        dual_fuel_discount_inc_vat:
+          type: number
+        exit_fees_exc_vat:
+          type: number
+        exit_fees_inc_vat:
+          type: number
+        standard_unit_rate_exc_vat:
+          type: number
+        standard_unit_rate_inc_vat:
+          type: number
+        day_unit_rate_exc_vat:
+          type: number
+        day_unit_rate_inc_vat:
+          type: number
+        night_unit_rate_exc_vat:
+          type: number
+        night_unit_rate_inc_vat:
+          type: number
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/Link'
+    ProductDetail:
+      allOf:
+      - $ref: '#/components/schemas/Product'
+      - type: object
+        properties:
+          tariffs_active_at:
+            type: string
+            format: date-time
+          single_register_electricity_tariffs:
+            type: object
+            additionalProperties:
+              $ref: '#/components/schemas/TariffByPayment'
+          dual_register_electricity_tariffs:
+            type: object
+            additionalProperties:
+              $ref: '#/components/schemas/TariffByPayment'
+          single_register_gas_tariffs:
+            type: object
+            additionalProperties:
+              $ref: '#/components/schemas/TariffByPayment'
+          sample_quotes:
+            type: object
+          sample_consumption:
+            type: object
+    Product:
+      type: object
+      properties:
+        code:
+          type: string
+        direction:
+          type: string
+          enum:
+          - IMPORT
+          - EXPORT
+        full_name:
+          type: string
+        display_name:
+          type: string
+        description:
+          type: string
+        is_variable:
+          type: boolean
+        is_green:
+          type: boolean
+        is_tracker:
+          type: boolean
+        is_prepay:
+          type: boolean
+        is_business:
+          type: boolean
+        is_restricted:
+          type: boolean
+        term:
+          type: integer
+          nullable: true
+        available_from:
+          type: string
+          format: date-time
+        available_to:
+          type: string
+          format: date-time
+          nullable: true
+        brand:
+          type: string
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/Link'
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: HTTP Basic authentication with the customer API key as the username and an empty password.

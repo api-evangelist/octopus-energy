@@ -1,0 +1,195 @@
+openapi: 3.0.3
+info:
+  title: Octopus Energy Public Consumption API
+  version: '1.0'
+  description: 'The Octopus Energy Public API is a free JSON-over-HTTPS REST API exposing the
+
+    UK product catalog, electricity and gas tariffs, electricity and gas meter
+
+    points, half-hourly smart-meter consumption, and industry grid supply points.
+
+
+    Authentication uses HTTP Basic auth with a per-customer API key as the
+
+    username and an empty password. Products and tariffs endpoints are open and
+
+    do not require authentication; meter-point and consumption endpoints require
+
+    a key for the account that owns the meter.
+
+    '
+  contact:
+    name: Octopus Energy Developer Support
+    url: https://developer.octopus.energy/docs/api/
+  license:
+    name: Octopus Energy API Terms
+    url: https://octopus.energy/policies/
+servers:
+- url: https://api.octopus.energy/v1
+  description: Public production API
+security:
+- basicAuth: []
+- {}
+tags:
+- name: Consumption
+  description: Half-hourly smart-meter consumption readings.
+paths:
+  /electricity-meter-points/{mpan}/meters/{serial_number}/consumption/:
+    get:
+      tags:
+      - Consumption
+      summary: List Electricity Consumption
+      description: List half-hourly smart-meter electricity consumption readings for the given meter.
+      operationId: listElectricityConsumption
+      security:
+      - basicAuth: []
+      parameters:
+      - $ref: '#/components/parameters/MPAN'
+      - $ref: '#/components/parameters/SerialNumber'
+      - $ref: '#/components/parameters/PeriodFrom'
+      - $ref: '#/components/parameters/PeriodTo'
+      - name: order_by
+        in: query
+        schema:
+          type: string
+          enum:
+          - period
+          - -period
+      - name: group_by
+        in: query
+        schema:
+          type: string
+          enum:
+          - hour
+          - day
+          - week
+          - month
+          - quarter
+      - $ref: '#/components/parameters/Page'
+      - $ref: '#/components/parameters/PageSize'
+      responses:
+        '200':
+          description: A paginated list of consumption readings.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedConsumptionList'
+  /gas-meter-points/{mprn}/meters/{serial_number}/consumption/:
+    get:
+      tags:
+      - Consumption
+      summary: List Gas Consumption
+      operationId: listGasConsumption
+      security:
+      - basicAuth: []
+      parameters:
+      - $ref: '#/components/parameters/MPRN'
+      - $ref: '#/components/parameters/SerialNumber'
+      - $ref: '#/components/parameters/PeriodFrom'
+      - $ref: '#/components/parameters/PeriodTo'
+      - name: group_by
+        in: query
+        schema:
+          type: string
+          enum:
+          - hour
+          - day
+          - week
+          - month
+          - quarter
+      - $ref: '#/components/parameters/Page'
+      - $ref: '#/components/parameters/PageSize'
+      responses:
+        '200':
+          description: A paginated list of gas consumption readings.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedConsumptionList'
+components:
+  parameters:
+    Page:
+      name: page
+      in: query
+      schema:
+        type: integer
+        minimum: 1
+    PeriodTo:
+      name: period_to
+      in: query
+      schema:
+        type: string
+        format: date-time
+      description: ISO 8601 exclusive end of the period.
+    SerialNumber:
+      name: serial_number
+      in: path
+      required: true
+      schema:
+        type: string
+    PageSize:
+      name: page_size
+      in: query
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 1500
+    MPAN:
+      name: mpan
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Meter Point Administration Number for electricity (13 digits).
+    MPRN:
+      name: mprn
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Meter Point Reference Number for gas.
+    PeriodFrom:
+      name: period_from
+      in: query
+      schema:
+        type: string
+        format: date-time
+      description: ISO 8601 inclusive start of the period.
+  schemas:
+    Paginated:
+      type: object
+      properties:
+        count:
+          type: integer
+        next:
+          type: string
+          nullable: true
+        previous:
+          type: string
+          nullable: true
+    ConsumptionReading:
+      type: object
+      properties:
+        consumption:
+          type: number
+          description: kWh consumed in the interval.
+        interval_start:
+          type: string
+          format: date-time
+        interval_end:
+          type: string
+          format: date-time
+    PaginatedConsumptionList:
+      allOf:
+      - $ref: '#/components/schemas/Paginated'
+      - type: object
+        properties:
+          results:
+            type: array
+            items:
+              $ref: '#/components/schemas/ConsumptionReading'
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: HTTP Basic authentication with the customer API key as the username and an empty password.

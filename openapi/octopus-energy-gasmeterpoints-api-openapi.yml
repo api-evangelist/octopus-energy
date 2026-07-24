@@ -1,0 +1,95 @@
+openapi: 3.0.3
+info:
+  title: Octopus Energy Public Consumption GasMeterPoints API
+  version: '1.0'
+  description: 'The Octopus Energy Public API is a free JSON-over-HTTPS REST API exposing the
+
+    UK product catalog, electricity and gas tariffs, electricity and gas meter
+
+    points, half-hourly smart-meter consumption, and industry grid supply points.
+
+
+    Authentication uses HTTP Basic auth with a per-customer API key as the
+
+    username and an empty password. Products and tariffs endpoints are open and
+
+    do not require authentication; meter-point and consumption endpoints require
+
+    a key for the account that owns the meter.
+
+    '
+  contact:
+    name: Octopus Energy Developer Support
+    url: https://developer.octopus.energy/docs/api/
+  license:
+    name: Octopus Energy API Terms
+    url: https://octopus.energy/policies/
+servers:
+- url: https://api.octopus.energy/v1
+  description: Public production API
+security:
+- basicAuth: []
+- {}
+tags:
+- name: GasMeterPoints
+  description: Gas meter points (MPRN) and registered meters.
+paths:
+  /gas-meter-points/{mprn}/:
+    get:
+      tags:
+      - GasMeterPoints
+      summary: Retrieve a Gas Meter Point
+      operationId: getGasMeterPoint
+      security:
+      - basicAuth: []
+      parameters:
+      - $ref: '#/components/parameters/MPRN'
+      responses:
+        '200':
+          description: A gas meter point.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GasMeterPoint'
+components:
+  parameters:
+    MPRN:
+      name: mprn
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Meter Point Reference Number for gas.
+  schemas:
+    Meter:
+      type: object
+      properties:
+        serial_number:
+          type: string
+        registers:
+          type: array
+          items:
+            type: object
+            properties:
+              identifier:
+                type: string
+              rate:
+                type: string
+              is_settlement_register:
+                type: boolean
+    GasMeterPoint:
+      type: object
+      properties:
+        mprn:
+          type: string
+        consumption_standard:
+          type: number
+        meters:
+          type: array
+          items:
+            $ref: '#/components/schemas/Meter'
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: HTTP Basic authentication with the customer API key as the username and an empty password.

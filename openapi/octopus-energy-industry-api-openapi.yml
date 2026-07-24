@@ -1,0 +1,87 @@
+openapi: 3.0.3
+info:
+  title: Octopus Energy Public Consumption Industry API
+  version: '1.0'
+  description: 'The Octopus Energy Public API is a free JSON-over-HTTPS REST API exposing the
+
+    UK product catalog, electricity and gas tariffs, electricity and gas meter
+
+    points, half-hourly smart-meter consumption, and industry grid supply points.
+
+
+    Authentication uses HTTP Basic auth with a per-customer API key as the
+
+    username and an empty password. Products and tariffs endpoints are open and
+
+    do not require authentication; meter-point and consumption endpoints require
+
+    a key for the account that owns the meter.
+
+    '
+  contact:
+    name: Octopus Energy Developer Support
+    url: https://developer.octopus.energy/docs/api/
+  license:
+    name: Octopus Energy API Terms
+    url: https://octopus.energy/policies/
+servers:
+- url: https://api.octopus.energy/v1
+  description: Public production API
+security:
+- basicAuth: []
+- {}
+tags:
+- name: Industry
+  description: UK industry references such as grid supply points.
+paths:
+  /industry/grid-supply-points/:
+    get:
+      tags:
+      - Industry
+      summary: List Grid Supply Points
+      description: List UK grid supply points and resolve the GSP for a postcode.
+      operationId: listGridSupplyPoints
+      parameters:
+      - name: postcode
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: A list of grid supply points.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedGridSupplyPointList'
+components:
+  schemas:
+    GridSupplyPoint:
+      type: object
+      properties:
+        group_id:
+          type: string
+    PaginatedGridSupplyPointList:
+      allOf:
+      - $ref: '#/components/schemas/Paginated'
+      - type: object
+        properties:
+          results:
+            type: array
+            items:
+              $ref: '#/components/schemas/GridSupplyPoint'
+    Paginated:
+      type: object
+      properties:
+        count:
+          type: integer
+        next:
+          type: string
+          nullable: true
+        previous:
+          type: string
+          nullable: true
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: HTTP Basic authentication with the customer API key as the username and an empty password.
