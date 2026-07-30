@@ -1,39 +1,6 @@
 aid: octopus-energy
 url: https://raw.githubusercontent.com/api-evangelist/octopus-energy/refs/heads/main/apis.yml
 apis:
-- aid: octopus-energy:octopus-energy-public-api
-  name: Octopus Energy Public API
-  tags:
-  - Energy
-  - Electricity
-  - Gas
-  - Tariffs
-  - Meter Points
-  - Consumption
-  - Smart Meter
-  - UK
-  humanURL: https://developer.octopus.energy/docs/api/
-  baseURL: https://api.octopus.energy/v1/
-  properties:
-  - url: https://developer.octopus.energy/docs/api/
-    type: Documentation
-  - url: https://developer.octopus.energy/rest/guides/api-basics
-    type: GettingStarted
-  - url: openapi/octopus-energy-public-api-openapi.yml
-    type: OpenAPI
-  - url: json-schema/octopus-energy-product-schema.json
-    type: JSONSchema
-  - url: json-schema/octopus-energy-consumption-schema.json
-    type: JSONSchema
-  - url: json-ld/octopus-energy-context.jsonld
-    type: JSONLD
-  description: >-
-    The Octopus Energy Public API is a free, JSON-over-HTTPS REST API exposing the company's full UK product catalog,
-    electricity and gas tariff pricing, electricity and gas meter-point information, half-hourly smart-meter
-    consumption data, and industry grid supply points. Customers authenticate with their own API key over HTTP Basic
-    auth to access their meters and consumption; the products and tariffs surfaces are open and unauthenticated. The
-    Agile Octopus and Octopus Tracker tariffs publish half-hourly and daily wholesale-linked unit rates that
-    downstream automations consume to schedule EV charging, heat-pump heating, and battery dispatch.
 - aid: octopus-energy:octopus-energy-kraken-rest-api
   name: Octopus Energy Kraken REST API
   tags:
@@ -56,10 +23,11 @@ apis:
   - url: https://developer.octopus.energy/rest/guides/authentication
     type: Authentication
   description: >-
-    The Octopus Energy developer portal exposes a Kraken-backed REST API alongside the public GraphQL surface. The
-    REST API is generated from an OpenAPI specification published in the developer portal Reference section, with API
-    Collections that group endpoints by feature. Partners use the REST API for account onboarding, meter-point
-    registration, consumption pulls, and tariff lookups against the Kraken energy operating system.
+    The Octopus Energy developer portal exposes a Kraken-backed REST API alongside the public GraphQL
+    surface. The REST API is generated from an OpenAPI specification published in the developer portal
+    Reference section, with API Collections that group endpoints by feature. Partners use the REST API
+    for account onboarding, meter-point registration, consumption pulls, and tariff lookups against the
+    Kraken energy operating system.
 - aid: octopus-energy:octopus-energy-kraken-graphql-api
   name: Octopus Energy Kraken GraphQL API
   tags:
@@ -89,12 +57,152 @@ apis:
   - url: graphql/octopus-energy-graphql.md
     type: GraphQL
   description: >-
-    The Octopus Energy GraphQL API is the primary Kraken interface for partner and customer-facing integrations. A
-    single /v1/graphql/ endpoint exposes queries and mutations grouped into API Collections by feature — accounts,
-    ledgers, billing, smart meters, half-hourly consumption, EV chargers, heat pumps, batteries, Intelligent Octopus
-    dispatch schedules, and Octopus Electroverse devices. Kraken's GraphQL introspection plus a public changelog let
-    third-party developers build smart-charging, demand-response, and home-energy-management apps directly against
-    Kraken-powered utilities.
+    The Octopus Energy GraphQL API is the primary Kraken interface for partner and customer-facing integrations.
+    A single /v1/graphql/ endpoint exposes queries and mutations grouped into API Collections by feature
+    — accounts, ledgers, billing, smart meters, half-hourly consumption, EV chargers, heat pumps, batteries,
+    Intelligent Octopus dispatch schedules, and Octopus Electroverse devices. Kraken's GraphQL introspection
+    plus a public changelog let third-party developers build smart-charging, demand-response, and home-energy-management
+    apps directly against Kraken-powered utilities.
+- aid: octopus-energy:octopus-energy-consumption-api
+  name: Octopus Energy Consumption API
+  description: Half-hourly smart-meter consumption readings.
+  humanURL: https://developer.octopus.energy/docs/api/
+  baseURL: https://api.octopus.energy/v1/
+  tags:
+  - Consumption
+  properties:
+  - type: OpenAPI
+    url: openapi/octopus-energy-consumption-api-openapi.yml
+  - type: Documentation
+    url: https://developer.octopus.energy/docs/api/
+  - type: GettingStarted
+    url: https://developer.octopus.energy/rest/guides/api-basics
+  - type: JSONSchema
+    url: json-schema/octopus-energy-product-schema.json
+  - type: JSONSchema
+    url: json-schema/octopus-energy-consumption-schema.json
+  - type: JSONLD
+    url: json-ld/octopus-energy-context.jsonld
+- aid: octopus-energy:octopus-energy-electricitymeterpoints-api
+  name: Octopus Energy ElectricityMeterPoints API
+  description: Electricity meter points (MPAN) and registered meters.
+  humanURL: https://developer.octopus.energy/docs/api/
+  baseURL: https://api.octopus.energy/v1/
+  tags:
+  - ElectricityMeterPoints
+  properties:
+  - type: OpenAPI
+    url: openapi/octopus-energy-electricitymeterpoints-api-openapi.yml
+  - type: Documentation
+    url: https://developer.octopus.energy/docs/api/
+  - type: GettingStarted
+    url: https://developer.octopus.energy/rest/guides/api-basics
+  - type: JSONSchema
+    url: json-schema/octopus-energy-product-schema.json
+  - type: JSONSchema
+    url: json-schema/octopus-energy-consumption-schema.json
+  - type: JSONLD
+    url: json-ld/octopus-energy-context.jsonld
+- aid: octopus-energy:octopus-energy-electricitytariffs-api
+  name: Octopus Energy ElectricityTariffs API
+  description: Electricity tariff unit rates and standing charges.
+  humanURL: https://developer.octopus.energy/docs/api/
+  baseURL: https://api.octopus.energy/v1/
+  tags:
+  - ElectricityTariffs
+  properties:
+  - type: OpenAPI
+    url: openapi/octopus-energy-electricitytariffs-api-openapi.yml
+  - type: Documentation
+    url: https://developer.octopus.energy/docs/api/
+  - type: GettingStarted
+    url: https://developer.octopus.energy/rest/guides/api-basics
+  - type: JSONSchema
+    url: json-schema/octopus-energy-product-schema.json
+  - type: JSONSchema
+    url: json-schema/octopus-energy-consumption-schema.json
+  - type: JSONLD
+    url: json-ld/octopus-energy-context.jsonld
+- aid: octopus-energy:octopus-energy-gasmeterpoints-api
+  name: Octopus Energy GasMeterPoints API
+  description: Gas meter points (MPRN) and registered meters.
+  humanURL: https://developer.octopus.energy/docs/api/
+  baseURL: https://api.octopus.energy/v1/
+  tags:
+  - GasMeterPoints
+  properties:
+  - type: OpenAPI
+    url: openapi/octopus-energy-gasmeterpoints-api-openapi.yml
+  - type: Documentation
+    url: https://developer.octopus.energy/docs/api/
+  - type: GettingStarted
+    url: https://developer.octopus.energy/rest/guides/api-basics
+  - type: JSONSchema
+    url: json-schema/octopus-energy-product-schema.json
+  - type: JSONSchema
+    url: json-schema/octopus-energy-consumption-schema.json
+  - type: JSONLD
+    url: json-ld/octopus-energy-context.jsonld
+- aid: octopus-energy:octopus-energy-gastariffs-api
+  name: Octopus Energy GasTariffs API
+  description: Gas tariff unit rates and standing charges.
+  humanURL: https://developer.octopus.energy/docs/api/
+  baseURL: https://api.octopus.energy/v1/
+  tags:
+  - GasTariffs
+  properties:
+  - type: OpenAPI
+    url: openapi/octopus-energy-gastariffs-api-openapi.yml
+  - type: Documentation
+    url: https://developer.octopus.energy/docs/api/
+  - type: GettingStarted
+    url: https://developer.octopus.energy/rest/guides/api-basics
+  - type: JSONSchema
+    url: json-schema/octopus-energy-product-schema.json
+  - type: JSONSchema
+    url: json-schema/octopus-energy-consumption-schema.json
+  - type: JSONLD
+    url: json-ld/octopus-energy-context.jsonld
+- aid: octopus-energy:octopus-energy-industry-api
+  name: Octopus Energy Industry API
+  description: UK industry references such as grid supply points.
+  humanURL: https://developer.octopus.energy/docs/api/
+  baseURL: https://api.octopus.energy/v1/
+  tags:
+  - Industry
+  properties:
+  - type: OpenAPI
+    url: openapi/octopus-energy-industry-api-openapi.yml
+  - type: Documentation
+    url: https://developer.octopus.energy/docs/api/
+  - type: GettingStarted
+    url: https://developer.octopus.energy/rest/guides/api-basics
+  - type: JSONSchema
+    url: json-schema/octopus-energy-product-schema.json
+  - type: JSONSchema
+    url: json-schema/octopus-energy-consumption-schema.json
+  - type: JSONLD
+    url: json-ld/octopus-energy-context.jsonld
+- aid: octopus-energy:octopus-energy-products-api
+  name: Octopus Energy Products API
+  description: Octopus Energy product catalog and tariff lookups.
+  humanURL: https://developer.octopus.energy/docs/api/
+  baseURL: https://api.octopus.energy/v1/
+  tags:
+  - Products
+  properties:
+  - type: OpenAPI
+    url: openapi/octopus-energy-products-api-openapi.yml
+  - type: Documentation
+    url: https://developer.octopus.energy/docs/api/
+  - type: GettingStarted
+    url: https://developer.octopus.energy/rest/guides/api-basics
+  - type: JSONSchema
+    url: json-schema/octopus-energy-product-schema.json
+  - type: JSONSchema
+    url: json-schema/octopus-energy-consumption-schema.json
+  - type: JSONLD
+    url: json-ld/octopus-energy-context.jsonld
 name: Octopus Energy
 tags:
 - Energy
@@ -111,7 +219,20 @@ tags:
 - Solar
 - Battery
 kind: contract
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/octopus-energy.png
 access: 3rd-Party
 common:
 - type: AgenticAccess
