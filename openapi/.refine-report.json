@@ -1,0 +1,26 @@
+{
+  "provider": "octopus-energy",
+  "sources": [
+    "octopus-energy-consumption-api-openapi.yml",
+    "octopus-energy-electricitymeterpoints-api-openapi.yml",
+    "octopus-energy-electricitytariffs-api-openapi.yml",
+    "octopus-energy-gasmeterpoints-api-openapi.yml",
+    "octopus-energy-gastariffs-api-openapi.yml",
+    "octopus-energy-industry-api-openapi.yml",
+    "octopus-energy-products-api-openapi.yml"
+  ],
+  "outputs": [
+    "octopus-energy-consumption-api-openapi.yml",
+    "octopus-energy-electricitymeterpoints-api-openapi.yml",
+    "octopus-energy-electricitytariffs-api-openapi.yml",
+    "octopus-energy-gasmeterpoints-api-openapi.yml",
+    "octopus-energy-gastariffs-api-openapi.yml",
+    "octopus-energy-industry-api-openapi.yml",
+    "octopus-energy-products-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
