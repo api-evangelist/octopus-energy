@@ -1,0 +1,142 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Octopus Energy Public Consumption API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Consumption",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Electricity Consumption",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.octopus.energy/v1/electricity-meter-points/:mpan/meters/:serial_number/consumption/",
+            "params": [
+              {
+                "name": "mpan",
+                "value": "",
+                "type": "path",
+                "description": "Meter Point Administration Number for electricity (13 digits)."
+              },
+              {
+                "name": "serial_number",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "period_from",
+                "value": "",
+                "type": "query",
+                "description": "ISO 8601 inclusive start of the period."
+              },
+              {
+                "name": "period_to",
+                "value": "",
+                "type": "query",
+                "description": "ISO 8601 exclusive end of the period."
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "group_by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "List half-hourly smart-meter electricity consumption readings for the given meter."
+        },
+        {
+          "info": {
+            "name": "List Gas Consumption",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.octopus.energy/v1/gas-meter-points/:mprn/meters/:serial_number/consumption/",
+            "params": [
+              {
+                "name": "mprn",
+                "value": "",
+                "type": "path",
+                "description": "Meter Point Reference Number for gas."
+              },
+              {
+                "name": "serial_number",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "period_from",
+                "value": "",
+                "type": "query",
+                "description": "ISO 8601 inclusive start of the period."
+              },
+              {
+                "name": "period_to",
+                "value": "",
+                "type": "query",
+                "description": "ISO 8601 exclusive end of the period."
+              },
+              {
+                "name": "group_by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "List Gas Consumption"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,193 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Octopus Energy Public Consumption ElectricityTariffs API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ElectricityTariffs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Electricity Standard Unit Rates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.octopus.energy/v1/products/:product_code/electricity-tariffs/:tariff_code/standard-unit-rates/",
+            "params": [
+              {
+                "name": "product_code",
+                "value": "",
+                "type": "path",
+                "description": "Product code, for example AGILE-24-10-01 or VAR-22-11-01."
+              },
+              {
+                "name": "tariff_code",
+                "value": "",
+                "type": "path",
+                "description": "Tariff code, for example E-1R-AGILE-24-10-01-A."
+              },
+              {
+                "name": "period_from",
+                "value": "",
+                "type": "query",
+                "description": "ISO 8601 inclusive start of the period."
+              },
+              {
+                "name": "period_to",
+                "value": "",
+                "type": "query",
+                "description": "ISO 8601 exclusive end of the period."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Half-hourly or daily standard unit rates for an electricity tariff such as Agile Octopus or Octopus Tracker."
+        },
+        {
+          "info": {
+            "name": "List Electricity Standing Charges",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.octopus.energy/v1/products/:product_code/electricity-tariffs/:tariff_code/standing-charges/",
+            "params": [
+              {
+                "name": "product_code",
+                "value": "",
+                "type": "path",
+                "description": "Product code, for example AGILE-24-10-01 or VAR-22-11-01."
+              },
+              {
+                "name": "tariff_code",
+                "value": "",
+                "type": "path",
+                "description": "Tariff code, for example E-1R-AGILE-24-10-01-A."
+              },
+              {
+                "name": "period_from",
+                "value": "",
+                "type": "query",
+                "description": "ISO 8601 inclusive start of the period."
+              },
+              {
+                "name": "period_to",
+                "value": "",
+                "type": "query",
+                "description": "ISO 8601 exclusive end of the period."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List Electricity Standing Charges"
+        },
+        {
+          "info": {
+            "name": "List Electricity Day Unit Rates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.octopus.energy/v1/products/:product_code/electricity-tariffs/:tariff_code/day-unit-rates/",
+            "params": [
+              {
+                "name": "product_code",
+                "value": "",
+                "type": "path",
+                "description": "Product code, for example AGILE-24-10-01 or VAR-22-11-01."
+              },
+              {
+                "name": "tariff_code",
+                "value": "",
+                "type": "path",
+                "description": "Tariff code, for example E-1R-AGILE-24-10-01-A."
+              },
+              {
+                "name": "period_from",
+                "value": "",
+                "type": "query",
+                "description": "ISO 8601 inclusive start of the period."
+              },
+              {
+                "name": "period_to",
+                "value": "",
+                "type": "query",
+                "description": "ISO 8601 exclusive end of the period."
+              }
+            ]
+          },
+          "docs": "List Electricity Day Unit Rates"
+        },
+        {
+          "info": {
+            "name": "List Electricity Night Unit Rates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.octopus.energy/v1/products/:product_code/electricity-tariffs/:tariff_code/night-unit-rates/",
+            "params": [
+              {
+                "name": "product_code",
+                "value": "",
+                "type": "path",
+                "description": "Product code, for example AGILE-24-10-01 or VAR-22-11-01."
+              },
+              {
+                "name": "tariff_code",
+                "value": "",
+                "type": "path",
+                "description": "Tariff code, for example E-1R-AGILE-24-10-01-A."
+              },
+              {
+                "name": "period_from",
+                "value": "",
+                "type": "query",
+                "description": "ISO 8601 inclusive start of the period."
+              },
+              {
+                "name": "period_to",
+                "value": "",
+                "type": "query",
+                "description": "ISO 8601 exclusive end of the period."
+              }
+            ]
+          },
+          "docs": "List Electricity Night Unit Rates"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

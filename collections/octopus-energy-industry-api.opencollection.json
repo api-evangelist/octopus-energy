@@ -1,0 +1,43 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Octopus Energy Public Consumption Industry API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Industry",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Grid Supply Points",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.octopus.energy/v1/industry/grid-supply-points/",
+            "params": [
+              {
+                "name": "postcode",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List UK grid supply points and resolve the GSP for a postcode."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

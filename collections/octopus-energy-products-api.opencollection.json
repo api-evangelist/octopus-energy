@@ -1,0 +1,108 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Octopus Energy Public Consumption Products API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Products",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Products",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.octopus.energy/v1/products/",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "is_variable",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "is_green",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "is_tracker",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "is_prepay",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "is_business",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "available_at",
+                "value": "",
+                "type": "query",
+                "description": "ISO 8601 timestamp filtering products available at that moment."
+              },
+              {
+                "name": "brand",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List Octopus Energy products. Filter by availability, business type, variant, and brand."
+        },
+        {
+          "info": {
+            "name": "Retrieve a Product",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.octopus.energy/v1/products/:product_code/",
+            "params": [
+              {
+                "name": "product_code",
+                "value": "",
+                "type": "path",
+                "description": "Product code, for example AGILE-24-10-01 or VAR-22-11-01."
+              },
+              {
+                "name": "tariffs_active_at",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve a single product including its electricity and gas tariffs by region."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

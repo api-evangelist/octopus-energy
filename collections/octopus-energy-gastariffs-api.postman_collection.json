@@ -1,0 +1,319 @@
+{
+  "item": [
+    {
+      "id": "35991922-54b4-4743-8657-6e5ddc730ac3",
+      "name": "GasTariffs",
+      "description": {
+        "content": "Gas tariff unit rates and standing charges.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6309e592-35ef-4f1d-b0c5-cf5f32cb036f",
+          "name": "List Gas Standard Unit Rates",
+          "request": {
+            "name": "List Gas Standard Unit Rates",
+            "description": {},
+            "url": {
+              "path": [
+                "products",
+                ":product_code",
+                "gas-tariffs",
+                ":tariff_code",
+                "standard-unit-rates",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "period_from",
+                  "value": "<dateTime>",
+                  "description": "ISO 8601 inclusive start of the period."
+                },
+                {
+                  "disabled": false,
+                  "key": "period_to",
+                  "value": "<dateTime>",
+                  "description": "ISO 8601 exclusive end of the period."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "product_code",
+                  "description": "(Required) Product code, for example AGILE-24-10-01 or VAR-22-11-01."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tariff_code",
+                  "description": "(Required) Tariff code, for example E-1R-AGILE-24-10-01-A."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1d09f4ca-3552-4c49-b187-48e2aa1d8430",
+              "name": "A paginated list of gas standard unit rates.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    ":product_code",
+                    "gas-tariffs",
+                    ":tariff_code",
+                    "standard-unit-rates",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "period_from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "period_to",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "product_code",
+                      "description": "(Required) Product code, for example AGILE-24-10-01 or VAR-22-11-01."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tariff_code",
+                      "description": "(Required) Tariff code, for example E-1R-AGILE-24-10-01-A."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 9275,\n  \"next\": \"string\",\n  \"previous\": \"string\",\n  \"results\": [\n    {\n      \"value_exc_vat\": 6355.786991147954,\n      \"value_inc_vat\": 833.647788013443,\n      \"valid_from\": \"2006-11-17T05:25:17.810Z\",\n      \"valid_to\": \"1979-02-24T09:43:39.530Z\",\n      \"payment_method\": \"string\"\n    },\n    {\n      \"value_exc_vat\": 1339.05429389936,\n      \"value_inc_vat\": 2503.143026930699,\n      \"valid_from\": \"1963-01-28T08:04:58.291Z\",\n      \"valid_to\": \"2022-10-02T01:43:48.249Z\",\n      \"payment_method\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "41204b1b-c44a-43c3-bce0-c2cfb2eb9155",
+          "name": "List Gas Standing Charges",
+          "request": {
+            "name": "List Gas Standing Charges",
+            "description": {},
+            "url": {
+              "path": [
+                "products",
+                ":product_code",
+                "gas-tariffs",
+                ":tariff_code",
+                "standing-charges",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "period_from",
+                  "value": "<dateTime>",
+                  "description": "ISO 8601 inclusive start of the period."
+                },
+                {
+                  "disabled": false,
+                  "key": "period_to",
+                  "value": "<dateTime>",
+                  "description": "ISO 8601 exclusive end of the period."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "product_code",
+                  "description": "(Required) Product code, for example AGILE-24-10-01 or VAR-22-11-01."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tariff_code",
+                  "description": "(Required) Tariff code, for example E-1R-AGILE-24-10-01-A."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bf166bc5-cb44-4f07-a6a0-f1772f46133a",
+              "name": "A paginated list of gas standing charges.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    ":product_code",
+                    "gas-tariffs",
+                    ":tariff_code",
+                    "standing-charges",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "period_from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "period_to",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "product_code",
+                      "description": "(Required) Product code, for example AGILE-24-10-01 or VAR-22-11-01."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tariff_code",
+                      "description": "(Required) Tariff code, for example E-1R-AGILE-24-10-01-A."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 9275,\n  \"next\": \"string\",\n  \"previous\": \"string\",\n  \"results\": [\n    {\n      \"value_exc_vat\": 6355.786991147954,\n      \"value_inc_vat\": 833.647788013443,\n      \"valid_from\": \"2006-11-17T05:25:17.810Z\",\n      \"valid_to\": \"1979-02-24T09:43:39.530Z\",\n      \"payment_method\": \"string\"\n    },\n    {\n      \"value_exc_vat\": 1339.05429389936,\n      \"value_inc_vat\": 2503.143026930699,\n      \"valid_from\": \"1963-01-28T08:04:58.291Z\",\n      \"valid_to\": \"2022-10-02T01:43:48.249Z\",\n      \"payment_method\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.octopus.energy/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "a95b01c1-ca79-4084-8eb0-82f0493694c8",
+    "name": "Octopus Energy Public Consumption GasTariffs API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Octopus Energy Public API is a free JSON-over-HTTPS REST API exposing the\nUK product catalog, electricity and gas tariffs, electricity and gas meter\npoints, half-hourly smart-meter consumption, and industry grid supply points.\n\nAuthentication uses HTTP Basic auth with a per-customer API key as the\nusername and an empty password. Products and tariffs endpoints are open and\ndo not require authentication; meter-point and consumption endpoints require\na key for the account that owns the meter.\n\n\nContact Support:\n Name: Octopus Energy Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

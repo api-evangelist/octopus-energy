@@ -1,0 +1,155 @@
+{
+  "item": [
+    {
+      "id": "ec8115d8-92f4-41ed-b577-d68edd52c696",
+      "name": "ElectricityMeterPoints",
+      "description": {
+        "content": "Electricity meter points (MPAN) and registered meters.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e3da3980-a504-43db-b5cc-bbbbe1a415ec",
+          "name": "Retrieve an Electricity Meter Point",
+          "request": {
+            "name": "Retrieve an Electricity Meter Point",
+            "description": {
+              "content": "Retrieve information about an electricity meter point including the GSP region and registered meters.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "electricity-meter-points",
+                ":mpan",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mpan",
+                  "description": "(Required) Meter Point Administration Number for electricity (13 digits)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "8bf2f0a3-aa34-44d9-8174-862afe81c929",
+              "name": "An electricity meter point.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "electricity-meter-points",
+                    ":mpan",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mpan",
+                      "description": "(Required) Meter Point Administration Number for electricity (13 digits)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"gsp\": \"string\",\n  \"mpan\": \"string\",\n  \"profile_class\": 1141,\n  \"meters\": [\n    {\n      \"serial_number\": \"string\",\n      \"registers\": [\n        {\n          \"identifier\": \"string\",\n          \"rate\": \"string\",\n          \"is_settlement_register\": false\n        },\n        {\n          \"identifier\": \"string\",\n          \"rate\": \"string\",\n          \"is_settlement_register\": false\n        }\n      ]\n    },\n    {\n      \"serial_number\": \"string\",\n      \"registers\": [\n        {\n          \"identifier\": \"string\",\n          \"rate\": \"string\",\n          \"is_settlement_register\": true\n        },\n        {\n          \"identifier\": \"string\",\n          \"rate\": \"string\",\n          \"is_settlement_register\": true\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.octopus.energy/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "d9141637-caad-4fa9-9a21-3c32db010460",
+    "name": "Octopus Energy Public Consumption ElectricityMeterPoints API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Octopus Energy Public API is a free JSON-over-HTTPS REST API exposing the\nUK product catalog, electricity and gas tariffs, electricity and gas meter\npoints, half-hourly smart-meter consumption, and industry grid supply points.\n\nAuthentication uses HTTP Basic auth with a per-customer API key as the\nusername and an empty password. Products and tariffs endpoints are open and\ndo not require authentication; meter-point and consumption endpoints require\na key for the account that owns the meter.\n\n\nContact Support:\n Name: Octopus Energy Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

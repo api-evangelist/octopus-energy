@@ -1,0 +1,318 @@
+{
+  "item": [
+    {
+      "id": "f26c7566-4f10-4bd3-add5-a5b195d46352",
+      "name": "Products",
+      "description": {
+        "content": "Octopus Energy product catalog and tariff lookups.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "bee4e120-2b64-4ce6-b854-0bf0f39a28f8",
+          "name": "List Products",
+          "request": {
+            "name": "List Products",
+            "description": {
+              "content": "List Octopus Energy products. Filter by availability, business type, variant, and brand.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "products",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "is_variable",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "is_green",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "is_tracker",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "is_prepay",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "is_business",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "available_at",
+                  "value": "<dateTime>",
+                  "description": "ISO 8601 timestamp filtering products available at that moment."
+                },
+                {
+                  "disabled": false,
+                  "key": "brand",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ddd51b10-f678-4e07-8ee3-b7775610e7a9",
+              "name": "A paginated list of products.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "is_variable",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "is_green",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "is_tracker",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "is_prepay",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "is_business",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "available_at",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "brand",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 9195,\n  \"next\": \"string\",\n  \"previous\": \"string\",\n  \"results\": [\n    {\n      \"code\": \"string\",\n      \"direction\": \"IMPORT\",\n      \"full_name\": \"string\",\n      \"display_name\": \"string\",\n      \"description\": \"string\",\n      \"is_variable\": false,\n      \"is_green\": true,\n      \"is_tracker\": true,\n      \"is_prepay\": true,\n      \"is_business\": false,\n      \"is_restricted\": false,\n      \"term\": 7798,\n      \"available_from\": \"1988-07-23T01:16:03.214Z\",\n      \"available_to\": \"1967-05-04T01:58:59.470Z\",\n      \"brand\": \"string\",\n      \"links\": [\n        {\n          \"href\": \"string\",\n          \"method\": \"string\",\n          \"rel\": \"string\"\n        },\n        {\n          \"href\": \"string\",\n          \"method\": \"string\",\n          \"rel\": \"string\"\n        }\n      ]\n    },\n    {\n      \"code\": \"string\",\n      \"direction\": \"IMPORT\",\n      \"full_name\": \"string\",\n      \"display_name\": \"string\",\n      \"description\": \"string\",\n      \"is_variable\": false,\n      \"is_green\": false,\n      \"is_tracker\": false,\n      \"is_prepay\": true,\n      \"is_business\": true,\n      \"is_restricted\": false,\n      \"term\": 8120,\n      \"available_from\": \"1950-09-14T00:07:59.720Z\",\n      \"available_to\": \"2016-05-13T15:08:08.418Z\",\n      \"brand\": \"string\",\n      \"links\": [\n        {\n          \"href\": \"string\",\n          \"method\": \"string\",\n          \"rel\": \"string\"\n        },\n        {\n          \"href\": \"string\",\n          \"method\": \"string\",\n          \"rel\": \"string\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bcb26131-c393-4b4a-9e23-3049b5faacae",
+          "name": "Retrieve a Product",
+          "request": {
+            "name": "Retrieve a Product",
+            "description": {
+              "content": "Retrieve a single product including its electricity and gas tariffs by region.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "products",
+                ":product_code",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "tariffs_active_at",
+                  "value": "<dateTime>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "product_code",
+                  "description": "(Required) Product code, for example AGILE-24-10-01 or VAR-22-11-01."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "65224a99-d950-4230-9705-d5e66da8b726",
+              "name": "The requested product.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    ":product_code",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "tariffs_active_at",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "product_code",
+                      "description": "(Required) Product code, for example AGILE-24-10-01 or VAR-22-11-01."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"direction\": \"EXPORT\",\n  \"full_name\": \"string\",\n  \"display_name\": \"string\",\n  \"description\": \"string\",\n  \"is_variable\": true,\n  \"is_green\": false,\n  \"is_tracker\": false,\n  \"is_prepay\": true,\n  \"is_business\": true,\n  \"is_restricted\": true,\n  \"term\": 5155,\n  \"available_from\": \"1981-04-26T03:13:17.954Z\",\n  \"available_to\": \"2025-12-18T19:55:25.081Z\",\n  \"brand\": \"string\",\n  \"links\": [\n    {\n      \"href\": \"string\",\n      \"method\": \"string\",\n      \"rel\": \"string\"\n    },\n    {\n      \"href\": \"string\",\n      \"method\": \"string\",\n      \"rel\": \"string\"\n    }\n  ],\n  \"tariffs_active_at\": \"1961-03-29T15:39:07.971Z\",\n  \"single_register_electricity_tariffs\": {\n    \"key_0\": {\n      \"key_0\": {\n        \"code\": \"string\",\n        \"standing_charge_exc_vat\": 9660.565769387995,\n        \"standing_charge_inc_vat\": 403.0886824610225,\n        \"online_discount_exc_vat\": 6892.892055984156,\n        \"online_discount_inc_vat\": 6848.2201545934895,\n        \"dual_fuel_discount_exc_vat\": 2282.4897437232926,\n        \"dual_fuel_discount_inc_vat\": 3139.2568636735896,\n        \"exit_fees_exc_vat\": 1775.622156290192,\n        \"exit_fees_inc_vat\": 822.9936223656154,\n        \"standard_unit_rate_exc_vat\": 1932.1372326398766,\n        \"standard_unit_rate_inc_vat\": 2487.3233538081217,\n        \"day_unit_rate_exc_vat\": 7228.557697124337,\n        \"day_unit_rate_inc_vat\": 3505.7968154323526,\n        \"night_unit_rate_exc_vat\": 5705.2827791500395,\n        \"night_unit_rate_inc_vat\": 8714.736271227423,\n        \"links\": [\n          {\n            \"href\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"method\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rel\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"href\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"method\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rel\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      },\n      \"key_1\": {\n        \"code\": \"string\",\n        \"standing_charge_exc_vat\": 3628.887517261601,\n        \"standing_charge_inc_vat\": 1635.968548786132,\n        \"online_discount_exc_vat\": 9899.321509200048,\n        \"online_discount_inc_vat\": 3865.7955757937666,\n        \"dual_fuel_discount_exc_vat\": 3743.3863645672836,\n        \"dual_fuel_discount_inc_vat\": 4084.8343054937563,\n        \"exit_fees_exc_vat\": 8871.471464812763,\n        \"exit_fees_inc_vat\": 5483.562389336228,\n        \"standard_unit_rate_exc_vat\": 9980.252558220587,\n        \"standard_unit_rate_inc_vat\": 1486.3712722846979,\n        \"day_unit_rate_exc_vat\": 8520.13966616589,\n        \"day_unit_rate_inc_vat\": 6223.075749658431,\n        \"night_unit_rate_exc_vat\": 4320.755181962296,\n        \"night_unit_rate_inc_vat\": 845.5294125927726,\n        \"links\": [\n          {\n            \"href\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"method\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rel\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"href\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"method\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rel\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      },\n      \"key_2\": {\n        \"code\": \"string\",\n        \"standing_charge_exc_vat\": 124.89414430578272,\n        \"standing_charge_inc_vat\": 6092.41715119237,\n        \"online_discount_exc_vat\": 99.02330392521863,\n        \"online_discount_inc_vat\": 9047.322969152814,\n        \"dual_fuel_discount_exc_vat\": 1229.2502080232948,\n        \"dual_fuel_discount_inc_vat\": 6704.726972981199,\n        \"exit_fees_exc_vat\": 701.1717603412782,\n        \"exit_fees_inc_vat\": 6163.592579344207,\n        \"standard_unit_rate_exc_vat\": 6697.973182777431,\n        \"standard_unit_rate_inc_vat\": 1187.5392906169059,\n        \"day_unit_rate_exc_vat\": 2531.785337940217,\n        \"day_unit_rate_inc_vat\": 982.0410538098013,\n        \"night_unit_rate_exc_vat\": 1526.6320413987023,\n        \"night_unit_rate_inc_vat\": 2555.844126783542,\n        \"links\": [\n          {\n            \"href\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"method\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rel\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"href\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"method\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rel\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      }\n    },\n    \"key_1\": {\n      \"key_0\": {\n        \"code\": \"string\",\n        \"standing_charge_exc_vat\": 931.0664459737783,\n        \"standing_charge_inc_vat\": 6706.0188506184595,\n        \"online_discount_exc_vat\": 6764.978580986613,\n        \"online_discount_inc_vat\": 5650.133324489918,\n        \"dual_fuel_discount_exc_vat\": 7907.343491263853,\n        \"dual_fuel_discount_inc_vat\": 5745.36841471769,\n        \"exit_fees_exc_vat\": 7211.692331932255,\n        \"exit_fees_inc_vat\": 9264.208265117662,\n        \"standard_unit_rate_exc_vat\": 5813.8334797808575,\n        \"standard_unit_rate_inc_vat\": 3654.8737354196514,\n        \"day_unit_rate_exc_vat\": 223.588077474961,\n        \"day_unit_rate_inc_vat\": 3836.873142958258,\n        \"night_unit_rate_exc_vat\": 7118.756753760108,\n        \"night_unit_rate_inc_vat\": 1306.7336951075592,\n        \"links\": [\n          {\n            \"href\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"method\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rel\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"href\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"method\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rel\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      },\n      \"key_1\": {\n        \"code\": \"string\",\n        \"standing_charge_exc_vat\": 3871.960851341718,\n        \"standing_charge_inc_vat\": 6290.197408713209,\n        \"online_discount_exc_vat\": 2306.3986001329604,\n        \"online_discount_inc_vat\": 5830.230185309511,\n        \"dual_fuel_discount_exc_vat\": 8754.907237798488,\n        \"dual_fuel_discount_inc_vat\": 7448.484858517698,\n        \"exit_fees_exc_vat\": 2851.350766695704,\n        \"exit_fees_inc_vat\": 5287.547486001028,\n        \"standard_unit_rate_exc_vat\": 2884.7813581811233,\n        \"standard_unit_rate_inc_vat\": 7630.666113912425,\n        \"day_unit_rate_exc_vat\": 9940.393757608881,\n        \"day_unit_rate_inc_vat\": 9975.325246362185,\n        \"night_unit_rate_exc_vat\": 7746.583235828552,\n        \"night_unit_rate_inc_vat\": 8393.76130863055,\n        \"links\": [\n          {\n            \"href\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"method\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rel\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"href\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"method\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rel\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      }\n    },\n    \"key_2\": {\n      \"key_0\": {\n        \"code\": \"string\",\n        \"standing_charge_exc_vat\": 6561.507363076647,\n        \"standing_charge_inc_vat\": 6792.804452363605,\n        \"online_discount_exc_vat\": 462.75600824898453,\n        \"online_discount_inc_vat\": 7235.743354116418,\n        \"dual_fuel_discount_exc_vat\": 691.8057112363141,\n        \"dual_fuel_discount_inc_vat\": 8528.496698326777,\n        \"exit_fees_exc_vat\": 2315.0191555599063,\n        \"exit_fees_inc_vat\": 5867.218585183698,\n        \"standard_unit_rate_exc_vat\": 6688.455958069832,\n        \"standard_unit_rate_inc_vat\": 8502.084975711296,\n        \"day_unit_rate_exc_vat\": 1996.633694494775,\n        \"day_unit_rate_inc_vat\": 5878.316627314055,\n        \"night_unit_rate_exc_vat\": 8631.346437263697,\n        \"night_unit_rate_inc_vat\": 7536.384610405984,\n        \"links\": [\n          {\n            \"href\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"method\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rel\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"href\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"method\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rel\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      },\n      \"key_1\": {\n        \"code\": \"string\",\n        \"standing_charge_exc_vat\": 780.8833979062524,\n        \"standing_charge_inc_vat\": 4962.221576821751,\n        \"online_discount_exc_vat\": 7786.993232106694,\n        \"online_discount_inc_vat\": 5275.385472655932,\n        \"dual_fuel_discount_exc_vat\": 9088.849978792574,\n        \"dual_fuel_discount_inc_vat\": 7799.49032677069,\n        \"exit_fees_exc_vat\": 9579.999257231626,\n        \"exit_fees_inc_vat\": 2897.4988620180807,\n        \"standard_unit_rate_exc_vat\": 4535.29204247564,\n        \"standard_unit_rate_inc_vat\": 5615.52921986547,\n        \"day_unit_rate_exc_vat\": 3842.9961610751775,\n        \"day_unit_rate_inc_vat\": 3423.0292507711747,\n        \"night_unit_rate_exc_vat\": 9654.060601700105,\n        \"night_unit_rate_inc_vat\": 3836.9298910564885,\n        \"links\": [\n          {\n            \"href\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"method\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rel\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"href\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"method\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rel\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      },\n      \"key_2\": {\n        \"code\": \"string\",\n        \"standing_charge_exc_vat\": 939.7646659135572,\n        \"standing_charge_inc_vat\": 2349.6288723433245,\n        \"online_discount_exc_vat\": 4154.686041818636,\n        \"online_discount_inc_vat\": 978.7496508941463,\n        \"dual_fuel_discount_exc_vat\": 422.00267732068755,\n        \"dual_fuel_discount_inc_vat\": 4856.0844276666,\n        \"exit_fees_exc_vat\": 9170.258675135869,\n        \"exit_fees_inc_vat\": 3263.766605729508,\n        \"standard_unit_rate_exc_vat\": 6103.864972795968,\n        \"standard_unit_rate_inc_vat\": 424.74726017013853,\n        \"day_unit_rate_exc_vat\": 5299.326815011084,\n        \"day_unit_rate_inc_vat\": 3352.4339194858267,\n        \"night_unit_rate_exc_vat\": 4632.333926905411,\n        \"night_unit_rate_inc_vat\": 2560.4644421423527,\n        \"links\": [\n          {\n            \"href\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"method\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rel\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"href\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"method\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rel\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      }\n    }\n  },\n  \"dual_register_electricity_tariffs\": {\n    \"key_0\": {\n      \"key_0\": {\n        \"code\": \"string\",\n        \"standing_charge_exc_vat\": 435.471976931634,\n        \"standing_charge_inc_vat\": 4358.517685317815,\n        \"online_discount_exc_vat\": 5595.456949253153,\n        \"online_discount_inc_vat\": 5523.470623223152,\n        \"dual_fuel_discount_exc_vat\": 5858.310793350114,\n        \"dual_fuel_discount_inc_vat\": 8297.566348798651,\n        \"exit_fees_exc_vat\": 5539.323314578337,\n        \"exit_fees_inc_vat\": 3467.3068834666665,\n        \"standard_unit_rate_exc_vat\": 8034.888540275444,\n        \"standard_unit_rate_inc_vat\": 9360.67080667467,\n        \"day_unit_rate_exc_vat\": 7.838279406991999,\n        \"day_unit_rate_inc_vat\": 5069.733866156466,\n        \"night_unit_rate_exc_vat\": 7746.5277830770065,\n        \"night_unit_rate_inc_vat\": 9499.902682797603,\n        \"links\": [\n          {\n            \"href\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"method\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rel\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"href\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"method\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rel\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      }\n    },\n    \"key_1\": {\n      \"key_0\": {\n        \"code\": \"string\",\n        \"standing_charge_exc_vat\": 9966.803987231602,\n        \"standing_charge_inc_vat\": 4357.640847331904,\n        \"online_discount_exc_vat\": 1687.257510880279,\n        \"online_discount_inc_vat\": 6530.679447480345,\n        \"dual_fuel_discount_exc_vat\": 2963.8266409415505,\n        \"dual_fuel_discount_inc_vat\": 2316.9872364212583,\n        \"exit_fees_exc_vat\": 4092.2510525263456,\n        \"exit_fees_inc_vat\": 607.5486326081835,\n        \"standard_unit_rate_exc_vat\": 4761.8591403550445,\n        \"standard_unit_rate_inc_vat\": 285.728059803575,\n        \"day_unit_rate_exc_vat\": 6487.287788465665,\n        \"day_unit_rate_inc_vat\": 2953.2574515882125,\n        \"night_unit_rate_exc_vat\": 4840.583594382969,\n        \"night_unit_rate_inc_vat\": 5.268629616248521,\n        \"links\": [\n          {\n            \"href\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"method\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rel\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"href\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"method\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rel\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      },\n      \"key_1\": {\n        \"code\": \"string\",\n        \"standing_charge_exc_vat\": 4766.144443639232,\n        \"standing_charge_inc_vat\": 7194.285615764775,\n        \"online_discount_exc_vat\": 7892.199112175439,\n        \"online_discount_inc_vat\": 2816.115935556689,\n        \"dual_fuel_discount_exc_vat\": 6620.230678338621,\n        \"dual_fuel_discount_inc_vat\": 1275.9212184085034,\n        \"exit_fees_exc_vat\": 4261.0522161703975,\n        \"exit_fees_inc_vat\": 670.8802911568745,\n        \"standard_unit_rate_exc_vat\": 5633.168349934902,\n        \"standard_unit_rate_inc_vat\": 8726.788807132882,\n        \"day_unit_rate_exc_vat\": 9249.138194592399,\n        \"day_unit_rate_inc_vat\": 995.0467292179621,\n        \"night_unit_rate_exc_vat\": 403.21483468999554,\n        \"night_unit_rate_inc_vat\": 9152.56515982577,\n        \"links\": [\n          {\n            \"href\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"method\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rel\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"href\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"method\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rel\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      }\n    }\n  },\n  \"single_register_gas_tariffs\": {\n    \"key_0\": {\n      \"key_0\": {\n        \"code\": \"string\",\n        \"standing_charge_exc_vat\": 5019.349686174246,\n        \"standing_charge_inc_vat\": 510.618478578504,\n        \"online_discount_exc_vat\": 9495.316708128197,\n        \"online_discount_inc_vat\": 4127.810238423071,\n        \"dual_fuel_discount_exc_vat\": 2526.5453420473505,\n        \"dual_fuel_discount_inc_vat\": 2670.596125884074,\n        \"exit_fees_exc_vat\": 175.07558214428175,\n        \"exit_fees_inc_vat\": 6984.640600783897,\n        \"standard_unit_rate_exc_vat\": 8694.835631224627,\n        \"standard_unit_rate_inc_vat\": 9275.289347466729,\n        \"day_unit_rate_exc_vat\": 3146.3999370554207,\n        \"day_unit_rate_inc_vat\": 7710.3194648856825,\n        \"night_unit_rate_exc_vat\": 3535.947404579449,\n        \"night_unit_rate_inc_vat\": 9865.432079929322,\n        \"links\": [\n          {\n            \"href\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"method\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rel\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"href\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"method\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rel\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      },\n      \"key_1\": {\n        \"code\": \"string\",\n        \"standing_charge_exc_vat\": 971.8292512432514,\n        \"standing_charge_inc_vat\": 6247.451269630953,\n        \"online_discount_exc_vat\": 4589.587452569158,\n        \"online_discount_inc_vat\": 2940.781429928262,\n        \"dual_fuel_discount_exc_vat\": 3504.501329666344,\n        \"dual_fuel_discount_inc_vat\": 5843.112787145076,\n        \"exit_fees_exc_vat\": 3116.9344531419342,\n        \"exit_fees_inc_vat\": 6030.301932246839,\n        \"standard_unit_rate_exc_vat\": 2364.044026557867,\n        \"standard_unit_rate_inc_vat\": 4372.953219326866,\n        \"day_unit_rate_exc_vat\": 2011.6267993470772,\n        \"day_unit_rate_inc_vat\": 8527.082153304827,\n        \"night_unit_rate_exc_vat\": 1614.670395653851,\n        \"night_unit_rate_inc_vat\": 5390.016996347101,\n        \"links\": [\n          {\n            \"href\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"method\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rel\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"href\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"method\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rel\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      }\n    }\n  },\n  \"sample_quotes\": {},\n  \"sample_consumption\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.octopus.energy/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "26fd5ee0-9b5e-424b-b50e-673702d2346b",
+    "name": "Octopus Energy Public Consumption Products API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Octopus Energy Public API is a free JSON-over-HTTPS REST API exposing the\nUK product catalog, electricity and gas tariffs, electricity and gas meter\npoints, half-hourly smart-meter consumption, and industry grid supply points.\n\nAuthentication uses HTTP Basic auth with a per-customer API key as the\nusername and an empty password. Products and tariffs endpoints are open and\ndo not require authentication; meter-point and consumption endpoints require\na key for the account that owns the meter.\n\n\nContact Support:\n Name: Octopus Energy Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

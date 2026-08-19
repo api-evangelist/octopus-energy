@@ -1,0 +1,49 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Octopus Energy Public Consumption ElectricityMeterPoints API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ElectricityMeterPoints",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve an Electricity Meter Point",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.octopus.energy/v1/electricity-meter-points/:mpan/",
+            "params": [
+              {
+                "name": "mpan",
+                "value": "",
+                "type": "path",
+                "description": "Meter Point Administration Number for electricity (13 digits)."
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Retrieve information about an electricity meter point including the GSP region and registered meters."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

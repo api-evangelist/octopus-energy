@@ -1,0 +1,632 @@
+{
+  "item": [
+    {
+      "id": "873a5e6a-a04c-4a27-9aad-4be82faeb0f0",
+      "name": "ElectricityTariffs",
+      "description": {
+        "content": "Electricity tariff unit rates and standing charges.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e5e297d1-6b22-4a90-983f-1849cf237903",
+          "name": "List Electricity Standard Unit Rates",
+          "request": {
+            "name": "List Electricity Standard Unit Rates",
+            "description": {
+              "content": "Half-hourly or daily standard unit rates for an electricity tariff such as Agile Octopus or Octopus Tracker.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "products",
+                ":product_code",
+                "electricity-tariffs",
+                ":tariff_code",
+                "standard-unit-rates",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "period_from",
+                  "value": "<dateTime>",
+                  "description": "ISO 8601 inclusive start of the period."
+                },
+                {
+                  "disabled": false,
+                  "key": "period_to",
+                  "value": "<dateTime>",
+                  "description": "ISO 8601 exclusive end of the period."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "product_code",
+                  "description": "(Required) Product code, for example AGILE-24-10-01 or VAR-22-11-01."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tariff_code",
+                  "description": "(Required) Tariff code, for example E-1R-AGILE-24-10-01-A."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3f283892-94fe-474d-bf7b-2a363f85c8a0",
+              "name": "A paginated list of standard unit rates.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    ":product_code",
+                    "electricity-tariffs",
+                    ":tariff_code",
+                    "standard-unit-rates",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "period_from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "period_to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "product_code",
+                      "description": "(Required) Product code, for example AGILE-24-10-01 or VAR-22-11-01."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tariff_code",
+                      "description": "(Required) Tariff code, for example E-1R-AGILE-24-10-01-A."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 6341,\n  \"next\": \"string\",\n  \"previous\": \"string\",\n  \"results\": [\n    {\n      \"value_exc_vat\": 1309.3701669492464,\n      \"value_inc_vat\": 328.4745429826663,\n      \"valid_from\": \"1975-03-02T18:36:00.457Z\",\n      \"valid_to\": \"1947-03-06T13:27:33.428Z\",\n      \"payment_method\": \"string\"\n    },\n    {\n      \"value_exc_vat\": 8676.675858709077,\n      \"value_inc_vat\": 2646.13662582358,\n      \"valid_from\": \"1995-02-14T09:08:35.720Z\",\n      \"valid_to\": \"2021-01-20T11:20:54.990Z\",\n      \"payment_method\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0e43256e-f4d3-4b03-934d-1727b726bea4",
+          "name": "List Electricity Standing Charges",
+          "request": {
+            "name": "List Electricity Standing Charges",
+            "description": {},
+            "url": {
+              "path": [
+                "products",
+                ":product_code",
+                "electricity-tariffs",
+                ":tariff_code",
+                "standing-charges",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "period_from",
+                  "value": "<dateTime>",
+                  "description": "ISO 8601 inclusive start of the period."
+                },
+                {
+                  "disabled": false,
+                  "key": "period_to",
+                  "value": "<dateTime>",
+                  "description": "ISO 8601 exclusive end of the period."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "product_code",
+                  "description": "(Required) Product code, for example AGILE-24-10-01 or VAR-22-11-01."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tariff_code",
+                  "description": "(Required) Tariff code, for example E-1R-AGILE-24-10-01-A."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "208d3472-1b28-4194-be38-9e3ab3b35aa3",
+              "name": "A paginated list of standing charges.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    ":product_code",
+                    "electricity-tariffs",
+                    ":tariff_code",
+                    "standing-charges",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "period_from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "period_to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "product_code",
+                      "description": "(Required) Product code, for example AGILE-24-10-01 or VAR-22-11-01."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tariff_code",
+                      "description": "(Required) Tariff code, for example E-1R-AGILE-24-10-01-A."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 6341,\n  \"next\": \"string\",\n  \"previous\": \"string\",\n  \"results\": [\n    {\n      \"value_exc_vat\": 1309.3701669492464,\n      \"value_inc_vat\": 328.4745429826663,\n      \"valid_from\": \"1975-03-02T18:36:00.457Z\",\n      \"valid_to\": \"1947-03-06T13:27:33.428Z\",\n      \"payment_method\": \"string\"\n    },\n    {\n      \"value_exc_vat\": 8676.675858709077,\n      \"value_inc_vat\": 2646.13662582358,\n      \"valid_from\": \"1995-02-14T09:08:35.720Z\",\n      \"valid_to\": \"2021-01-20T11:20:54.990Z\",\n      \"payment_method\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "93cae2f7-ab24-487b-ad0d-6466c64f811a",
+          "name": "List Electricity Day Unit Rates",
+          "request": {
+            "name": "List Electricity Day Unit Rates",
+            "description": {},
+            "url": {
+              "path": [
+                "products",
+                ":product_code",
+                "electricity-tariffs",
+                ":tariff_code",
+                "day-unit-rates",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "period_from",
+                  "value": "<dateTime>",
+                  "description": "ISO 8601 inclusive start of the period."
+                },
+                {
+                  "disabled": false,
+                  "key": "period_to",
+                  "value": "<dateTime>",
+                  "description": "ISO 8601 exclusive end of the period."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "product_code",
+                  "description": "(Required) Product code, for example AGILE-24-10-01 or VAR-22-11-01."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tariff_code",
+                  "description": "(Required) Tariff code, for example E-1R-AGILE-24-10-01-A."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8444d45d-b71f-41e5-981c-8dda95f4949d",
+              "name": "A paginated list of day unit rates.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    ":product_code",
+                    "electricity-tariffs",
+                    ":tariff_code",
+                    "day-unit-rates",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "period_from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "period_to",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "product_code",
+                      "description": "(Required) Product code, for example AGILE-24-10-01 or VAR-22-11-01."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tariff_code",
+                      "description": "(Required) Tariff code, for example E-1R-AGILE-24-10-01-A."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 5292,\n  \"next\": \"string\",\n  \"previous\": \"string\",\n  \"results\": [\n    {\n      \"value_exc_vat\": 7966.619110017959,\n      \"value_inc_vat\": 8304.622660583665,\n      \"valid_from\": \"1972-04-09T22:26:42.466Z\",\n      \"valid_to\": \"1951-12-13T07:36:41.227Z\",\n      \"payment_method\": \"string\"\n    },\n    {\n      \"value_exc_vat\": 7456.359238131017,\n      \"value_inc_vat\": 4094.371012238387,\n      \"valid_from\": \"1980-03-01T15:34:31.123Z\",\n      \"valid_to\": \"2008-03-26T18:33:23.141Z\",\n      \"payment_method\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "10087a11-1084-45a7-b460-fc33d22e1250",
+          "name": "List Electricity Night Unit Rates",
+          "request": {
+            "name": "List Electricity Night Unit Rates",
+            "description": {},
+            "url": {
+              "path": [
+                "products",
+                ":product_code",
+                "electricity-tariffs",
+                ":tariff_code",
+                "night-unit-rates",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "period_from",
+                  "value": "<dateTime>",
+                  "description": "ISO 8601 inclusive start of the period."
+                },
+                {
+                  "disabled": false,
+                  "key": "period_to",
+                  "value": "<dateTime>",
+                  "description": "ISO 8601 exclusive end of the period."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "product_code",
+                  "description": "(Required) Product code, for example AGILE-24-10-01 or VAR-22-11-01."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tariff_code",
+                  "description": "(Required) Tariff code, for example E-1R-AGILE-24-10-01-A."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c7127917-1d18-430b-abbc-3b202cd236fb",
+              "name": "A paginated list of night unit rates.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    ":product_code",
+                    "electricity-tariffs",
+                    ":tariff_code",
+                    "night-unit-rates",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "period_from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "period_to",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "product_code",
+                      "description": "(Required) Product code, for example AGILE-24-10-01 or VAR-22-11-01."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tariff_code",
+                      "description": "(Required) Tariff code, for example E-1R-AGILE-24-10-01-A."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 5292,\n  \"next\": \"string\",\n  \"previous\": \"string\",\n  \"results\": [\n    {\n      \"value_exc_vat\": 7966.619110017959,\n      \"value_inc_vat\": 8304.622660583665,\n      \"valid_from\": \"1972-04-09T22:26:42.466Z\",\n      \"valid_to\": \"1951-12-13T07:36:41.227Z\",\n      \"payment_method\": \"string\"\n    },\n    {\n      \"value_exc_vat\": 7456.359238131017,\n      \"value_inc_vat\": 4094.371012238387,\n      \"valid_from\": \"1980-03-01T15:34:31.123Z\",\n      \"valid_to\": \"2008-03-26T18:33:23.141Z\",\n      \"payment_method\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.octopus.energy/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "4a8f588b-f0e8-4940-9c43-992ce6089219",
+    "name": "Octopus Energy Public Consumption ElectricityTariffs API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Octopus Energy Public API is a free JSON-over-HTTPS REST API exposing the\nUK product catalog, electricity and gas tariffs, electricity and gas meter\npoints, half-hourly smart-meter consumption, and industry grid supply points.\n\nAuthentication uses HTTP Basic auth with a per-customer API key as the\nusername and an empty password. Products and tariffs endpoints are open and\ndo not require authentication; meter-point and consumption endpoints require\na key for the account that owns the meter.\n\n\nContact Support:\n Name: Octopus Energy Developer Support",
+      "type": "text/plain"
+    }
+  }
+}
