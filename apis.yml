@@ -6,6 +6,15 @@ apis:
   tags:
   - Energy
   - Kraken
+  - Account
+  - Meter Points
+  - Consumption
+  - Tariffs
+  - Smart Meter
+  - REST
+  tags_raw:
+  - Energy
+  - Kraken
   - Accounts
   - Meter Points
   - Consumption
@@ -31,6 +40,15 @@ apis:
 - aid: octopus-energy:octopus-energy-kraken-graphql-api
   name: Octopus Energy Kraken GraphQL API
   tags:
+  - Energy
+  - Kraken
+  - GraphQL
+  - Account
+  - Meter Points
+  - Smart Meter
+  - Devices
+  - Flexibility
+  tags_raw:
   - Energy
   - Kraken
   - GraphQL
@@ -189,6 +207,8 @@ apis:
   humanURL: https://developer.octopus.energy/docs/api/
   baseURL: https://api.octopus.energy/v1/
   tags:
+  - Product
+  tags_raw:
   - Products
   properties:
   - type: OpenAPI
