@@ -1,0 +1,26 @@
+slug: octopus-energy
+provider: Octopus Energy
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Power & Water Utilities
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 1
+edges:
+- tag: Consumption
+  spec_file: octopus-energy-consumption-api-openapi.yml
+  capability_id: BC-3910.30
+  capability_id_l1: BC-3910
+  capability_name: AMI Data Acquisition Operations
+  confidence: 0.75
+  evidence: 'GET /electricity-meter-points/{mpan}/meters/{serial_number}/consumption/ listElectricityConsumption;
+    description: "half-hourly smart-meter consumption"'
+  reason: Exposes half-hourly smart-meter consumption readings per electricity/gas meter point — advanced
+    metering data acquisition and provision. Ambiguity only between AMI data acquisition and meter reading/validation
+    sub-capabilities.
