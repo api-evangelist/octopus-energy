@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Octopus Energy Public Consumption ElectricityMeterPoints API
+  title: Octopus Energy Public Electricity Meter Points API
   version: '1.0'
   description: 'The Octopus Energy Public API is a free JSON-over-HTTPS REST API exposing the
 
@@ -15,9 +15,7 @@ info:
 
     do not require authentication; meter-point and consumption endpoints require
 
-    a key for the account that owns the meter.
-
-    '
+    a key for the account that owns the meter.'
   contact:
     name: Octopus Energy Developer Support
     url: https://developer.octopus.energy/docs/api/

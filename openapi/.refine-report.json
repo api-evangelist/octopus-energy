@@ -1,13 +1,7 @@
 {
   "provider": "octopus-energy",
   "sources": [
-    "octopus-energy-consumption-api-openapi.yml",
-    "octopus-energy-electricitymeterpoints-api-openapi.yml",
-    "octopus-energy-electricitytariffs-api-openapi.yml",
-    "octopus-energy-gasmeterpoints-api-openapi.yml",
-    "octopus-energy-gastariffs-api-openapi.yml",
-    "octopus-energy-industry-api-openapi.yml",
-    "octopus-energy-products-api-openapi.yml"
+    "_original/octopus-energy-public-api-openapi.yml"
   ],
   "outputs": [
     "octopus-energy-consumption-api-openapi.yml",
@@ -21,6 +15,18 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "octopus-energy-public-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "octopus-energy-consumption-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "octopus-energy-electricitymeterpoints-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "octopus-energy-electricitytariffs-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "octopus-energy-gasmeterpoints-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "octopus-energy-gastariffs-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "octopus-energy-industry-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "octopus-energy-products-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Octopus Energy Public Consumption Industry API
+  title: Octopus Energy Public Industry API
   version: '1.0'
   description: 'The Octopus Energy Public API is a free JSON-over-HTTPS REST API exposing the
 
@@ -15,9 +15,7 @@ info:
 
     do not require authentication; meter-point and consumption endpoints require
 
-    a key for the account that owns the meter.
-
-    '
+    a key for the account that owns the meter.'
   contact:
     name: Octopus Energy Developer Support
     url: https://developer.octopus.energy/docs/api/
@@ -55,11 +53,19 @@ paths:
                 $ref: '#/components/schemas/PaginatedGridSupplyPointList'
 components:
   schemas:
-    GridSupplyPoint:
+    Paginated:
       type: object
       properties:
-        group_id:
-          type: string
+        count:
+          type: integer
+        next:
+          type:
+          - string
+          - 'null'
+        previous:
+          type:
+          - string
+          - 'null'
     PaginatedGridSupplyPointList:
       allOf:
       - $ref: '#/components/schemas/Paginated'
@@ -69,17 +75,11 @@ components:
             type: array
             items:
               $ref: '#/components/schemas/GridSupplyPoint'
-    Paginated:
+    GridSupplyPoint:
       type: object
       properties:
-        count:
-          type: integer
-        next:
+        group_id:
           type: string
-          nullable: true
-        previous:
-          type: string
-          nullable: true
   securitySchemes:
     basicAuth:
       type: http
