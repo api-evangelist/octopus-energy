@@ -66,6 +66,11 @@ components:
           type:
           - string
           - 'null'
+    GridSupplyPoint:
+      type: object
+      properties:
+        group_id:
+          type: string
     PaginatedGridSupplyPointList:
       allOf:
       - $ref: '#/components/schemas/Paginated'
@@ -75,11 +80,6 @@ components:
             type: array
             items:
               $ref: '#/components/schemas/GridSupplyPoint'
-    GridSupplyPoint:
-      type: object
-      properties:
-        group_id:
-          type: string
   securitySchemes:
     basicAuth:
       type: http

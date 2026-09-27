@@ -236,6 +236,7 @@ tags:
 - Heat Pumps
 - Solar
 - Battery
+- Utilities
 tags_raw:
 - Energy
 - Electricity
@@ -250,6 +251,7 @@ tags_raw:
 - Heat Pumps
 - Solar
 - Battery
+- Utilities
 kind: contract
 deliveryModel:
   model: saas

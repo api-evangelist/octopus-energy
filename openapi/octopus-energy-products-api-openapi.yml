@@ -102,15 +102,6 @@ paths:
                 $ref: '#/components/schemas/ProductDetail'
 components:
   schemas:
-    PaginatedProductList:
-      allOf:
-      - $ref: '#/components/schemas/Paginated'
-      - type: object
-        properties:
-          results:
-            type: array
-            items:
-              $ref: '#/components/schemas/Product'
     Paginated:
       type: object
       properties:
@@ -124,10 +115,6 @@ components:
           type:
           - string
           - 'null'
-    TariffByPayment:
-      type: object
-      additionalProperties:
-        $ref: '#/components/schemas/Tariff'
     Product:
       type: object
       properties:
@@ -174,39 +161,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Link'
-    ProductDetail:
-      allOf:
-      - $ref: '#/components/schemas/Product'
-      - type: object
-        properties:
-          tariffs_active_at:
-            type: string
-            format: date-time
-          single_register_electricity_tariffs:
-            type: object
-            additionalProperties:
-              $ref: '#/components/schemas/TariffByPayment'
-          dual_register_electricity_tariffs:
-            type: object
-            additionalProperties:
-              $ref: '#/components/schemas/TariffByPayment'
-          single_register_gas_tariffs:
-            type: object
-            additionalProperties:
-              $ref: '#/components/schemas/TariffByPayment'
-          sample_quotes:
-            type: object
-          sample_consumption:
-            type: object
-    Link:
+    TariffByPayment:
       type: object
-      properties:
-        href:
-          type: string
-        method:
-          type: string
-        rel:
-          type: string
+      additionalProperties:
+        $ref: '#/components/schemas/Tariff'
     Tariff:
       type: object
       properties:
@@ -244,14 +202,55 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Link'
+    ProductDetail:
+      allOf:
+      - $ref: '#/components/schemas/Product'
+      - type: object
+        properties:
+          tariffs_active_at:
+            type: string
+            format: date-time
+          single_register_electricity_tariffs:
+            type: object
+            additionalProperties:
+              $ref: '#/components/schemas/TariffByPayment'
+          dual_register_electricity_tariffs:
+            type: object
+            additionalProperties:
+              $ref: '#/components/schemas/TariffByPayment'
+          single_register_gas_tariffs:
+            type: object
+            additionalProperties:
+              $ref: '#/components/schemas/TariffByPayment'
+          sample_quotes:
+            type: object
+          sample_consumption:
+            type: object
+    PaginatedProductList:
+      allOf:
+      - $ref: '#/components/schemas/Paginated'
+      - type: object
+        properties:
+          results:
+            type: array
+            items:
+              $ref: '#/components/schemas/Product'
+    Link:
+      type: object
+      properties:
+        href:
+          type: string
+        method:
+          type: string
+        rel:
+          type: string
   parameters:
-    ProductCode:
-      name: product_code
-      in: path
-      required: true
+    Page:
+      name: page
+      in: query
       schema:
-        type: string
-      description: Product code, for example AGILE-24-10-01 or VAR-22-11-01.
+        type: integer
+        minimum: 1
     PageSize:
       name: page_size
       in: query
@@ -259,12 +258,13 @@ components:
         type: integer
         minimum: 1
         maximum: 1500
-    Page:
-      name: page
-      in: query
+    ProductCode:
+      name: product_code
+      in: path
+      required: true
       schema:
-        type: integer
-        minimum: 1
+        type: string
+      description: Product code, for example AGILE-24-10-01 or VAR-22-11-01.
   securitySchemes:
     basicAuth:
       type: http

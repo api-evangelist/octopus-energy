@@ -50,6 +50,14 @@ paths:
               schema:
                 $ref: '#/components/schemas/GasMeterPoint'
 components:
+  parameters:
+    MPRN:
+      name: mprn
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Meter Point Reference Number for gas.
   schemas:
     Meter:
       type: object
@@ -78,14 +86,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Meter'
-  parameters:
-    MPRN:
-      name: mprn
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Meter Point Reference Number for gas.
   securitySchemes:
     basicAuth:
       type: http
