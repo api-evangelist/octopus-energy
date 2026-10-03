@@ -105,54 +105,27 @@ paths:
               schema:
                 $ref: '#/components/schemas/PaginatedConsumptionList'
 components:
-  schemas:
-    Paginated:
-      type: object
-      properties:
-        count:
-          type: integer
-        next:
-          type:
-          - string
-          - 'null'
-        previous:
-          type:
-          - string
-          - 'null'
-    ConsumptionReading:
-      type: object
-      properties:
-        consumption:
-          type: number
-          description: kWh consumed in the interval.
-        interval_start:
-          type: string
-          format: date-time
-        interval_end:
-          type: string
-          format: date-time
-    PaginatedConsumptionList:
-      allOf:
-      - $ref: '#/components/schemas/Paginated'
-      - type: object
-        properties:
-          results:
-            type: array
-            items:
-              $ref: '#/components/schemas/ConsumptionReading'
   parameters:
-    SerialNumber:
-      name: serial_number
-      in: path
-      required: true
-      schema:
-        type: string
     Page:
       name: page
       in: query
       schema:
         type: integer
         minimum: 1
+    PeriodFrom:
+      name: period_from
+      in: query
+      schema:
+        type: string
+        format: date-time
+      description: ISO 8601 inclusive start of the period.
+    MPRN:
+      name: mprn
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Meter Point Reference Number for gas.
     MPAN:
       name: mpan
       in: path
@@ -174,20 +147,47 @@ components:
         type: string
         format: date-time
       description: ISO 8601 exclusive end of the period.
-    MPRN:
-      name: mprn
+    SerialNumber:
+      name: serial_number
       in: path
       required: true
       schema:
         type: string
-      description: Meter Point Reference Number for gas.
-    PeriodFrom:
-      name: period_from
-      in: query
-      schema:
-        type: string
-        format: date-time
-      description: ISO 8601 inclusive start of the period.
+  schemas:
+    ConsumptionReading:
+      type: object
+      properties:
+        consumption:
+          type: number
+          description: kWh consumed in the interval.
+        interval_start:
+          type: string
+          format: date-time
+        interval_end:
+          type: string
+          format: date-time
+    PaginatedConsumptionList:
+      allOf:
+      - $ref: '#/components/schemas/Paginated'
+      - type: object
+        properties:
+          results:
+            type: array
+            items:
+              $ref: '#/components/schemas/ConsumptionReading'
+    Paginated:
+      type: object
+      properties:
+        count:
+          type: integer
+        next:
+          type:
+          - string
+          - 'null'
+        previous:
+          type:
+          - string
+          - 'null'
   securitySchemes:
     basicAuth:
       type: http

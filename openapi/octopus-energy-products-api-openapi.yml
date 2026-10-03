@@ -102,19 +102,6 @@ paths:
                 $ref: '#/components/schemas/ProductDetail'
 components:
   schemas:
-    Paginated:
-      type: object
-      properties:
-        count:
-          type: integer
-        next:
-          type:
-          - string
-          - 'null'
-        previous:
-          type:
-          - string
-          - 'null'
     Product:
       type: object
       properties:
@@ -161,10 +148,43 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Link'
+    ProductDetail:
+      allOf:
+      - $ref: '#/components/schemas/Product'
+      - type: object
+        properties:
+          tariffs_active_at:
+            type: string
+            format: date-time
+          single_register_electricity_tariffs:
+            type: object
+            additionalProperties:
+              $ref: '#/components/schemas/TariffByPayment'
+          dual_register_electricity_tariffs:
+            type: object
+            additionalProperties:
+              $ref: '#/components/schemas/TariffByPayment'
+          single_register_gas_tariffs:
+            type: object
+            additionalProperties:
+              $ref: '#/components/schemas/TariffByPayment'
+          sample_quotes:
+            type: object
+          sample_consumption:
+            type: object
     TariffByPayment:
       type: object
       additionalProperties:
         $ref: '#/components/schemas/Tariff'
+    PaginatedProductList:
+      allOf:
+      - $ref: '#/components/schemas/Paginated'
+      - type: object
+        properties:
+          results:
+            type: array
+            items:
+              $ref: '#/components/schemas/Product'
     Tariff:
       type: object
       properties:
@@ -202,39 +222,19 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Link'
-    ProductDetail:
-      allOf:
-      - $ref: '#/components/schemas/Product'
-      - type: object
-        properties:
-          tariffs_active_at:
-            type: string
-            format: date-time
-          single_register_electricity_tariffs:
-            type: object
-            additionalProperties:
-              $ref: '#/components/schemas/TariffByPayment'
-          dual_register_electricity_tariffs:
-            type: object
-            additionalProperties:
-              $ref: '#/components/schemas/TariffByPayment'
-          single_register_gas_tariffs:
-            type: object
-            additionalProperties:
-              $ref: '#/components/schemas/TariffByPayment'
-          sample_quotes:
-            type: object
-          sample_consumption:
-            type: object
-    PaginatedProductList:
-      allOf:
-      - $ref: '#/components/schemas/Paginated'
-      - type: object
-        properties:
-          results:
-            type: array
-            items:
-              $ref: '#/components/schemas/Product'
+    Paginated:
+      type: object
+      properties:
+        count:
+          type: integer
+        next:
+          type:
+          - string
+          - 'null'
+        previous:
+          type:
+          - string
+          - 'null'
     Link:
       type: object
       properties:
