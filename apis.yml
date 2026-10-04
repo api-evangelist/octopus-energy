@@ -105,6 +105,8 @@ apis:
   humanURL: https://developer.octopus.energy/docs/api/
   baseURL: https://api.octopus.energy/v1/
   tags:
+  - Electricity Meter Points
+  tags_raw:
   - ElectricityMeterPoints
   properties:
   - type: OpenAPI
@@ -145,6 +147,8 @@ apis:
   humanURL: https://developer.octopus.energy/docs/api/
   baseURL: https://api.octopus.energy/v1/
   tags:
+  - Gas Meter Points
+  tags_raw:
   - GasMeterPoints
   properties:
   - type: OpenAPI
