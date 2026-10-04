@@ -105,67 +105,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/PaginatedConsumptionList'
 components:
-  parameters:
-    Page:
-      name: page
-      in: query
-      schema:
-        type: integer
-        minimum: 1
-    PeriodFrom:
-      name: period_from
-      in: query
-      schema:
-        type: string
-        format: date-time
-      description: ISO 8601 inclusive start of the period.
-    MPRN:
-      name: mprn
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Meter Point Reference Number for gas.
-    MPAN:
-      name: mpan
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Meter Point Administration Number for electricity (13 digits).
-    PageSize:
-      name: page_size
-      in: query
-      schema:
-        type: integer
-        minimum: 1
-        maximum: 1500
-    PeriodTo:
-      name: period_to
-      in: query
-      schema:
-        type: string
-        format: date-time
-      description: ISO 8601 exclusive end of the period.
-    SerialNumber:
-      name: serial_number
-      in: path
-      required: true
-      schema:
-        type: string
   schemas:
-    ConsumptionReading:
-      type: object
-      properties:
-        consumption:
-          type: number
-          description: kWh consumed in the interval.
-        interval_start:
-          type: string
-          format: date-time
-        interval_end:
-          type: string
-          format: date-time
     PaginatedConsumptionList:
       allOf:
       - $ref: '#/components/schemas/Paginated'
@@ -188,6 +128,66 @@ components:
           type:
           - string
           - 'null'
+    ConsumptionReading:
+      type: object
+      properties:
+        consumption:
+          type: number
+          description: kWh consumed in the interval.
+        interval_start:
+          type: string
+          format: date-time
+        interval_end:
+          type: string
+          format: date-time
+  parameters:
+    SerialNumber:
+      name: serial_number
+      in: path
+      required: true
+      schema:
+        type: string
+    Page:
+      name: page
+      in: query
+      schema:
+        type: integer
+        minimum: 1
+    MPAN:
+      name: mpan
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Meter Point Administration Number for electricity (13 digits).
+    MPRN:
+      name: mprn
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Meter Point Reference Number for gas.
+    PeriodFrom:
+      name: period_from
+      in: query
+      schema:
+        type: string
+        format: date-time
+      description: ISO 8601 inclusive start of the period.
+    PageSize:
+      name: page_size
+      in: query
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 1500
+    PeriodTo:
+      name: period_to
+      in: query
+      schema:
+        type: string
+        format: date-time
+      description: ISO 8601 exclusive end of the period.
   securitySchemes:
     basicAuth:
       type: http

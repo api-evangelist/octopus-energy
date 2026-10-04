@@ -51,22 +51,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/ElectricityMeterPoint'
 components:
+  parameters:
+    MPAN:
+      name: mpan
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Meter Point Administration Number for electricity (13 digits).
   schemas:
-    ElectricityMeterPoint:
-      type: object
-      properties:
-        gsp:
-          type: string
-          description: Grid Supply Point group
-          e.g. _A through _P.: null
-        mpan:
-          type: string
-        profile_class:
-          type: integer
-        meters:
-          type: array
-          items:
-            $ref: '#/components/schemas/Meter'
     Meter:
       type: object
       properties:
@@ -83,14 +76,21 @@ components:
                 type: string
               is_settlement_register:
                 type: boolean
-  parameters:
-    MPAN:
-      name: mpan
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Meter Point Administration Number for electricity (13 digits).
+    ElectricityMeterPoint:
+      type: object
+      properties:
+        gsp:
+          type: string
+          description: Grid Supply Point group
+          e.g. _A through _P.: null
+        mpan:
+          type: string
+        profile_class:
+          type: integer
+        meters:
+          type: array
+          items:
+            $ref: '#/components/schemas/Meter'
   securitySchemes:
     basicAuth:
       type: http

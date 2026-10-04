@@ -70,26 +70,7 @@ paths:
                 $ref: '#/components/schemas/PaginatedStandingChargeList'
 components:
   schemas:
-    StandingCharge:
-      type: object
-      properties:
-        value_exc_vat:
-          type: number
-        value_inc_vat:
-          type: number
-        valid_from:
-          type: string
-          format: date-time
-        valid_to:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        payment_method:
-          type:
-          - string
-          - 'null'
-    PaginatedUnitRateList:
+    PaginatedStandingChargeList:
       allOf:
       - $ref: '#/components/schemas/Paginated'
       - type: object
@@ -97,8 +78,8 @@ components:
           results:
             type: array
             items:
-              $ref: '#/components/schemas/UnitRate'
-    UnitRate:
+              $ref: '#/components/schemas/StandingCharge'
+    StandingCharge:
       type: object
       properties:
         value_exc_vat:
@@ -130,7 +111,7 @@ components:
           type:
           - string
           - 'null'
-    PaginatedStandingChargeList:
+    PaginatedUnitRateList:
       allOf:
       - $ref: '#/components/schemas/Paginated'
       - type: object
@@ -138,8 +119,41 @@ components:
           results:
             type: array
             items:
-              $ref: '#/components/schemas/StandingCharge'
+              $ref: '#/components/schemas/UnitRate'
+    UnitRate:
+      type: object
+      properties:
+        value_exc_vat:
+          type: number
+        value_inc_vat:
+          type: number
+        valid_from:
+          type: string
+          format: date-time
+        valid_to:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        payment_method:
+          type:
+          - string
+          - 'null'
   parameters:
+    TariffCode:
+      name: tariff_code
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Tariff code, for example E-1R-AGILE-24-10-01-A.
+    PeriodTo:
+      name: period_to
+      in: query
+      schema:
+        type: string
+        format: date-time
+      description: ISO 8601 exclusive end of the period.
     PeriodFrom:
       name: period_from
       in: query
@@ -154,20 +168,6 @@ components:
       schema:
         type: string
       description: Product code, for example AGILE-24-10-01 or VAR-22-11-01.
-    PeriodTo:
-      name: period_to
-      in: query
-      schema:
-        type: string
-        format: date-time
-      description: ISO 8601 exclusive end of the period.
-    TariffCode:
-      name: tariff_code
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Tariff code, for example E-1R-AGILE-24-10-01-A.
   securitySchemes:
     basicAuth:
       type: http
