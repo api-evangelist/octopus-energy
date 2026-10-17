@@ -110,17 +110,69 @@ paths:
               schema:
                 $ref: '#/components/schemas/PaginatedUnitRateList'
 components:
+  parameters:
+    ProductCode:
+      name: product_code
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Product code, for example AGILE-24-10-01 or VAR-22-11-01.
+    PeriodFrom:
+      name: period_from
+      in: query
+      schema:
+        type: string
+        format: date-time
+      description: ISO 8601 inclusive start of the period.
+    PageSize:
+      name: page_size
+      in: query
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 1500
+    Page:
+      name: page
+      in: query
+      schema:
+        type: integer
+        minimum: 1
+    PeriodTo:
+      name: period_to
+      in: query
+      schema:
+        type: string
+        format: date-time
+      description: ISO 8601 exclusive end of the period.
+    TariffCode:
+      name: tariff_code
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Tariff code, for example E-1R-AGILE-24-10-01-A.
   schemas:
-    PaginatedStandingChargeList:
-      allOf:
-      - $ref: '#/components/schemas/Paginated'
-      - type: object
-        properties:
-          results:
-            type: array
-            items:
-              $ref: '#/components/schemas/StandingCharge'
     StandingCharge:
+      type: object
+      properties:
+        value_exc_vat:
+          type: number
+        value_inc_vat:
+          type: number
+        valid_from:
+          type: string
+          format: date-time
+        valid_to:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        payment_method:
+          type:
+          - string
+          - 'null'
+    UnitRate:
       type: object
       properties:
         value_exc_vat:
@@ -152,6 +204,15 @@ components:
           type:
           - string
           - 'null'
+    PaginatedStandingChargeList:
+      allOf:
+      - $ref: '#/components/schemas/Paginated'
+      - type: object
+        properties:
+          results:
+            type: array
+            items:
+              $ref: '#/components/schemas/StandingCharge'
     PaginatedUnitRateList:
       allOf:
       - $ref: '#/components/schemas/Paginated'
@@ -161,67 +222,6 @@ components:
             type: array
             items:
               $ref: '#/components/schemas/UnitRate'
-    UnitRate:
-      type: object
-      properties:
-        value_exc_vat:
-          type: number
-        value_inc_vat:
-          type: number
-        valid_from:
-          type: string
-          format: date-time
-        valid_to:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        payment_method:
-          type:
-          - string
-          - 'null'
-  parameters:
-    Page:
-      name: page
-      in: query
-      schema:
-        type: integer
-        minimum: 1
-    TariffCode:
-      name: tariff_code
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Tariff code, for example E-1R-AGILE-24-10-01-A.
-    PeriodTo:
-      name: period_to
-      in: query
-      schema:
-        type: string
-        format: date-time
-      description: ISO 8601 exclusive end of the period.
-    PeriodFrom:
-      name: period_from
-      in: query
-      schema:
-        type: string
-        format: date-time
-      description: ISO 8601 inclusive start of the period.
-    PageSize:
-      name: page_size
-      in: query
-      schema:
-        type: integer
-        minimum: 1
-        maximum: 1500
-    ProductCode:
-      name: product_code
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Product code, for example AGILE-24-10-01 or VAR-22-11-01.
   securitySchemes:
     basicAuth:
       type: http
