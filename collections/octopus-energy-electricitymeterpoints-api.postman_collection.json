@@ -1,133 +1,137 @@
 {
+  "info": {
+    "_postman_id": "5c902178-e387-44e3-b8e8-f679e703db6a",
+    "name": "Octopus Energy Public Electricity Meter Points API",
+    "description": "The Octopus Energy Public API is a free JSON-over-HTTPS REST API exposing the\nUK product catalog, electricity and gas tariffs, electricity and gas meter\npoints, half-hourly smart-meter consumption, and industry grid supply points.\n\nAuthentication uses HTTP Basic auth with a per-customer API key as the\nusername and an empty password. Products and tariffs endpoints are open and\ndo not require authentication; meter-point and consumption endpoints require\na key for the account that owns the meter.\n\nContact Support:\n Name: Octopus Energy Developer Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:56:45.000Z",
+    "updatedAt": "2026-10-21T20:56:46.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-5c902178-e387-44e3-b8e8-f679e703db6a"
+  },
   "item": [
     {
-      "id": "ec8115d8-92f4-41ed-b577-d68edd52c696",
-      "name": "ElectricityMeterPoints",
-      "description": {
-        "content": "Electricity meter points (MPAN) and registered meters.",
-        "type": "text/plain"
-      },
+      "name": "electricity-meter-points",
       "item": [
         {
-          "id": "e3da3980-a504-43db-b5cc-bbbbe1a415ec",
-          "name": "Retrieve an Electricity Meter Point",
-          "request": {
-            "name": "Retrieve an Electricity Meter Point",
-            "description": {
-              "content": "Retrieve information about an electricity meter point including the GSP region and registered meters.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "electricity-meter-points",
-                ":mpan",
-                ""
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "mpan",
-                  "description": "(Required) Meter Point Administration Number for electricity (13 digits)."
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": {
-              "type": "basic",
-              "basic": [
-                {
-                  "key": "username",
-                  "value": "{{basicAuthUsername}}"
-                },
-                {
-                  "key": "password",
-                  "value": "{{basicAuthPassword}}"
-                }
-              ]
-            }
-          },
-          "response": [
+          "name": "{mpan}",
+          "item": [
             {
-              "id": "8bf2f0a3-aa34-44d9-8174-862afe81c929",
-              "name": "An electricity meter point.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "electricity-meter-points",
-                    ":mpan",
-                    ""
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
+              "name": "Retrieve an Electricity Meter Point",
+              "id": "6e49d644-efa8-43ce-b2f2-39694d66aab9",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "basic",
+                  "basic": [
                     {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "mpan",
-                      "description": "(Required) Meter Point Administration Number for electricity (13 digits)."
+                      "key": "username",
+                      "value": "{{basicAuthUsername}}",
+                      "type": "string"
+                    },
+                    {
+                      "key": "password",
+                      "value": "{{basicAuthPassword}}",
+                      "type": "string"
                     }
                   ]
                 },
+                "method": "GET",
                 "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
                   {
                     "key": "Accept",
                     "value": "application/json"
                   }
                 ],
-                "method": "GET",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/electricity-meter-points/:mpan/",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "electricity-meter-points",
+                    ":mpan",
+                    ""
+                  ],
+                  "variable": [
+                    {
+                      "id": "6ced6d3b-52ad-4591-a949-2c870039c777",
+                      "key": "mpan",
+                      "value": "<string>",
+                      "description": "(Required) Meter Point Administration Number for electricity (13 digits)."
+                    }
+                  ]
+                },
+                "description": "Retrieve information about an electricity meter point including the GSP region and registered meters."
               },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "response": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "id": "e47788eb-2f53-42a0-929f-4a7aed88432d",
+                  "name": "An electricity meter point.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/electricity-meter-points/:mpan/",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "electricity-meter-points",
+                        ":mpan",
+                        ""
+                      ],
+                      "variable": [
+                        {
+                          "key": "mpan"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"gsp\": \"<string>\",\n  \"mpan\": \"<string>\",\n  \"profile_class\": \"<integer>\",\n  \"meters\": [\n    {\n      \"serial_number\": \"<string>\",\n      \"registers\": [\n        {\n          \"identifier\": \"<string>\",\n          \"rate\": \"<string>\",\n          \"is_settlement_register\": \"<boolean>\"\n        },\n        {\n          \"identifier\": \"<string>\",\n          \"rate\": \"<string>\",\n          \"is_settlement_register\": \"<boolean>\"\n        }\n      ]\n    },\n    {\n      \"serial_number\": \"<string>\",\n      \"registers\": [\n        {\n          \"identifier\": \"<string>\",\n          \"rate\": \"<string>\",\n          \"is_settlement_register\": \"<boolean>\"\n        },\n        {\n          \"identifier\": \"<string>\",\n          \"rate\": \"<string>\",\n          \"is_settlement_register\": \"<boolean>\"\n        }\n      ]\n    }\n  ]\n}",
+                  "createdAt": "2026-10-21T20:56:46.000Z",
+                  "updatedAt": "2026-10-21T20:56:46.000Z",
+                  "uid": "35240-e47788eb-2f53-42a0-929f-4a7aed88432d"
                 }
               ],
-              "body": "{\n  \"gsp\": \"string\",\n  \"mpan\": \"string\",\n  \"profile_class\": 1141,\n  \"meters\": [\n    {\n      \"serial_number\": \"string\",\n      \"registers\": [\n        {\n          \"identifier\": \"string\",\n          \"rate\": \"string\",\n          \"is_settlement_register\": false\n        },\n        {\n          \"identifier\": \"string\",\n          \"rate\": \"string\",\n          \"is_settlement_register\": false\n        }\n      ]\n    },\n    {\n      \"serial_number\": \"string\",\n      \"registers\": [\n        {\n          \"identifier\": \"string\",\n          \"rate\": \"string\",\n          \"is_settlement_register\": true\n        },\n        {\n          \"identifier\": \"string\",\n          \"rate\": \"string\",\n          \"is_settlement_register\": true\n        }\n      ]\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "createdAt": "2026-10-21T20:56:46.000Z",
+              "updatedAt": "2026-10-21T20:56:46.000Z",
+              "uid": "35240-6e49d644-efa8-43ce-b2f2-39694d66aab9"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "29f49bbb-3ae8-4843-a0c4-b207702d0816",
+          "createdAt": "2026-10-21T20:56:46.000Z",
+          "updatedAt": "2026-10-21T20:56:46.000Z",
+          "uid": "35240-29f49bbb-3ae8-4843-a0c4-b207702d0816"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api.octopus.energy/v1",
-      "key": "baseUrl"
+      "id": "2d3278a4-a22f-4208-af47-bc1ff5408eef",
+      "createdAt": "2026-10-21T20:56:46.000Z",
+      "updatedAt": "2026-10-21T20:56:46.000Z",
+      "uid": "35240-2d3278a4-a22f-4208-af47-bc1ff5408eef"
     }
   ],
   "auth": {
@@ -135,21 +139,20 @@
     "basic": [
       {
         "key": "username",
-        "value": "{{basicAuthUsername}}"
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
       },
       {
         "key": "password",
-        "value": "{{basicAuthPassword}}"
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "d9141637-caad-4fa9-9a21-3c32db010460",
-    "name": "Octopus Energy Public Consumption ElectricityMeterPoints API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The Octopus Energy Public API is a free JSON-over-HTTPS REST API exposing the\nUK product catalog, electricity and gas tariffs, electricity and gas meter\npoints, half-hourly smart-meter consumption, and industry grid supply points.\n\nAuthentication uses HTTP Basic auth with a per-customer API key as the\nusername and an empty password. Products and tariffs endpoints are open and\ndo not require authentication; meter-point and consumption endpoints require\na key for the account that owns the meter.\n\n\nContact Support:\n Name: Octopus Energy Developer Support",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.octopus.energy/v1"
     }
-  }
+  ]
 }

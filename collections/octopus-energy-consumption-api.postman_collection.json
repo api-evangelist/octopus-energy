@@ -1,387 +1,447 @@
 {
+  "info": {
+    "_postman_id": "14c6d407-cdf4-4eaa-bf1d-c9c0718ab1fa",
+    "name": "Octopus Energy Public Consumption API",
+    "description": "The Octopus Energy Public API is a free JSON-over-HTTPS REST API exposing the\nUK product catalog, electricity and gas tariffs, electricity and gas meter\npoints, half-hourly smart-meter consumption, and industry grid supply points.\n\nAuthentication uses HTTP Basic auth with a per-customer API key as the\nusername and an empty password. Products and tariffs endpoints are open and\ndo not require authentication; meter-point and consumption endpoints require\na key for the account that owns the meter.\n\nContact Support:\n Name: Octopus Energy Developer Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:56:39.000Z",
+    "updatedAt": "2026-10-21T20:56:39.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-14c6d407-cdf4-4eaa-bf1d-c9c0718ab1fa"
+  },
   "item": [
     {
-      "id": "a5124650-ea47-4053-ab50-9f28f9dded5b",
-      "name": "Consumption",
-      "description": {
-        "content": "Half-hourly smart-meter consumption readings.",
-        "type": "text/plain"
-      },
+      "name": "electricity-meter-points",
       "item": [
         {
-          "id": "500e3f83-2905-4fd0-ad0a-8df6451d0277",
-          "name": "List Electricity Consumption",
-          "request": {
-            "name": "List Electricity Consumption",
-            "description": {
-              "content": "List half-hourly smart-meter electricity consumption readings for the given meter.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "electricity-meter-points",
-                ":mpan",
-                "meters",
-                ":serial_number",
-                "consumption",
-                ""
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "period_from",
-                  "value": "<dateTime>",
-                  "description": "ISO 8601 inclusive start of the period."
-                },
-                {
-                  "disabled": false,
-                  "key": "period_to",
-                  "value": "<dateTime>",
-                  "description": "ISO 8601 exclusive end of the period."
-                },
-                {
-                  "disabled": false,
-                  "key": "order_by",
-                  "value": "<string>"
-                },
-                {
-                  "disabled": false,
-                  "key": "group_by",
-                  "value": "<string>"
-                },
-                {
-                  "disabled": false,
-                  "key": "page",
-                  "value": "<integer>"
-                },
-                {
-                  "disabled": false,
-                  "key": "page_size",
-                  "value": "<integer>"
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "mpan",
-                  "description": "(Required) Meter Point Administration Number for electricity (13 digits)."
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "serial_number",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": {
-              "type": "basic",
-              "basic": [
-                {
-                  "key": "username",
-                  "value": "{{basicAuthUsername}}"
-                },
-                {
-                  "key": "password",
-                  "value": "{{basicAuthPassword}}"
-                }
-              ]
-            }
-          },
-          "response": [
+          "name": "{mpan}",
+          "item": [
             {
-              "id": "9cd2f14a-bc20-4caa-b83d-599b57f8368d",
-              "name": "A paginated list of consumption readings.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "electricity-meter-points",
-                    ":mpan",
-                    "meters",
-                    ":serial_number",
-                    "consumption",
-                    ""
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "period_from",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "period_to",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "order_by",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "group_by",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "page",
-                      "value": "<integer>"
-                    },
-                    {
-                      "key": "page_size",
-                      "value": "<integer>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "mpan",
-                      "description": "(Required) Meter Point Administration Number for electricity (13 digits)."
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "serial_number",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "meters",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "name": "{serial_number}",
+                  "item": [
+                    {
+                      "name": "consumption",
+                      "item": [
+                        {
+                          "name": "List Electricity Consumption",
+                          "id": "aaa15450-bd54-477d-a9f1-ecccce731016",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "auth": {
+                              "type": "basic",
+                              "basic": [
+                                {
+                                  "key": "username",
+                                  "value": "{{basicAuthUsername}}",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "password",
+                                  "value": "{{basicAuthPassword}}",
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/electricity-meter-points/:mpan/meters/:serial_number/consumption/?period_from=<dateTime>&period_to=<dateTime>&order_by=period&group_by=quarter&page=<integer>&page_size=<integer>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "electricity-meter-points",
+                                ":mpan",
+                                "meters",
+                                ":serial_number",
+                                "consumption",
+                                ""
+                              ],
+                              "query": [
+                                {
+                                  "description": "ISO 8601 inclusive start of the period.",
+                                  "key": "period_from",
+                                  "value": "<dateTime>"
+                                },
+                                {
+                                  "description": "ISO 8601 exclusive end of the period.",
+                                  "key": "period_to",
+                                  "value": "<dateTime>"
+                                },
+                                {
+                                  "key": "order_by",
+                                  "value": "period"
+                                },
+                                {
+                                  "key": "group_by",
+                                  "value": "quarter"
+                                },
+                                {
+                                  "key": "page",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "key": "page_size",
+                                  "value": "<integer>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "debc3462-40dd-41d2-aec3-1333da4938d8",
+                                  "key": "mpan",
+                                  "value": "<string>",
+                                  "description": "(Required) Meter Point Administration Number for electricity (13 digits)."
+                                },
+                                {
+                                  "id": "d6b742cb-1bea-4f7b-b38c-1887d5da7e2e",
+                                  "key": "serial_number",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "List half-hourly smart-meter electricity consumption readings for the given meter."
+                          },
+                          "response": [
+                            {
+                              "id": "97c86dd6-c429-42f2-b735-e2c5d73a004e",
+                              "name": "A paginated list of consumption readings.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: basic",
+                                    "key": "Authorization",
+                                    "value": "Basic <credentials>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/electricity-meter-points/:mpan/meters/:serial_number/consumption/?period_from=<dateTime>&period_to=<dateTime>&order_by=period&group_by=quarter&page=<integer>&page_size=<integer>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "electricity-meter-points",
+                                    ":mpan",
+                                    "meters",
+                                    ":serial_number",
+                                    "consumption",
+                                    ""
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "ISO 8601 inclusive start of the period.",
+                                      "key": "period_from",
+                                      "value": "<dateTime>"
+                                    },
+                                    {
+                                      "description": "ISO 8601 exclusive end of the period.",
+                                      "key": "period_to",
+                                      "value": "<dateTime>"
+                                    },
+                                    {
+                                      "key": "order_by",
+                                      "value": "period"
+                                    },
+                                    {
+                                      "key": "group_by",
+                                      "value": "quarter"
+                                    },
+                                    {
+                                      "key": "page",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "key": "page_size",
+                                      "value": "<integer>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "mpan"
+                                    },
+                                    {
+                                      "key": "serial_number"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"count\": \"<integer>\",\n  \"next\": \"<string,null>\",\n  \"previous\": \"<string,null>\",\n  \"results\": [\n    {\n      \"consumption\": \"<number>\",\n      \"interval_start\": \"<dateTime>\",\n      \"interval_end\": \"<dateTime>\"\n    },\n    {\n      \"consumption\": \"<number>\",\n      \"interval_start\": \"<dateTime>\",\n      \"interval_end\": \"<dateTime>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-10-21T20:56:39.000Z",
+                              "updatedAt": "2026-10-21T20:56:39.000Z",
+                              "uid": "35240-97c86dd6-c429-42f2-b735-e2c5d73a004e"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:56:39.000Z",
+                          "updatedAt": "2026-10-21T20:56:39.000Z",
+                          "uid": "35240-aaa15450-bd54-477d-a9f1-ecccce731016"
+                        }
+                      ],
+                      "id": "6a4b3aef-89d4-4a6e-b0b6-140bc69044e1",
+                      "createdAt": "2026-10-21T20:56:39.000Z",
+                      "updatedAt": "2026-10-21T20:56:39.000Z",
+                      "uid": "35240-6a4b3aef-89d4-4a6e-b0b6-140bc69044e1"
+                    }
+                  ],
+                  "id": "5c34d4f6-f11a-404e-a482-41efafddb4d5",
+                  "createdAt": "2026-10-21T20:56:39.000Z",
+                  "updatedAt": "2026-10-21T20:56:39.000Z",
+                  "uid": "35240-5c34d4f6-f11a-404e-a482-41efafddb4d5"
                 }
               ],
-              "body": "{\n  \"count\": 5788,\n  \"next\": \"string\",\n  \"previous\": \"string\",\n  \"results\": [\n    {\n      \"consumption\": 739.68169694138,\n      \"interval_start\": \"1983-05-15T12:08:51.449Z\",\n      \"interval_end\": \"1978-03-15T16:29:51.309Z\"\n    },\n    {\n      \"consumption\": 7545.107609465705,\n      \"interval_start\": \"1956-06-17T23:18:24.530Z\",\n      \"interval_end\": \"1997-04-03T07:27:20.459Z\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "e9baa5b9-d686-405f-ab97-6b53001f9444",
+              "createdAt": "2026-10-21T20:56:39.000Z",
+              "updatedAt": "2026-10-21T20:56:39.000Z",
+              "uid": "35240-e9baa5b9-d686-405f-ab97-6b53001f9444"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "91e284a1-fb8c-436e-9b38-0bf11d3c2f44",
-          "name": "List Gas Consumption",
-          "request": {
-            "name": "List Gas Consumption",
-            "description": {},
-            "url": {
-              "path": [
-                "gas-meter-points",
-                ":mprn",
-                "meters",
-                ":serial_number",
-                "consumption",
-                ""
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "period_from",
-                  "value": "<dateTime>",
-                  "description": "ISO 8601 inclusive start of the period."
-                },
-                {
-                  "disabled": false,
-                  "key": "period_to",
-                  "value": "<dateTime>",
-                  "description": "ISO 8601 exclusive end of the period."
-                },
-                {
-                  "disabled": false,
-                  "key": "group_by",
-                  "value": "<string>"
-                },
-                {
-                  "disabled": false,
-                  "key": "page",
-                  "value": "<integer>"
-                },
-                {
-                  "disabled": false,
-                  "key": "page_size",
-                  "value": "<integer>"
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "mprn",
-                  "description": "(Required) Meter Point Reference Number for gas."
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "serial_number",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": {
-              "type": "basic",
-              "basic": [
-                {
-                  "key": "username",
-                  "value": "{{basicAuthUsername}}"
-                },
-                {
-                  "key": "password",
-                  "value": "{{basicAuthPassword}}"
-                }
-              ]
-            }
-          },
-          "response": [
-            {
-              "id": "f61b19a4-e262-490b-a5b5-2b5e074d3cb2",
-              "name": "A paginated list of gas consumption readings.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "gas-meter-points",
-                    ":mprn",
-                    "meters",
-                    ":serial_number",
-                    "consumption",
-                    ""
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "period_from",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "period_to",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "group_by",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "page",
-                      "value": "<integer>"
-                    },
-                    {
-                      "key": "page_size",
-                      "value": "<integer>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "mprn",
-                      "description": "(Required) Meter Point Reference Number for gas."
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "serial_number",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"count\": 5534,\n  \"next\": \"string\",\n  \"previous\": \"string\",\n  \"results\": [\n    {\n      \"consumption\": 6198.9217110406435,\n      \"interval_start\": \"2017-05-25T13:08:21.241Z\",\n      \"interval_end\": \"2018-12-14T05:39:30.530Z\"\n    },\n    {\n      \"consumption\": 9915.684532344138,\n      \"interval_start\": \"1991-05-31T19:13:01.621Z\",\n      \"interval_end\": \"2010-10-05T00:57:44.418Z\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "cb04c3a9-244a-45e6-a933-81a248dc52a6",
+          "createdAt": "2026-10-21T20:56:39.000Z",
+          "updatedAt": "2026-10-21T20:56:39.000Z",
+          "uid": "35240-cb04c3a9-244a-45e6-a933-81a248dc52a6"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
+      "id": "e8ccb491-406d-4b8d-b523-8432dc552980",
+      "createdAt": "2026-10-21T20:56:39.000Z",
+      "updatedAt": "2026-10-21T20:56:39.000Z",
+      "uid": "35240-e8ccb491-406d-4b8d-b523-8432dc552980"
+    },
     {
-      "type": "string",
-      "value": "https://api.octopus.energy/v1",
-      "key": "baseUrl"
+      "name": "gas-meter-points",
+      "item": [
+        {
+          "name": "{mprn}",
+          "item": [
+            {
+              "name": "meters",
+              "item": [
+                {
+                  "name": "{serial_number}",
+                  "item": [
+                    {
+                      "name": "consumption",
+                      "item": [
+                        {
+                          "name": "List Gas Consumption",
+                          "id": "40c52be5-7fc9-4927-8a0c-143e088c0a12",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "auth": {
+                              "type": "basic",
+                              "basic": [
+                                {
+                                  "key": "username",
+                                  "value": "{{basicAuthUsername}}",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "password",
+                                  "value": "{{basicAuthPassword}}",
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/gas-meter-points/:mprn/meters/:serial_number/consumption/?period_from=<dateTime>&period_to=<dateTime>&group_by=quarter&page=<integer>&page_size=<integer>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "gas-meter-points",
+                                ":mprn",
+                                "meters",
+                                ":serial_number",
+                                "consumption",
+                                ""
+                              ],
+                              "query": [
+                                {
+                                  "description": "ISO 8601 inclusive start of the period.",
+                                  "key": "period_from",
+                                  "value": "<dateTime>"
+                                },
+                                {
+                                  "description": "ISO 8601 exclusive end of the period.",
+                                  "key": "period_to",
+                                  "value": "<dateTime>"
+                                },
+                                {
+                                  "key": "group_by",
+                                  "value": "quarter"
+                                },
+                                {
+                                  "key": "page",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "key": "page_size",
+                                  "value": "<integer>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "1b01410d-1f5e-4755-a0de-a6ad2d58b87c",
+                                  "key": "mprn",
+                                  "value": "<string>",
+                                  "description": "(Required) Meter Point Reference Number for gas."
+                                },
+                                {
+                                  "id": "e81d0cad-6ba3-40f1-9dd5-a9ee84d0f6e6",
+                                  "key": "serial_number",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "ada267b8-9322-4846-be9f-3d721af4f8c8",
+                              "name": "A paginated list of gas consumption readings.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: basic",
+                                    "key": "Authorization",
+                                    "value": "Basic <credentials>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/gas-meter-points/:mprn/meters/:serial_number/consumption/?period_from=<dateTime>&period_to=<dateTime>&group_by=quarter&page=<integer>&page_size=<integer>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "gas-meter-points",
+                                    ":mprn",
+                                    "meters",
+                                    ":serial_number",
+                                    "consumption",
+                                    ""
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "ISO 8601 inclusive start of the period.",
+                                      "key": "period_from",
+                                      "value": "<dateTime>"
+                                    },
+                                    {
+                                      "description": "ISO 8601 exclusive end of the period.",
+                                      "key": "period_to",
+                                      "value": "<dateTime>"
+                                    },
+                                    {
+                                      "key": "group_by",
+                                      "value": "quarter"
+                                    },
+                                    {
+                                      "key": "page",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "key": "page_size",
+                                      "value": "<integer>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "mprn"
+                                    },
+                                    {
+                                      "key": "serial_number"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"count\": \"<integer>\",\n  \"next\": \"<string,null>\",\n  \"previous\": \"<string,null>\",\n  \"results\": [\n    {\n      \"consumption\": \"<number>\",\n      \"interval_start\": \"<dateTime>\",\n      \"interval_end\": \"<dateTime>\"\n    },\n    {\n      \"consumption\": \"<number>\",\n      \"interval_start\": \"<dateTime>\",\n      \"interval_end\": \"<dateTime>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-10-21T20:56:39.000Z",
+                              "updatedAt": "2026-10-21T20:56:39.000Z",
+                              "uid": "35240-ada267b8-9322-4846-be9f-3d721af4f8c8"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:56:39.000Z",
+                          "updatedAt": "2026-10-21T20:56:39.000Z",
+                          "uid": "35240-40c52be5-7fc9-4927-8a0c-143e088c0a12"
+                        }
+                      ],
+                      "id": "b8a2e5d4-a918-4b4d-b548-2eb1d93f5b81",
+                      "createdAt": "2026-10-21T20:56:39.000Z",
+                      "updatedAt": "2026-10-21T20:56:39.000Z",
+                      "uid": "35240-b8a2e5d4-a918-4b4d-b548-2eb1d93f5b81"
+                    }
+                  ],
+                  "id": "e36f6d1e-3695-4d38-a749-be41fe88ec70",
+                  "createdAt": "2026-10-21T20:56:39.000Z",
+                  "updatedAt": "2026-10-21T20:56:39.000Z",
+                  "uid": "35240-e36f6d1e-3695-4d38-a749-be41fe88ec70"
+                }
+              ],
+              "id": "1b1070a7-0d22-4445-b8bf-0c12ea13f7d0",
+              "createdAt": "2026-10-21T20:56:39.000Z",
+              "updatedAt": "2026-10-21T20:56:39.000Z",
+              "uid": "35240-1b1070a7-0d22-4445-b8bf-0c12ea13f7d0"
+            }
+          ],
+          "id": "3ac12070-b6d0-4e89-85b3-3d6b3b452c79",
+          "createdAt": "2026-10-21T20:56:39.000Z",
+          "updatedAt": "2026-10-21T20:56:39.000Z",
+          "uid": "35240-3ac12070-b6d0-4e89-85b3-3d6b3b452c79"
+        }
+      ],
+      "id": "0705ade4-2083-4b69-bd1a-27c80b3632ad",
+      "createdAt": "2026-10-21T20:56:39.000Z",
+      "updatedAt": "2026-10-21T20:56:39.000Z",
+      "uid": "35240-0705ade4-2083-4b69-bd1a-27c80b3632ad"
     }
   ],
   "auth": {
@@ -389,21 +449,20 @@
     "basic": [
       {
         "key": "username",
-        "value": "{{basicAuthUsername}}"
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
       },
       {
         "key": "password",
-        "value": "{{basicAuthPassword}}"
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "6944a982-ecae-4a7c-b9b8-7647d280486a",
-    "name": "Octopus Energy Public Consumption API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The Octopus Energy Public API is a free JSON-over-HTTPS REST API exposing the\nUK product catalog, electricity and gas tariffs, electricity and gas meter\npoints, half-hourly smart-meter consumption, and industry grid supply points.\n\nAuthentication uses HTTP Basic auth with a per-customer API key as the\nusername and an empty password. Products and tariffs endpoints are open and\ndo not require authentication; meter-point and consumption endpoints require\na key for the account that owns the meter.\n\n\nContact Support:\n Name: Octopus Energy Developer Support",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.octopus.energy/v1"
     }
-  }
+  ]
 }

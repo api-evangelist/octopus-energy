@@ -1,116 +1,121 @@
 {
+  "info": {
+    "_postman_id": "a5babc05-8382-485d-bb7d-e2d71b365753",
+    "name": "Octopus Energy Public Industry API",
+    "description": "The Octopus Energy Public API is a free JSON-over-HTTPS REST API exposing the\nUK product catalog, electricity and gas tariffs, electricity and gas meter\npoints, half-hourly smart-meter consumption, and industry grid supply points.\n\nAuthentication uses HTTP Basic auth with a per-customer API key as the\nusername and an empty password. Products and tariffs endpoints are open and\ndo not require authentication; meter-point and consumption endpoints require\na key for the account that owns the meter.\n\nContact Support:\n Name: Octopus Energy Developer Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:57:11.000Z",
+    "updatedAt": "2026-10-21T20:57:11.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-a5babc05-8382-485d-bb7d-e2d71b365753"
+  },
   "item": [
     {
-      "id": "6c1bb9c6-9bfe-46d6-9a7e-5c96b9327baa",
-      "name": "Industry",
-      "description": {
-        "content": "UK industry references such as grid supply points.",
-        "type": "text/plain"
-      },
+      "name": "industry",
       "item": [
         {
-          "id": "c30765e5-2b09-40c6-853e-4cc97b759551",
-          "name": "List Grid Supply Points",
-          "request": {
-            "name": "List Grid Supply Points",
-            "description": {
-              "content": "List UK grid supply points and resolve the GSP for a postcode.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "industry",
-                "grid-supply-points",
-                ""
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "postcode",
-                  "value": "<string>"
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "grid-supply-points",
+          "item": [
             {
-              "id": "70958eb7-4269-4a78-acf8-eebff4f32300",
-              "name": "A list of grid supply points.",
-              "originalRequest": {
+              "name": "List Grid Supply Points",
+              "id": "27ae69fa-30c9-45db-adea-fa02b7d4d613",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
                 "url": {
+                  "raw": "{{baseUrl}}/industry/grid-supply-points/?postcode=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
                   "path": [
                     "industry",
                     "grid-supply-points",
                     ""
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
                   ],
                   "query": [
                     {
                       "key": "postcode",
                       "value": "<string>"
                     }
-                  ],
-                  "variable": []
+                  ]
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
+                "description": "List UK grid supply points and resolve the GSP for a postcode."
               },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "response": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "id": "e80e3b0a-d84a-428e-a98c-f9e65a01f6cd",
+                  "name": "A list of grid supply points.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/industry/grid-supply-points/?postcode=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "industry",
+                        "grid-supply-points",
+                        ""
+                      ],
+                      "query": [
+                        {
+                          "key": "postcode",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"count\": \"<integer>\",\n  \"next\": \"<string,null>\",\n  \"previous\": \"<string,null>\",\n  \"results\": [\n    {\n      \"group_id\": \"<string>\"\n    },\n    {\n      \"group_id\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-10-21T20:57:12.000Z",
+                  "updatedAt": "2026-10-21T20:57:12.000Z",
+                  "uid": "35240-e80e3b0a-d84a-428e-a98c-f9e65a01f6cd"
                 }
               ],
-              "body": "{\n  \"count\": 773,\n  \"next\": \"string\",\n  \"previous\": \"string\",\n  \"results\": [\n    {\n      \"group_id\": \"string\"\n    },\n    {\n      \"group_id\": \"string\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "createdAt": "2026-10-21T20:57:12.000Z",
+              "updatedAt": "2026-10-21T20:57:12.000Z",
+              "uid": "35240-27ae69fa-30c9-45db-adea-fa02b7d4d613"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "941ae733-6ece-4dc4-b190-ee19f9fc1a66",
+          "createdAt": "2026-10-21T20:57:12.000Z",
+          "updatedAt": "2026-10-21T20:57:12.000Z",
+          "uid": "35240-941ae733-6ece-4dc4-b190-ee19f9fc1a66"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api.octopus.energy/v1",
-      "key": "baseUrl"
+      "id": "371bcefb-047e-456c-b8ea-11b5bcdf8995",
+      "createdAt": "2026-10-21T20:57:12.000Z",
+      "updatedAt": "2026-10-21T20:57:12.000Z",
+      "uid": "35240-371bcefb-047e-456c-b8ea-11b5bcdf8995"
     }
   ],
   "auth": {
@@ -118,21 +123,20 @@
     "basic": [
       {
         "key": "username",
-        "value": "{{basicAuthUsername}}"
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
       },
       {
         "key": "password",
-        "value": "{{basicAuthPassword}}"
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "5d61148f-9636-4845-93a1-194339641b09",
-    "name": "Octopus Energy Public Consumption Industry API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The Octopus Energy Public API is a free JSON-over-HTTPS REST API exposing the\nUK product catalog, electricity and gas tariffs, electricity and gas meter\npoints, half-hourly smart-meter consumption, and industry grid supply points.\n\nAuthentication uses HTTP Basic auth with a per-customer API key as the\nusername and an empty password. Products and tariffs endpoints are open and\ndo not require authentication; meter-point and consumption endpoints require\na key for the account that owns the meter.\n\n\nContact Support:\n Name: Octopus Energy Developer Support",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.octopus.energy/v1"
     }
-  }
+  ]
 }

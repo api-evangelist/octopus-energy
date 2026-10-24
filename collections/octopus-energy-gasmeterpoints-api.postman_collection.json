@@ -1,130 +1,136 @@
 {
+  "info": {
+    "_postman_id": "fe677225-54ea-4e20-a63c-be88f4129db1",
+    "name": "Octopus Energy Public Gas Meter Points API",
+    "description": "The Octopus Energy Public API is a free JSON-over-HTTPS REST API exposing the\nUK product catalog, electricity and gas tariffs, electricity and gas meter\npoints, half-hourly smart-meter consumption, and industry grid supply points.\n\nAuthentication uses HTTP Basic auth with a per-customer API key as the\nusername and an empty password. Products and tariffs endpoints are open and\ndo not require authentication; meter-point and consumption endpoints require\na key for the account that owns the meter.\n\nContact Support:\n Name: Octopus Energy Developer Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:56:56.000Z",
+    "updatedAt": "2026-10-21T20:56:56.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-fe677225-54ea-4e20-a63c-be88f4129db1"
+  },
   "item": [
     {
-      "id": "4c1fbf6f-57a5-4094-90f7-fa9b397447da",
-      "name": "GasMeterPoints",
-      "description": {
-        "content": "Gas meter points (MPRN) and registered meters.",
-        "type": "text/plain"
-      },
+      "name": "gas-meter-points",
       "item": [
         {
-          "id": "0f20781e-8452-49c5-a91a-5b6c0863b60b",
-          "name": "Retrieve a Gas Meter Point",
-          "request": {
-            "name": "Retrieve a Gas Meter Point",
-            "description": {},
-            "url": {
-              "path": [
-                "gas-meter-points",
-                ":mprn",
-                ""
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "mprn",
-                  "description": "(Required) Meter Point Reference Number for gas."
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": {
-              "type": "basic",
-              "basic": [
-                {
-                  "key": "username",
-                  "value": "{{basicAuthUsername}}"
-                },
-                {
-                  "key": "password",
-                  "value": "{{basicAuthPassword}}"
-                }
-              ]
-            }
-          },
-          "response": [
+          "name": "{mprn}",
+          "item": [
             {
-              "id": "d9786670-2882-4d63-9d6a-4f73d591407a",
-              "name": "A gas meter point.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "gas-meter-points",
-                    ":mprn",
-                    ""
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
+              "name": "Retrieve a Gas Meter Point",
+              "id": "f337a4a7-8392-4927-9ae4-9f318567a3e6",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "basic",
+                  "basic": [
                     {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "mprn",
-                      "description": "(Required) Meter Point Reference Number for gas."
+                      "key": "username",
+                      "value": "{{basicAuthUsername}}",
+                      "type": "string"
+                    },
+                    {
+                      "key": "password",
+                      "value": "{{basicAuthPassword}}",
+                      "type": "string"
                     }
                   ]
                 },
+                "method": "GET",
                 "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
                   {
                     "key": "Accept",
                     "value": "application/json"
                   }
                 ],
-                "method": "GET",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/gas-meter-points/:mprn/",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "gas-meter-points",
+                    ":mprn",
+                    ""
+                  ],
+                  "variable": [
+                    {
+                      "id": "456779f6-eeaf-4cbd-9ad6-174cb7169375",
+                      "key": "mprn",
+                      "value": "<string>",
+                      "description": "(Required) Meter Point Reference Number for gas."
+                    }
+                  ]
+                }
               },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "response": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "id": "afdf1976-6acb-49ae-9a17-699562ba9246",
+                  "name": "A gas meter point.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/gas-meter-points/:mprn/",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "gas-meter-points",
+                        ":mprn",
+                        ""
+                      ],
+                      "variable": [
+                        {
+                          "key": "mprn"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"mprn\": \"<string>\",\n  \"consumption_standard\": \"<number>\",\n  \"meters\": [\n    {\n      \"serial_number\": \"<string>\",\n      \"registers\": [\n        {\n          \"identifier\": \"<string>\",\n          \"rate\": \"<string>\",\n          \"is_settlement_register\": \"<boolean>\"\n        },\n        {\n          \"identifier\": \"<string>\",\n          \"rate\": \"<string>\",\n          \"is_settlement_register\": \"<boolean>\"\n        }\n      ]\n    },\n    {\n      \"serial_number\": \"<string>\",\n      \"registers\": [\n        {\n          \"identifier\": \"<string>\",\n          \"rate\": \"<string>\",\n          \"is_settlement_register\": \"<boolean>\"\n        },\n        {\n          \"identifier\": \"<string>\",\n          \"rate\": \"<string>\",\n          \"is_settlement_register\": \"<boolean>\"\n        }\n      ]\n    }\n  ]\n}",
+                  "createdAt": "2026-10-21T20:56:56.000Z",
+                  "updatedAt": "2026-10-21T20:56:56.000Z",
+                  "uid": "35240-afdf1976-6acb-49ae-9a17-699562ba9246"
                 }
               ],
-              "body": "{\n  \"mprn\": \"string\",\n  \"consumption_standard\": 6650.7207550377925,\n  \"meters\": [\n    {\n      \"serial_number\": \"string\",\n      \"registers\": [\n        {\n          \"identifier\": \"string\",\n          \"rate\": \"string\",\n          \"is_settlement_register\": false\n        },\n        {\n          \"identifier\": \"string\",\n          \"rate\": \"string\",\n          \"is_settlement_register\": false\n        }\n      ]\n    },\n    {\n      \"serial_number\": \"string\",\n      \"registers\": [\n        {\n          \"identifier\": \"string\",\n          \"rate\": \"string\",\n          \"is_settlement_register\": true\n        },\n        {\n          \"identifier\": \"string\",\n          \"rate\": \"string\",\n          \"is_settlement_register\": true\n        }\n      ]\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "createdAt": "2026-10-21T20:56:56.000Z",
+              "updatedAt": "2026-10-21T20:56:56.000Z",
+              "uid": "35240-f337a4a7-8392-4927-9ae4-9f318567a3e6"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "1985579d-7b5f-44b8-81bc-ac538a8e0206",
+          "createdAt": "2026-10-21T20:56:56.000Z",
+          "updatedAt": "2026-10-21T20:56:56.000Z",
+          "uid": "35240-1985579d-7b5f-44b8-81bc-ac538a8e0206"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api.octopus.energy/v1",
-      "key": "baseUrl"
+      "id": "099d390a-8287-44f5-be2f-2894180d9fdc",
+      "createdAt": "2026-10-21T20:56:56.000Z",
+      "updatedAt": "2026-10-21T20:56:56.000Z",
+      "uid": "35240-099d390a-8287-44f5-be2f-2894180d9fdc"
     }
   ],
   "auth": {
@@ -132,21 +138,20 @@
     "basic": [
       {
         "key": "username",
-        "value": "{{basicAuthUsername}}"
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
       },
       {
         "key": "password",
-        "value": "{{basicAuthPassword}}"
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "1104d9f2-51e2-46ef-8909-e98d7ae4608c",
-    "name": "Octopus Energy Public Consumption GasMeterPoints API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The Octopus Energy Public API is a free JSON-over-HTTPS REST API exposing the\nUK product catalog, electricity and gas tariffs, electricity and gas meter\npoints, half-hourly smart-meter consumption, and industry grid supply points.\n\nAuthentication uses HTTP Basic auth with a per-customer API key as the\nusername and an empty password. Products and tariffs endpoints are open and\ndo not require authentication; meter-point and consumption endpoints require\na key for the account that owns the meter.\n\n\nContact Support:\n Name: Octopus Energy Developer Support",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.octopus.energy/v1"
     }
-  }
+  ]
 }
