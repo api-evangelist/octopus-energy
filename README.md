@@ -1,4 +1,4 @@
-# Octopus Energy (octopus-energy)
+# Octopus Energy
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,170 +66,177 @@
 
 Octopus Energy is a UK-founded retail energy supplier and the parent of Kraken Technologies, the AI-powered energy operating system that runs both Octopus and many of the world's largest utilities. Octopus operates a free, open REST API at api.octopus.energy/v1/ that exposes the full UK product catalog, electricity and gas tariff pricing (including the half-hourly wholesale-linked Agile Octopus and Tracker tariffs), meter-point details, half-hourly smart-meter consumption, and industry grid supply points. The Kraken developer portal at developer.octopus.energy adds a second REST surface generated from an OpenAPI spec plus a GraphQL API at /v1/graphql/ with API Collections grouping partner-facing queries and mutations for accounts, ledgers, billing, smart meters, EV charging, heat pumps, batteries, and Intelligent Octopus dispatch. Through Kraken Technologies the same platform powers 90M+ customer accounts at EDF, E.ON, Origin Energy, Tokyo Gas, Plentitude, National Grid, Severn Trent, and other utilities in 30 countries — making Octopus one of the most consequential open and programmable surfaces in retail energy.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/octopus-energy/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/octopus-energy/refs/heads/main/apis.yml)
+**Areas:** Energy · Electricity · Gas · Renewable Energy · Smart Meter · Tariffs · Kraken · United Kingdom · DER · Electric Vehicles · Heat Pumps · Solar
 
-## Scope
+## Octopus Energy on APIs.io
 
-- **Position:** Consuming
-- **Access:** 3rd-Party
+Everything profiled for Octopus Energy is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/octopus-energy/](https://apis.io/providers/octopus-energy/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (9)
 
-- Energy
-- Electricity
-- Gas
-- Renewable Energy
-- Smart Meter
-- Tariffs
-- Kraken
-- UK
-- DER
-- Electric Vehicles
-- Heat Pumps
-- Solar
-- Battery
+- [Octopus Energy Kraken REST API](https://apis.io/apis/octopus-energy/octopus-energy-kraken-rest-api/) — The Octopus Energy developer portal exposes a Kraken-backed REST API alongside the public GraphQL surface. The REST API is generated from an OpenAPI…
+- [Octopus Energy Kraken GraphQL API](https://apis.io/apis/octopus-energy/octopus-energy-kraken-graphql-api/) — The Octopus Energy GraphQL API is the primary Kraken interface for partner and customer-facing integrations. A single /v1/graphql/ endpoint exposes queries…
+- [Octopus Energy Consumption API](https://apis.io/apis/octopus-energy/octopus-energy-consumption-api/) — Half-hourly smart-meter consumption readings.
+- [Octopus Energy ElectricityMeterPoints API](https://apis.io/apis/octopus-energy/octopus-energy-electricitymeterpoints-api/) — Electricity meter points (MPAN) and registered meters.
+- [Octopus Energy ElectricityTariffs API](https://apis.io/apis/octopus-energy/octopus-energy-electricitytariffs-api/) — Electricity tariff unit rates and standing charges.
+- [Octopus Energy GasMeterPoints API](https://apis.io/apis/octopus-energy/octopus-energy-gasmeterpoints-api/) — Gas meter points (MPRN) and registered meters.
+- [Octopus Energy GasTariffs API](https://apis.io/apis/octopus-energy/octopus-energy-gastariffs-api/) — Gas tariff unit rates and standing charges.
+- [Octopus Energy Industry API](https://apis.io/apis/octopus-energy/octopus-energy-industry-api/) — UK industry references such as grid supply points.
+- [Octopus Energy Products API](https://apis.io/apis/octopus-energy/octopus-energy-products-api/) — Octopus Energy product catalog and tariff lookups.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-05-25T00:00:00.000Z
-- **Modified:** 2026-05-25
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### GraphQL (1)
 
-### Octopus Energy Public API
+GraphQL schemas.
 
-The Octopus Energy Public API is a free, JSON-over-HTTPS REST API exposing the company's full UK product catalog, electricity and gas tariff pricing, electricity and gas meter-point information, half-hourly smart-meter consumption data, and industry grid supply points. Customers authenticate with their own API key over HTTP Basic auth to access their meters and consumption; the products and tariffs surfaces are open and unauthenticated. The Agile Octopus and Octopus Tracker tariffs publish half-hourly and daily wholesale-linked unit rates that downstream automations consume to schedule EV charging, heat-pump heating, and battery dispatch.
+- [Octopus Energy GraphQL API](https://apis.io/graphqls/octopus-energy/octopus-energy-graphql/)
 
-- **Human URL:** [https://developer.octopus.energy/docs/api/](https://developer.octopus.energy/docs/api/)
-- **Base URL:** `https://api.octopus.energy/v1/`
+#### Agentic access (1)
 
-#### Tags
+Which operations an agent can call, which act, and which need a human in the loop.
 
-- Energy
-- Electricity
-- Gas
-- Tariffs
-- Meter Points
-- Consumption
-- Smart Meter
-- UK
+- [Octopus Energy Agentic Access](https://apis.io/agentic-access/octopus-energy/octopus-energy-agentic-access/)
 
-#### Properties
+#### JSON Schema (2)
 
+The data models the API reads and writes.
+
+- [OctopusEnergyConsumptionReading](https://apis.io/schemas/octopus-energy/octopus-energy-consumption/)
+- [OctopusEnergyProduct](https://apis.io/schemas/octopus-energy/octopus-energy-product/)
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Octopus Energy Context](https://apis.io/jsonld/octopus-energy/octopus-energy-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [Octopus Energy Vocabulary](https://apis.io/vocabularies/octopus-energy/octopus-energy-vocabulary/)
+
+#### Examples (3)
+
+Example requests and responses.
+
+- [Octopus Energy List Electricity Consumption Example](https://apis.io/examples/octopus-energy/octopus-energy-list-electricity-consumption-example/)
+- [Octopus Energy List Electricity Standard Unit Rates Example](https://apis.io/examples/octopus-energy/octopus-energy-list-electricity-standard-unit-rates-example/)
+- [Octopus Energy List Products Example](https://apis.io/examples/octopus-energy/octopus-energy-list-products-example/)
+
+#### Collections (8)
+
+Postman and Open Collection request collections.
+
+- [Octopus Energy Public Consumption API](https://apis.io/collections/octopus-energy/open-octopus-energy-consumption-api/)
+- [Octopus Energy Public Consumption ElectricityMeterPoints API](https://apis.io/collections/octopus-energy/open-octopus-energy-electricitymeterpoints-api/)
+- [Octopus Energy Public Consumption ElectricityTariffs API](https://apis.io/collections/octopus-energy/open-octopus-energy-electricitytariffs-api/)
+- [Octopus Energy Public Consumption GasMeterPoints API](https://apis.io/collections/octopus-energy/open-octopus-energy-gasmeterpoints-api/)
+- [Octopus Energy Public Consumption GasTariffs API](https://apis.io/collections/octopus-energy/open-octopus-energy-gastariffs-api/)
+- [Octopus Energy Public Consumption Industry API](https://apis.io/collections/octopus-energy/open-octopus-energy-industry-api/)
+- [Octopus Energy Public Consumption Products API](https://apis.io/collections/octopus-energy/open-octopus-energy-products-api/)
+- [Octopus Energy Public API](https://apis.io/collections/octopus-energy/open-octopus-energy-public-api/)
+
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [Octopus Energy — jsonschema rules](https://apis.io/rules/octopus-energy/octopus-energy-jsonschema-spectral-rules/)
+- [Octopus Energy API Rules](https://apis.io/rules/octopus-energy/octopus-energy-rules/)
+
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Octopus Energy Authentication](https://apis.io/security/octopus-energy/octopus-energy-authentication/)
+- [Octopus Energy Domain Security](https://apis.io/security/octopus-energy/octopus-energy-domain-security/)
+- [Octopus Energy Vulnerability Disclosure](https://apis.io/security/octopus-energy/octopus-energy-vulnerability-disclosure/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Octopus Energy Plans Pricing](https://apis.io/plans/octopus-energy/octopus-energy-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Octopus Energy Rate Limits](https://apis.io/rate-limits/octopus-energy/octopus-energy-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Octopus Energy Finops](https://apis.io/finops/octopus-energy/octopus-energy-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://octopus.energy)
 - [Documentation](https://developer.octopus.energy/docs/api/)
-- [Getting Started](https://developer.octopus.energy/rest/guides/api-basics)
-- [OpenAPI](openapi/octopus-energy-public-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/octopus-energy-public-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/octopus-energy-public-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/octopus-energy-product-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/octopus-energy-consumption-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON-LD](json-ld/octopus-energy-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
-
-### Octopus Energy Kraken REST API
-
-The Octopus Energy developer portal exposes a Kraken-backed REST API alongside the public GraphQL surface. The REST API is generated from an OpenAPI specification published in the developer portal Reference section, with API Collections that group endpoints by feature. Partners use the REST API for account onboarding, meter-point registration, consumption pulls, and tariff lookups against the Kraken energy operating system.
-
-- **Human URL:** [https://developer.octopus.energy/rest/](https://developer.octopus.energy/rest/)
-
-#### Tags
-
-- Energy
-- Kraken
-- Accounts
-- Meter Points
-- Consumption
-- Tariffs
-- Smart Meter
-- REST
-
-#### Properties
-
-- [Documentation](https://developer.octopus.energy/rest/)
-- [Documentation](https://developer.octopus.energy/rest/reference)
-- [Getting Started](https://developer.octopus.energy/rest/guides)
-- [Authentication](https://developer.octopus.energy/rest/guides/authentication)
-- [Postman Collection](collections/octopus-energy-public-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/octopus-energy-public-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Octopus Energy Kraken GraphQL API
-
-The Octopus Energy GraphQL API is the primary Kraken interface for partner and customer-facing integrations. A single /v1/graphql/ endpoint exposes queries and mutations grouped into API Collections by feature — accounts, ledgers, billing, smart meters, half-hourly consumption, EV chargers, heat pumps, batteries, Intelligent Octopus dispatch schedules, and Octopus Electroverse devices. Kraken's GraphQL introspection plus a public changelog let third-party developers build smart-charging, demand-response, and home-energy-management apps directly against Kraken-powered utilities.
-
-- **Human URL:** [https://developer.octopus.energy/graphql/](https://developer.octopus.energy/graphql/)
-- **Base URL:** `https://api.octopus.energy/v1/graphql/`
-
-#### Tags
-
-- Energy
-- Kraken
-- GraphQL
-- Accounts
-- Meter Points
-- Smart Meter
-- Devices
-- Flexibility
-
-#### Properties
-
-- [Documentation](https://developer.octopus.energy/graphql/)
-- [Documentation](https://developer.octopus.energy/graphql/reference)
-- [Getting Started](https://developer.octopus.energy/graphql/guides)
-- [Documentation](https://developer.octopus.energy/graphql/collections/)
-- [Authentication](https://developer.octopus.energy/graphql/guides/authentication)
-- [Changelog](https://developer.octopus.energy/announcements/)
-- [Postman Collection](collections/octopus-energy-public-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/octopus-energy-public-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-## Common Properties
-
-- [Portal](https://octopus.energy)
-- [Portal](https://developer.octopus.energy/)
-- [Documentation](https://developer.octopus.energy/docs/api/)
-- [Documentation](https://developer.octopus.energy/rest/)
-- [Documentation](https://developer.octopus.energy/graphql/)
-- [Changelog](https://developer.octopus.energy/announcements/)
-- [Sign Up](https://developer.octopus.energy/auth/login/)
-- [Sign Up](https://octopus.energy/dashboard/)
 - [Support](https://octopus.energy/help-and-faqs/articles/api-information/)
-- [Security](https://octopus.energy/help-and-faqs/articles/security-at-octopus-energy/)
-- [Documentation](https://octopus.energy/policies/)
-- [Privacy Policy](https://octopus.energy/privacy/)
+- [Changelog](https://developer.octopus.energy/announcements/)
 - [Blog](https://octopus.energy/blog/)
-- [Press](https://octopus.energy/press/)
-- [Careers](https://octopus.energy/careers/)
-- [About Us](https://octopus.energy/about-us/)
-- [Contact Us](https://octopus.energy/contact-us/)
-- [Portal](https://kraken.tech/)
-- [Blog](https://kraken.tech/news)
-- [Documentation](https://kraken.tech/customer-management)
-- [Documentation](https://kraken.tech/residential-flexibility)
-- [Documentation](https://kraken.tech/field-operations)
-- [Documentation](https://kraken.tech/infrastructure-flexibility)
-- [Documentation](https://octopus.energy/agile/)
-- [Documentation](https://octopus.energy/smart/tracker/)
-- [Documentation](https://octopus.energy/smart/intelligent-octopus-go/)
-- [Documentation](https://octopus.energy/electric-vehicles/electroverse/)
-- [Documentation](https://octopus.energy/heat-pumps/)
-- [Documentation](https://octopusev.com/)
-- [GitHub Organization](https://github.com/octoenergy)
-- [Tool](https://github.com/octoenergy/public-conventions)
-- [SDK](https://github.com/octoenergy/xocto)
-- [Code Examples](https://github.com/octoenergy/oejp-api-example)
-- [Tool](https://github.com/octoenergy/octotools)
-- [Code Examples](https://github.com/octoenergy/techzero-hackathon-2024)
-- [Tool](https://github.com/octoenergy/timeserio)
-- [Tool](https://github.com/octoenergy/terraform-provider-splitpolicies)
-- [LinkedIn](https://www.linkedin.com/company/octopus-energy)
-- [LinkedIn](https://www.linkedin.com/company/krakentech)
-- [Twitter](https://twitter.com/octopus_energy)
-- [YouTube](https://www.youtube.com/@OctopusEnergy)
-- [Plans](plans/octopus-energy-plans-pricing.yml)
-- [Rate Limits](rate-limits/octopus-energy-rate-limits.yml)
-- [Fin Ops](finops/octopus-energy-finops.yml)
-- [Features](undefined)
+- [Security](https://octopus.energy/help-and-faqs/articles/security-at-octopus-energy/)
+- [Privacy policy](https://octopus.energy/privacy/)
+- [GitHub](https://github.com/octoenergy)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** info@apievangelist.com
-**URL:** https://apievangelist.com
+**Kin Score 44.9** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 58.9 |
+| Contract quality | 61.3 |
+| Contract governance | 13.6 |
+| Operational transparency | 39.5 |
+| Developer ergonomics | 48.8 |
+| Access clarity | 28.9 |
+
+**Agent readiness 24.1** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | na |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | na |
+| Error Semantics | — |
+| OpenAPI Examples | documented (partial credit) |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | na |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 22.1** — Energy & Utilities
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/octopus-energy/](https://apis.io/providers/octopus-energy/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Octopus Energy: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/octopus-energy/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
